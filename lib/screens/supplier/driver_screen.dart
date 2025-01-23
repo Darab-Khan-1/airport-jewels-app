@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
+import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:jewels_airport_transfers/screens/supplier/job_page.dart';
 
 class DriverScreen extends StatelessWidget {
@@ -57,7 +58,14 @@ class DriverScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: const Text('My Drivers'),
+        title: Text(
+          myDriver,
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                color: kWhiteColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -72,7 +80,7 @@ class DriverScreen extends StatelessWidget {
 
                   return GestureDetector(
                     onTap: () {
-                      Get.to(() => JobPage());
+                      Get.to(() => const JobPage());
                     },
                     child: Card(
                       margin: const EdgeInsets.symmetric(vertical: 5),

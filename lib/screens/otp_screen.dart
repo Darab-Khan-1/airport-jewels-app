@@ -6,9 +6,8 @@ import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:jewels_airport_transfers/screens/supplier/supplier_upcoming_screen.dart';
 import 'package:pinput/pinput.dart';
-
 import '../Widgets/buttons/k_elevated_button.dart';
-import '../gen/assets.gen.dart'; // Import the pinput package
+import '../gen/assets.gen.dart';
 
 class OTPScreen extends StatelessWidget {
   const OTPScreen({super.key});
@@ -20,20 +19,19 @@ class OTPScreen extends StatelessWidget {
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(4.0),
               child: Column(
                 children: [
                   Image.asset(
-                    Assets.images.airplaneLogo.path,
+                    Assets.images.jewelsLogo1.path,
                   ),
+
                   Text(
                     otp,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: kBlackColor,
                         ),
                   ),
-
-                  const Gap(10),
                   Text(
                     code,
                     style: Theme.of(context)
@@ -46,13 +44,13 @@ class OTPScreen extends StatelessWidget {
 
                   // Pin Input Fields using Pinput
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: Pinput(
                       length: 6, // Length of the OTP
                       onChanged: (pin) {}, // Handle change
                       showCursor: true, // Show cursor
                       defaultPinTheme: PinTheme(
-                        width: 50,
+                        width: 60,
                         height: 60,
                         textStyle: const TextStyle(
                           fontSize: 22,
@@ -60,8 +58,8 @@ class OTPScreen extends StatelessWidget {
                           color: kBlackColor,
                         ),
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blue),
-                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: kBlueColor),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                     ),
@@ -93,14 +91,11 @@ class OTPScreen extends StatelessWidget {
                   ),
                   const Gap(40),
                   Center(
-                    child: SizedBox(
-                      width: 300,
-                      child: KElevatedButton(
-                        onPressed: () {
-                          Get.to(() => const SupplierUpcomingScreen());
-                        },
-                        text: (verify),
-                      ),
+                    child: KElevatedButton(
+                      onPressed: () {
+                        Get.to(() => const SupplierUpcomingScreen());
+                      },
+                      text: (verify),
                     ),
                   ),
                 ],

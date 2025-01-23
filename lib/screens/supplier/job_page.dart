@@ -66,7 +66,14 @@ class _JobPageState extends State<JobPage> {
             Navigator.pop(context);
           },
         ),
-        title: const Text(push),
+        title: Text(
+          push,
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                color: kWhiteColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -86,9 +93,9 @@ class _JobPageState extends State<JobPage> {
                 });
               },
               child: Container(
-                margin: const EdgeInsets.symmetric(vertical: 10),
+                margin: const EdgeInsets.symmetric(vertical: 2),
                 padding:
-                    const EdgeInsets.all(10), // Inner padding for border effect
+                    const EdgeInsets.all(5), // Inner padding for border effect
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   border: Border.all(
@@ -98,11 +105,11 @@ class _JobPageState extends State<JobPage> {
                   borderRadius: BorderRadius.zero, // No border radius
                 ),
                 child: Card(
-                  elevation: 5,
+                  elevation: 2.5,
                   margin: EdgeInsets.zero, // Remove Card margin
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 15.0, horizontal: 15.0),
+                        vertical: 10.0, horizontal: 10.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
@@ -111,7 +118,7 @@ class _JobPageState extends State<JobPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CircleAvatar(
-                              radius: 20,
+                              radius: 30,
                               backgroundImage: AssetImage(driver['image']!),
                             ),
                             const Gap(8),
@@ -120,23 +127,34 @@ class _JobPageState extends State<JobPage> {
                               children: [
                                 Text(
                                   driver['name']!,
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: kBlackColor,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                          color: kBlackColor,
+                                          fontWeight: FontWeight.bold),
                                 ),
                                 const Gap(3),
                                 Text(
                                   'Email: ${driver['email']}',
-                                  style: const TextStyle(
-                                      fontSize: 11, color: kBlackColor),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                          color: kBlackColor,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 12),
                                 ),
                                 const Gap(5),
                                 Text(
                                   'Phone: ${driver[phone]}',
-                                  style: const TextStyle(
-                                      fontSize: 11, color: kBlackColor),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                          color: kBlackColor,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 12),
                                 ),
                               ],
                             ),
@@ -145,16 +163,12 @@ class _JobPageState extends State<JobPage> {
                         const Gap(15),
                         Align(
                           alignment: Alignment.center,
-                          child: SizedBox(
-                            width: 380,
-                            height: 35,
-                            child: KElevatedButton2Transparent(
-                              onPressed: () {
-                                Get.to(() => PushJobScreen());
-                                // Add driver logic here
-                              },
-                              text: push,
-                            ),
+                          child: KElevatedButton2(
+                            onPressed: () {
+                              Get.to(() => PushJobScreen());
+                              // Add driver logic here
+                            },
+                            text: push,
                           ),
                         ),
                       ],

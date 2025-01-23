@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/Widgets/buttons/k_elevated_button.dart';
+import 'package:jewels_airport_transfers/Widgets/custom_alert_dialouge/custom_alert_dialouge_screen.dart';
 import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
@@ -27,13 +28,12 @@ class AddDriverScreen extends StatelessWidget {
             // Handle back action here
           },
         ),
-        title: const Text(
-          supplier1,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: kWhiteColor,
-            fontSize: 19,
-          ),
+        title: Text(
+          supplier,
+          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              decorationColor: kWhiteColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 19),
         ),
       ),
       body: Padding(
@@ -115,24 +115,23 @@ class AddDriverScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: SizedBox(
-                    width: 290,
-                    height: 50,
-                    child: KElevatedButton2Transparent(
-                      onPressed: () {
-                        if (kDebugMode) {
-                          print("Name: ${nameController.text}");
-                        }
-                        if (kDebugMode) {
-                          print("Email: ${emailController.text}");
-                        }
-                        if (kDebugMode) {
-                          print("Mobile: ${mobileController.text}");
-                        }
-                        Get.to(() => DriverScreen());
-                      },
-                      text: adddriver,
-                    ),
+                  child: KElevatedButton2(
+                    onPressed: () {
+                      if (kDebugMode) {
+                        print("Name: ${nameController.text}");
+                      }
+                      if (kDebugMode) {
+                        print("Email: ${emailController.text}");
+                      }
+                      if (kDebugMode) {
+                        print("Mobile: ${mobileController.text}");
+                      }
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              const CustomAlertDialogScreen());
+                    },
+                    text: adddriver,
                   ),
                 ),
               ),

@@ -23,6 +23,7 @@ class KElevatedButton extends StatelessWidget {
             colors: [kWhiteColor, kWhiteColor],
           ),
         ),
+        margin: const EdgeInsets.symmetric(horizontal: 16),
         child: Text(
           text!,
           style: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -33,11 +34,11 @@ class KElevatedButton extends StatelessWidget {
   }
 }
 
-class KElevatedButtonTransparent extends StatelessWidget {
+class KElevatedButtons extends StatelessWidget {
   final double height;
   final void Function()? onPressed;
   final String text;
-  const KElevatedButtonTransparent(
+  const KElevatedButtons(
       {super.key,
       this.height = 50,
       required this.onPressed,
@@ -241,11 +242,11 @@ class TypeButton extends StatelessWidget {
   }
 }
 
-class KElevatedButton1Transparent extends StatelessWidget {
+class KElevatedButton1 extends StatelessWidget {
   final double height;
   final void Function()? onPressed;
   final String text;
-  const KElevatedButton1Transparent(
+  const KElevatedButton1(
       {super.key,
       this.height = 50,
       required this.onPressed,
@@ -262,21 +263,22 @@ class KElevatedButton1Transparent extends StatelessWidget {
           borderRadius: BorderRadius.circular(7),
           color: kBlueColor,
         ),
+        margin: const EdgeInsets.symmetric(horizontal: 16),
         child: Text(
           text,
           style: Theme.of(context).textTheme.labelMedium?.copyWith(
-              fontSize: 12, fontWeight: FontWeight.w500, color: kWhiteColor),
+              fontSize: 18, fontWeight: FontWeight.w500, color: kWhiteColor),
         ),
       ),
     );
   }
 }
 
-class KElevatedButton2Transparent extends StatelessWidget {
+class KElevatedButton2 extends StatelessWidget {
   final double height;
   final void Function()? onPressed;
   final String text;
-  const KElevatedButton2Transparent(
+  const KElevatedButton2(
       {super.key,
       this.height = 50,
       required this.onPressed,
@@ -293,10 +295,44 @@ class KElevatedButton2Transparent extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           color: kBlueColor,
         ),
+        margin: const EdgeInsets.symmetric(horizontal: 16),
         child: Text(
           text,
           style: Theme.of(context).textTheme.labelMedium?.copyWith(
               fontSize: 16, fontWeight: FontWeight.w700, color: kWhiteColor),
+        ),
+      ),
+    );
+  }
+}
+
+class KButton1 extends StatelessWidget {
+  final double height;
+  final void Function()? onPressed;
+  final String text;
+  const KButton1(
+      {super.key,
+      this.height = 50,
+      required this.onPressed,
+      required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        height: 30,
+        width: 90,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(7),
+          color: kBlueColor,
+        ),
+        margin: const EdgeInsets.symmetric(horizontal: 80),
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+              fontSize: 12, fontWeight: FontWeight.w500, color: kWhiteColor),
         ),
       ),
     );

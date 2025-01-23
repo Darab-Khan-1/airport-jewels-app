@@ -17,90 +17,88 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomBgScreen(
-      child: Column(
-        // mainAxisAlignment: MainAxisAlignment
-        //     .center, // Align everything in the center vertically
-        // crossAxisAlignment: CrossAxisAlignment
-        //     .center, // Align everything in the center horizontally
-        children: [
-          const Gap(40), // Adds space at the top
-          Image.asset(
-            Assets.images.airplaneLogo.path,
-          ),
-          const Gap(10),
-          Text(
-            welcomeBack,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  decorationColor: kWhiteColor,
-                ),
-          ),
-          const Gap(2),
-          Text(
-            signIn,
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                decorationColor: kWhiteColor, fontWeight: FontWeight.w400),
-          ),
-          const Spacer(),
-
-          Text(
-            logIn,
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                decorationColor: kWhiteColor, fontWeight: FontWeight.bold),
-          ),
-
-          const Gap(10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.center, // Centers the buttons horizontally.
-              children: [
-                Expanded(
-                  child: KElevatedButtonTransparent(
-                    onPressed: () {
-                      Get.to(() => const DriverUpcomingScreen());
-                    },
-                    text: driver,
-                  ),
-                ),
-                const Gap(20),
-                // Adds space between the buttons.
-                Expanded(
-                  child: SocialButton(
-                    onPressed: () {
-                      Get.to(() => const SupplierScreen());
-                    },
-                    text: supplier,
-                    imagePath: '',
-                  ),
-                ),
-              ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Gap(40), // Adds space at the top
+            Image.asset(
+              Assets.images.jewelsLogo1.path,
             ),
-          ),
-          const Gap(10),
-          Center(
-            child: RichText(
-              text: TextSpan(
-                text: become,
-                style: Theme.of(context).textTheme.bodyMedium,
+            const Gap(10),
+            Text(
+              welcomeBack,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    decorationColor: kWhiteColor,
+                  ),
+            ),
+            const Gap(2),
+            Text(
+              signIn,
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  decorationColor: kWhiteColor, fontWeight: FontWeight.w400),
+            ),
+            const Gap(140),
+
+            Text(
+              logIn,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  decorationColor: kWhiteColor, fontWeight: FontWeight.bold),
+            ),
+
+            const Gap(10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment
+                    .center, // Centers the buttons horizontally.
                 children: [
-                  TextSpan(
-                    text: click,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: kMainColor,
-                        ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        // Navigate to the next page
-                        Get.to(() => const RegistrationFormScreen());
+                  Expanded(
+                    child: KElevatedButtons(
+                      onPressed: () {
+                        Get.to(() => const DriverUpcomingScreen());
                       },
+                      text: driver,
+                    ),
+                  ),
+                  const Gap(20),
+                  // Adds space between the buttons.
+                  Expanded(
+                    child: SocialButton(
+                      onPressed: () {
+                        Get.to(() => const SupplierScreen());
+                      },
+                      text: supplier,
+                      imagePath: '',
+                    ),
                   ),
                 ],
               ),
             ),
-          ),
-          const Gap(20),
-        ],
+            const Gap(10),
+            Center(
+              child: RichText(
+                text: TextSpan(
+                  text: become,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  children: [
+                    TextSpan(
+                      text: click,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: kMainColor,
+                          ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Navigate to the next page
+                          Get.to(() => const RegistrationFormScreen());
+                        },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const Gap(20),
+          ],
+        ),
       ),
     );
   }

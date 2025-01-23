@@ -56,7 +56,14 @@ class PushJobScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: const Text(push),
+        title: Text(
+          push,
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                color: kWhiteColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -90,27 +97,35 @@ class PushJobScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   driver['name']!, // Driver's name
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.normal,
-                                    color: kBlackColor,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                        color: kBlackColor,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
                                 const Gap(8),
                                 Text(
                                   'email: ${driver['email']}',
-                                  style: const TextStyle(
-                                      fontSize: 12,
-                                      color: kBlackColor,
-                                      fontWeight: FontWeight.normal),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                          color: kBlackColor,
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 12),
                                 ),
                                 const Gap(4),
                                 Text(
                                   'Phone: ${driver[phone]}',
-                                  style: const TextStyle(
-                                      fontSize: 12,
-                                      color: kBlackColor,
-                                      fontWeight: FontWeight.normal),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                          color: kBlackColor,
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 12),
                                 ),
                               ],
                             ),

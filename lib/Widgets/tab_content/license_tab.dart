@@ -2,15 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import '../../controlller/registration_form_controller.dart';
 import '../buttons/k_elevated_button.dart';
 import '../custom_checkbox/custom_checkbox.dart';
 
 class LicenseTabContent extends StatelessWidget {
-  final RegistrationFormController controller;
-
   const LicenseTabContent({
-    required this.controller,
     super.key,
   });
 
@@ -25,23 +21,19 @@ class LicenseTabContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(15.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Align(
+          Align(
             alignment: Alignment.centerLeft, // Aligns the text to the left
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 16.0), // Padding for left and right
-              child: Text(
-                license1, // Replace fleet with the actual string
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
+            child: Text(
+              license,
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: kBlackColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
             ),
           ),
           const Gap(5),
@@ -68,7 +60,7 @@ class LicenseTabContent extends StatelessWidget {
               ],
             ),
           ),
-          const Gap(20),
+          const Gap(10),
           RichText(
             text: TextSpan(
               text: form,
@@ -78,12 +70,10 @@ class LicenseTabContent extends StatelessWidget {
                   ?.copyWith(color: kBlueColor, fontWeight: FontWeight.w400),
             ),
           ),
-          const Gap(10),
+          const Gap(2),
           // Reusable checkbox row widget
           _buildCheckboxRow(hire),
-          const Gap(10),
           _buildCheckboxRow(hire1),
-          const Gap(10),
           _buildCheckboxRow(hire2),
           RichText(
             text: TextSpan(
@@ -109,13 +99,9 @@ class LicenseTabContent extends StatelessWidget {
           const Gap(5),
           Align(
             alignment: Alignment.center,
-            child: SizedBox(
-              width: 300,
-              height: 45,
-              child: KElevatedButton1Transparent(
-                onPressed: () {},
-                text: next,
-              ),
+            child: KElevatedButton1(
+              onPressed: () {},
+              text: next,
             ),
           ),
         ],

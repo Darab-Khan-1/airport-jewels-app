@@ -23,6 +23,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/driver.jpeg
   AssetGenImage get driver => const AssetGenImage('assets/images/driver.jpeg');
 
+  /// File path: assets/images/jewels_logo1.png
+  AssetGenImage get jewelsLogo1 =>
+      const AssetGenImage('assets/images/jewels_logo1.png');
+
+  /// File path: assets/images/jewelslogo.png
+  AssetGenImage get jewelslogo =>
+      const AssetGenImage('assets/images/jewelslogo.png');
+
   /// File path: assets/images/logo_airport (2).png
   AssetGenImage get logoAirport2 =>
       const AssetGenImage('assets/images/logo_airport (2).png');
@@ -31,8 +39,15 @@ class $AssetsImagesGen {
   AssetGenImage get meta => const AssetGenImage('assets/images/meta.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [airplaneLogo, background, driver, logoAirport2, meta];
+  List<AssetGenImage> get values => [
+        airplaneLogo,
+        background,
+        driver,
+        jewelsLogo1,
+        jewelslogo,
+        logoAirport2,
+        meta
+      ];
 }
 
 class Assets {

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:jewels_airport_transfers/screens/otp_screen.dart';
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../constants/color.dart';
@@ -9,19 +10,15 @@ import '../constants/string.dart';
 import '../controlller/supplier_controller.dart';
 import '../custom_bg_screen.dart';
 import '../gen/assets.gen.dart';
-import 'package:country_picker/country_picker.dart';
 
 class SupplierScreen extends StatefulWidget {
   const SupplierScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SupplierScreenState createState() => _SupplierScreenState();
 }
 
 class _SupplierScreenState extends State<SupplierScreen> {
-  String selectedCountryCode = "+1"; // Default country code
-
   final controller = Get.put(SupplierController()); // Initialize controller
 
   @override
@@ -36,7 +33,7 @@ class _SupplierScreenState extends State<SupplierScreen> {
                   horizontal: 20,
                   vertical: 10), // Add padding to left and right
               child: Image.asset(
-                Assets.images.airplaneLogo.path,
+                Assets.images.jewelsLogo1.path,
               ),
             ),
             Text(
@@ -54,102 +51,41 @@ class _SupplierScreenState extends State<SupplierScreen> {
                   ),
             ),
             const Gap(100),
-            // Container for country picker and phone input
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 1),
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: kTransparent.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: kWhiteColor),
-              ),
-              child: Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      showCountryPicker(
-                        context: context,
-                        onSelect: (Country country) {
-                          setState(() {
-                            selectedCountryCode = "+${country.phoneCode}";
-                          });
-                          if (kDebugMode) {
-                            print('Selected country: ${country.name}');
-                          }
-                        },
-                        countryListTheme: const CountryListThemeData(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(40.0),
-                            topRight: Radius.circular(40.0),
-                          ),
-                          inputDecoration: InputDecoration(
-                            labelText: search,
-                            hintText: start,
-                            border: InputBorder.none,
-                          ),
-                          flagSize: 25,
-                          textStyle: TextStyle(
-                            fontSize: 12,
-                            color: kBlackColor,
-                          ),
-                        ),
-                      );
-                    },
-                    child: Row(
-                      children: [
-                        const Gap(8),
-                        Text(
-                          selectedCountryCode,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelSmall
-                              ?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                  color: kWhiteColor),
-                        ),
-                        const Icon(Icons.arrow_drop_down, color: kGreyColor),
-                      ],
-                    ),
+            // Using IntlPhoneField for phone input
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: IntlPhoneField(
+                decoration: const InputDecoration(
+                  labelStyle: TextStyle(color: kWhiteColor),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: kWhiteColor),
+                    borderRadius: BorderRadius.all(Radius.circular(24)),
                   ),
-                  const Gap(10),
-                  Text(
-                    slash,
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          decorationColor: kWhiteColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: kWhiteColor),
+                    borderRadius: BorderRadius.all(Radius.circular(24)),
                   ),
-                  const Gap(10),
-                  const Expanded(
-                    child: TextField(
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        hintText: mobileNumber1,
-                        hintStyle: TextStyle(
-                          color: kWhiteColor,
-                          fontSize: 19,
-                          fontWeight: FontWeight.w400,
-                        ),
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                      ),
-                      style: TextStyle(color: kWhiteColor),
-                    ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: kWhiteColor),
+                    borderRadius: BorderRadius.all(Radius.circular(24)),
                   ),
-                ],
+                  hintStyle: TextStyle(color: kWhiteColor),
+                ),
+                initialCountryCode: 'PK',
+                onChanged: (phone) {
+                  if (kDebugMode) {
+                    print(phone.completeNumber);
+                  }
+                  controller.selectedCountryCode = phone.countryCode;
+                },
+                style: const TextStyle(color: kWhiteColor, fontSize: 16),
               ),
             ),
-            const Gap(10),
             Obx(() => Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Adding padding to move the checkbox slightly to the left
                     Padding(
-                      padding: const EdgeInsets.only(
-                          left: 35.0), // Adjust the value as needed
+                      padding: const EdgeInsets.only(left: 35.0),
                       child: SizedBox(
                         height: 20,
                         width: 12,
@@ -164,15 +100,13 @@ class _SupplierScreenState extends State<SupplierScreen> {
                                 MaterialTapTargetSize.shrinkWrap,
                             side: const BorderSide(
                               color: kWhiteColor,
-                              width: 1.5,
+                              width: 2,
                             ),
                           ),
                         ),
                       ),
                     ),
                     const Gap(15),
-                    // Using a Spacer to move the text to the right
-
                     Text(
                       keepLogin,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -192,14 +126,11 @@ class _SupplierScreenState extends State<SupplierScreen> {
             ),
             const Gap(40),
             Center(
-              child: SizedBox(
-                width: 300,
-                child: KElevatedButton(
-                  onPressed: () {
-                    Get.to(() => const OTPScreen());
-                  },
-                  text: next,
-                ),
+              child: KElevatedButton(
+                onPressed: () {
+                  Get.to(() => const OTPScreen());
+                },
+                text: next,
               ),
             ),
           ],

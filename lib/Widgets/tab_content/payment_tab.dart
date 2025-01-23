@@ -2,15 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import '../../controlller/registration_form_controller.dart';
 import '../buttons/k_elevated_button.dart';
 import '../text_field/text_input_field.dart';
 
 class PaymentTabContent extends StatelessWidget {
-  final RegistrationFormController controller;
-
   const PaymentTabContent({
-    required this.controller,
     super.key,
   });
 
@@ -21,15 +17,15 @@ class PaymentTabContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Align(
+          Align(
             alignment: Alignment.centerLeft, // Aligns the text to the left
             child: Text(
-              bank, // Replace with the actual string
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
+              bank,
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: kBlackColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
             ),
           ),
           Column(
@@ -47,7 +43,7 @@ class PaymentTabContent extends StatelessWidget {
                 height: 50,
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
+                  border: Border.all(color: klightgreyColor),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextInputFieldWidget(
@@ -68,7 +64,7 @@ class PaymentTabContent extends StatelessWidget {
                 height: 50,
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
+                  border: Border.all(color: klightgreyColor),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextInputFieldWidget(
@@ -90,7 +86,7 @@ class PaymentTabContent extends StatelessWidget {
                 height: 50,
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
+                  border: Border.all(color: klightgreyColor),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextInputFieldWidget(
@@ -102,15 +98,11 @@ class PaymentTabContent extends StatelessWidget {
               const Gap(30),
               Align(
                 alignment: Alignment.center,
-                child: SizedBox(
-                  width: 300,
-                  height: 40,
-                  child: KElevatedButton1Transparent(
-                    onPressed: () {
-                      // Add driver logic here
-                    },
-                    text: next,
-                  ),
+                child: KElevatedButton1(
+                  onPressed: () {
+                    // Add driver logic here
+                  },
+                  text: next,
                 ),
               ),
             ],

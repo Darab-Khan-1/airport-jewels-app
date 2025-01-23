@@ -8,7 +8,6 @@ import '../../Widgets/tab_content/fleet_tab.dart';
 import '../../Widgets/tab_content/license_tab.dart';
 import '../../Widgets/tab_content/payment_tab.dart';
 import '../../Widgets/tab_content/personal_tab.dart';
-
 import '../../controlller/registration_form_controller.dart';
 import '../../models/tab_data/tab_data.dart';
 
@@ -144,12 +143,12 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
     return Expanded(
       child: TabBarView(
         controller: _tabController,
-        children: [
-          AccountTabContent(controller: controller),
-          PersonalTabContent(controller: controller),
-          PaymentTabContent(controller: controller),
-          LicenseTabContent(controller: controller),
-          FleetTabContent(controller: controller),
+        children: const [
+          AccountTabContent(),
+          PersonalTabContent(),
+          PaymentTabContent(),
+          LicenseTabContent(),
+          FleetTabContent(),
         ],
       ),
     );

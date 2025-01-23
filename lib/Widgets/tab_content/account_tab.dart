@@ -2,22 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import '../../controlller/registration_form_controller.dart';
 import '../buttons/k_elevated_button.dart';
 import '../text_field/text_input_field.dart';
 
 class AccountTabContent extends StatelessWidget {
-  final RegistrationFormController controller;
-
   const AccountTabContent({
-    required this.controller,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(12.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,6 +27,7 @@ class AccountTabContent extends StatelessWidget {
                   fontSize: 18),
             ),
           ),
+          const Gap(10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -46,7 +43,7 @@ class AccountTabContent extends StatelessWidget {
                 height: 50,
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
+                  border: Border.all(color: klightgreyColor),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextInputFieldWidget(
@@ -54,7 +51,7 @@ class AccountTabContent extends StatelessWidget {
                   cursorsColor: kBlackColor,
                 ),
               ),
-              const Gap(20),
+              const Gap(10),
               Text(
                 email,
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
@@ -67,7 +64,7 @@ class AccountTabContent extends StatelessWidget {
                 height: 50,
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
+                  border: Border.all(color: klightgreyColor),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextInputFieldWidget(
@@ -76,7 +73,7 @@ class AccountTabContent extends StatelessWidget {
                   textInputType: TextInputType.emailAddress,
                 ),
               ),
-              const Gap(20),
+              const Gap(10),
               Text(
                 mobileNumber1,
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
@@ -89,7 +86,7 @@ class AccountTabContent extends StatelessWidget {
                 height: 50,
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
+                  border: Border.all(color: klightgreyColor),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextInputFieldWidget(
@@ -98,41 +95,35 @@ class AccountTabContent extends StatelessWidget {
                   textInputType: TextInputType.phone,
                 ),
               ),
-              const Gap(30),
+              const Gap(10),
               RichText(
-                text: const TextSpan(
+                text: TextSpan(
                   text: form,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 13),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: kBlackColor, fontWeight: FontWeight.normal),
                   children: [
                     TextSpan(
                       text: sale,
-                      style: TextStyle(color: Colors.blue, fontSize: 13),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: kMainColor,
+                          ),
                     ),
                     TextSpan(
                       text: along,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 13),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: kBlackColor, fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
               ),
-              const Gap(30),
+              const Gap(10),
               Align(
                 alignment: Alignment.center,
-                child: SizedBox(
-                  width: 300,
-                  height: 40,
-                  child: KElevatedButton1Transparent(
-                    onPressed: () {
-                      // Add driver logic here
-                    },
-                    text: next,
-                  ),
+                child: KElevatedButton1(
+                  onPressed: () {
+                    // Add driver logic here
+                  },
+                  text: next,
                 ),
               ),
             ],

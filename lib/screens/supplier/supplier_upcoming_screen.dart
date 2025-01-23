@@ -78,7 +78,7 @@ class SupplierUpcomingScreen extends StatelessWidget {
                                     child: Card(
                                       elevation: 5,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(10.0),
@@ -92,7 +92,7 @@ class SupplierUpcomingScreen extends StatelessWidget {
                                               children: [
                                                 Image.asset(
                                                   Assets
-                                                      .images.airplaneLogo.path,
+                                                      .images.jewelsLogo1.path,
                                                   height: 80,
                                                   width: 80,
                                                 ),
@@ -189,22 +189,24 @@ class SupplierUpcomingScreen extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
-                                            Align(
-                                              alignment: Alignment.topRight,
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 0),
-                                                child: SizedBox(
-                                                  width: 80,
-                                                  height: 30,
-                                                  child:
-                                                      KElevatedButton1Transparent(
-                                                    onPressed: () {
-                                                      Get.to(() =>
-                                                          const ViewDetailScreen());
-                                                    },
-                                                    text: details,
-                                                  ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 150),
+                                              child: SingleChildScrollView(
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    KButton1(
+                                                      onPressed: () {
+                                                        Get.to(() =>
+                                                            const ViewDetailScreen());
+                                                      },
+                                                      text: details,
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ),
@@ -220,22 +222,18 @@ class SupplierUpcomingScreen extends StatelessWidget {
                               alignment: Alignment.center,
                               child: Padding(
                                 padding: const EdgeInsets.all(7.0),
-                                child: SizedBox(
-                                  width: 160,
-                                  height: 40,
-                                  child: KElevatedButton2Transparent(
-                                    onPressed: () {
-                                      Get.to(() => AddDriverScreen());
-                                    },
-                                    text: adddriver,
-                                  ),
+                                child: KElevatedButton2(
+                                  onPressed: () {
+                                    Get.to(() => AddDriverScreen());
+                                  },
+                                  text: adddriver,
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      RightSideSlider(),
+                      const RightSideSlider(),
                     ],
                   ),
                   Row(
@@ -263,7 +261,7 @@ class SupplierUpcomingScreen extends StatelessWidget {
                                             MainAxisAlignment.start,
                                         children: [
                                           Image.asset(
-                                            Assets.images.airplaneLogo.path,
+                                            Assets.images.jewelsLogo1.path,
                                             height: 80,
                                             width: 80,
                                           ),
@@ -349,18 +347,23 @@ class SupplierUpcomingScreen extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Align(
-                                        alignment: Alignment.topRight,
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 0),
-                                          child: SizedBox(
-                                            width: 80,
-                                            height: 30,
-                                            child: KElevatedButton1Transparent(
-                                              onPressed: () {},
-                                              text: details,
-                                            ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 150),
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              KButton1(
+                                                onPressed: () {
+                                                  Get.to(() =>
+                                                      const ViewDetailScreen());
+                                                },
+                                                text: details,
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -372,7 +375,7 @@ class SupplierUpcomingScreen extends StatelessWidget {
                           },
                         ),
                       ),
-                      RightSideSlider(),
+                      const RightSideSlider(),
                     ],
                   ),
 
@@ -467,7 +470,6 @@ class SupplierUpcomingScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      RightSideSlider(),
                     ],
                   ),
                 ],

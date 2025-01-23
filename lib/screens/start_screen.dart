@@ -15,11 +15,6 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2), () {
-      // Uncomment the next line to navigate after a delay
-      // Get.offAll(() => LoginScreen());
-    });
-
     return CustomBgScreen(
       child: SingleChildScrollView(
         child: Column(
@@ -30,10 +25,7 @@ class StartScreen extends StatelessWidget {
                   horizontal: 20,
                   vertical: 10), // Add padding to left and right
               child: Image.asset(
-                Assets.images.airplaneLogo.path,
-
-                // Correct usage of AssetImage
-                // Set a width to control size if necessary
+                Assets.images.jewelsLogo1.path,
               ),
             ),
             Text(
@@ -56,14 +48,11 @@ class StartScreen extends StatelessWidget {
             ),
             const Gap(10),
             Center(
-              child: SizedBox(
-                width: context.screenWidth * 0.6,
-                child: KElevatedButton(
-                  onPressed: () {
-                    Get.to(() => const WelcomeScreen());
-                  },
-                  text: getStarted,
-                ),
+              child: KElevatedButton(
+                onPressed: () {
+                  Get.to(() => const WelcomeScreen());
+                },
+                text: getStarted,
               ),
             ),
             const Gap(20),

@@ -94,7 +94,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                   children: [
                                     // Image on the left with no shift
                                     Image.asset(
-                                      Assets.images.airplaneLogo.path,
+                                      Assets.images.jewelsLogo1.path,
                                       height: 80,
                                       width: 80,
                                     ),
@@ -127,9 +127,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        const Gap(10), // Spacing between rows
-
-                                        // Second row with location icons and text
+                                        const Gap(2),
                                         Row(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
@@ -139,7 +137,6 @@ class DriverUpcomingScreen extends StatelessWidget {
                                               size: 20,
                                               color: Colors.blue,
                                             ),
-                                            const Gap(2),
                                             Text(
                                               doted,
                                               style: Theme.of(context)
@@ -150,7 +147,6 @@ class DriverUpcomingScreen extends StatelessWidget {
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
-                                            const Gap(2),
                                             const Icon(
                                               Icons.location_on,
                                               size: 20,
@@ -158,7 +154,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        const Gap(10), // Spacing between rows
+                                        const Gap(5), // Spacing between rows
 
                                         // Third row with calendar icon and date
                                         Row(
@@ -187,21 +183,20 @@ class DriverUpcomingScreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right:
-                                            0), // Adjust the padding as needed
-                                    child: SizedBox(
-                                      width: 80,
-                                      height: 30,
-                                      child: KElevatedButton1Transparent(
-                                        onPressed: () {
-                                          Get.to(() => const DetailScreen());
-                                        },
-                                        text: details,
-                                      ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 160),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        KButton1(
+                                          onPressed: () {
+                                            Get.to(() => const DetailScreen());
+                                          },
+                                          text: details,
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -238,7 +233,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                   children: [
                                     // Image on the left with no shift
                                     Image.asset(
-                                      Assets.images.airplaneLogo.path,
+                                      Assets.images.jewelsLogo1.path,
                                       height: 90,
                                       width: 90,
                                     ),
@@ -300,7 +295,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        const Gap(10), // Spacing between rows
+                                        const Gap(5), // Spacing between rows
 
                                         // Third row with calendar icon and date
                                         Row(
@@ -329,19 +324,20 @@ class DriverUpcomingScreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right:
-                                            0), // Adjust the padding as needed
-                                    child: SizedBox(
-                                      width: 80,
-                                      height: 30,
-                                      child: KElevatedButton1Transparent(
-                                        onPressed: () {},
-                                        text: details,
-                                      ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 160),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        KButton1(
+                                          onPressed: () {
+                                            Get.to(() => const DetailScreen());
+                                          },
+                                          text: details,
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),

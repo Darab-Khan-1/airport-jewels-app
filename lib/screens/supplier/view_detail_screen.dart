@@ -55,7 +55,7 @@ class ViewDetailScreen extends StatelessWidget {
                               size: 30,
                               color: kgreenColor,
                             ),
-                            Gap(10), // Add space between icon and text
+                            const Gap(10), // Add space between icon and text
                             Text(
                               pickup,
                               style: Theme.of(context)
@@ -97,7 +97,7 @@ class ViewDetailScreen extends StatelessWidget {
                               size: 30,
                               color: kRedColor,
                             ),
-                            Gap(10), // Add space between icon and text
+                            const Gap(10), // Add space between icon and text
                             Text(
                               dropOff,
                               style: Theme.of(context)
@@ -115,7 +115,7 @@ class ViewDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Gap(10), // Add space after the card
+              const Gap(10), // Add space after the card
               // Display dropOff text separately below the card
               Padding(
                 padding: const EdgeInsets.only(
@@ -131,7 +131,7 @@ class ViewDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Gap(10),
+              const Gap(10),
               Card(
                 margin: const EdgeInsets.all(16),
                 elevation: 5,
@@ -150,7 +150,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                       ),
-                      Gap(10),
+                      const Gap(10),
 
                       // Vehicle and Language
                       Text(
@@ -175,7 +175,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             saloon,
                             style: Theme.of(context)
@@ -203,7 +203,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             english,
                             style: Theme.of(context)
@@ -217,7 +217,7 @@ class ViewDetailScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Gap(20),
+                      const Gap(20),
 
                       // Passenger Information
                       Text(
@@ -242,7 +242,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             johe,
                             style: Theme.of(context)
@@ -269,7 +269,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             num1,
                             style: Theme.of(context)
@@ -296,7 +296,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             num,
                             style: Theme.of(context)
@@ -310,7 +310,7 @@ class ViewDetailScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Gap(30),
+                      const Gap(30),
 
                       // Services Information
                       Text(
@@ -335,7 +335,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             johe,
                             style: Theme.of(context)
@@ -362,7 +362,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             num1,
                             style: Theme.of(context)
@@ -389,7 +389,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             num,
                             style: Theme.of(context)
@@ -403,7 +403,7 @@ class ViewDetailScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20), // Final Gap
+                      const Gap(20), // Final Gap
                       Row(
                         children: [
                           Text(
@@ -417,7 +417,7 @@ class ViewDetailScreen extends StatelessWidget {
                                   fontSize: 14,
                                 ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             dollars,
                             style: Theme.of(context)
@@ -431,7 +431,7 @@ class ViewDetailScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Gap(10),
+                      const Gap(10),
                       Center(
                         child: RichText(
                           text: TextSpan(
@@ -469,7 +469,7 @@ class ViewDetailScreen extends StatelessWidget {
                       border: Border.all(color: kBlueColor),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Text(
                       alarm,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
@@ -486,7 +486,7 @@ class ViewDetailScreen extends StatelessWidget {
                       border: Border.all(color: kBlueColor),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Text(
                       bop,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
@@ -503,7 +503,7 @@ class ViewDetailScreen extends StatelessWidget {
                       border: Border.all(color: kBlueColor),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Text(
                       droped,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
@@ -515,7 +515,7 @@ class ViewDetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Gap(20),
+              const Gap(20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -526,7 +526,7 @@ class ViewDetailScreen extends StatelessWidget {
                       border: Border.all(color: kBlueColor),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Text(
                       calloffice,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
@@ -543,7 +543,7 @@ class ViewDetailScreen extends StatelessWidget {
                       border: Border.all(color: kBlueColor),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Text(
                       pushjob,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
