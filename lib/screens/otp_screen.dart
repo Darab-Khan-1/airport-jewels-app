@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
-import 'package:jewels_airport_transfers/screens/supplier/supplier_upcoming_screen.dart';
+import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.dart';
 import 'package:pinput/pinput.dart';
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../gen/assets.gen.dart';
@@ -93,7 +93,7 @@ class OTPScreen extends StatelessWidget {
                   Center(
                     child: KElevatedButton(
                       onPressed: () {
-                        Get.to(() => const SupplierUpcomingScreen());
+                        Get.to(() => const SupplierHomeScreen());
                       },
                       text: (verify),
                     ),

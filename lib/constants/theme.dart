@@ -12,16 +12,16 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          backgroundColor: kPrimaryColor,
+          backgroundColor: kMainColor,
           elevation: 3,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           textStyle: Theme.of(context)
               .textTheme
-              .labelLarge!
-              .copyWith(fontWeight: FontWeight.w700, fontSize: 16),
-          minimumSize: const Size(double.infinity, 55),
+              .bodyMedium!
+              .copyWith(fontWeight: FontWeight.w700,),
+          minimumSize: const Size(double.infinity, 40),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -115,7 +115,7 @@ class AppTheme {
           fontSize: 12,
           fontWeight: FontWeight.normal,
         ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       ),
       appBarTheme: AppBarTheme(
         backgroundColor: kMainColor,
@@ -123,7 +123,7 @@ class AppTheme {
         elevation: 2,
         titleTextStyle: const TextStyle(
           color: kWhiteColor,
-          fontSize: 22,
+          fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
         iconTheme: const IconThemeData(color: kWhiteColor),
@@ -138,57 +138,57 @@ class AppTheme {
       ),
       textTheme: const TextTheme(
         titleLarge: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 26,
           fontWeight: FontWeight.w800,
         ),
         titleMedium: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 24,
           fontWeight: FontWeight.w800,
         ),
         titleSmall: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 22,
           fontWeight: FontWeight.w800,
         ),
         bodyLarge: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
         bodyMedium: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 14,
           fontWeight: FontWeight.w500,
         ),
         bodySmall: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
         labelLarge: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 16,
           fontWeight: FontWeight.w700,
         ),
         labelMedium: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 14,
           fontWeight: FontWeight.w700,
         ),
         labelSmall: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 12,
           fontWeight: FontWeight.w700,
         ),
         headlineLarge: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
         headlineMedium: TextStyle(
-          color: kWhiteColor,
+          color: kBlackColor,
           fontSize: 18,
           fontWeight: FontWeight.w700,
         ),
@@ -197,9 +197,11 @@ class AppTheme {
   }
 }
 
-const UnderlineInputBorder outlineInputActiveBorder = UnderlineInputBorder(
-  borderSide: BorderSide(color: kWhiteColor), // Green border color
+final OutlineInputBorder outlineInputActiveBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(5),
+  borderSide:
+  const BorderSide(color: kMainColor, width: 2), // Green border color
 );
-const UnderlineInputBorder outlineInputBorder = UnderlineInputBorder(
-  borderSide: BorderSide(color: kWhiteColor), // Green border color
-);
+final OutlineInputBorder outlineInputBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5),
+    borderSide: const BorderSide(color: kMainColor, width: 1));

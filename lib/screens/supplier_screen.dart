@@ -39,14 +39,14 @@ class _SupplierScreenState extends State<SupplierScreen> {
             Text(
               welcomeBack,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    decorationColor: kWhiteColor,
+                    color: kWhiteColor,
                   ),
             ),
             const Gap(2),
             Text(
               signIn,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    decorationColor: kWhiteColor,
+                    color: kWhiteColor,
                     fontWeight: FontWeight.w400,
                   ),
             ),
@@ -110,7 +110,7 @@ class _SupplierScreenState extends State<SupplierScreen> {
                     Text(
                       keepLogin,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            decorationColor: kWhiteColor,
+                            color: kWhiteColor,
                             fontWeight: FontWeight.w400,
                           ),
                     ),
@@ -120,7 +120,7 @@ class _SupplierScreenState extends State<SupplierScreen> {
             Text(
               digits,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    decorationColor: kWhiteColor,
+                    color: kWhiteColor,
                     fontWeight: FontWeight.w400,
                   ),
             ),

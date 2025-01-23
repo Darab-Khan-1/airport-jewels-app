@@ -35,13 +35,15 @@ const String digits =
     'A B digits verification code will be sent\n  on your number enter the code ';
 const String next = 'Next';
 const String upcomimg = 'Upcoming';
+const String quotation = 'Quotation';
+const String availability = 'Availability';
 const String dollars = '\$ 20.00';
 
 const String details = 'View details';
 const String completed = 'Completed';
 const String comments = 'Comments';
 const String viewExtras = 'View Extras';
-const String doted = '.....................';
+const String doted = 'Lahore Pakistan, Islamabad';
 const String toyata = 'Toyata';
 const String ago = '6m ago';
 const String search = 'Search';
@@ -63,9 +65,9 @@ const String authorized = '[Authorized Recipient a Name].';
 const String airportAddress =
     'Transfer jewels securely from the airport to [Delivery Address].';
 const String driver1 = 'Driver Instructions';
-const String pickup = 'Pick up';
+const String pickup = 'Pick up: ';
 const String wayPoint = 'way point';
-const String dropOff = 'Drop Off';
+const String dropOff = 'Drop Off: ';
 const String distance = 'Distance';
 const String push = 'Push Job to Driver';
 const journeyDate = 'Journey Date & Time ';

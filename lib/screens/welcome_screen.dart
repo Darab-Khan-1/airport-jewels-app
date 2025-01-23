@@ -29,20 +29,21 @@ class WelcomeScreen extends StatelessWidget {
               welcomeBack,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     decorationColor: kWhiteColor,
+                color: kWhiteColor,
                   ),
             ),
             const Gap(2),
             Text(
               signIn,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  decorationColor: kWhiteColor, fontWeight: FontWeight.w400),
+                  decorationColor: kWhiteColor, color: kWhiteColor, fontWeight: FontWeight.w400),
             ),
             const Gap(140),
 
             Text(
               logIn,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  decorationColor: kWhiteColor, fontWeight: FontWeight.bold),
+                  decorationColor: kWhiteColor, color: kWhiteColor, fontWeight: FontWeight.bold),
             ),
 
             const Gap(10),
@@ -78,7 +79,9 @@ class WelcomeScreen extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   text: become,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: kWhiteColor
+                  ),
                   children: [
                     TextSpan(
                       text: click,

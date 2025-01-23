@@ -1,28 +1,25 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:jewels_airport_transfers/Widgets/buttons/leading_button.dart';
-import '../../Widgets/buttons/custom_widgets.dart';
-import '../../constants/color.dart';
-import '../../constants/string.dart';
+import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
+import '../../constants/color.dart'; // Assuming you have defined your color constants
+import '../buttons/custom_widgets.dart';
+import '../buttons/leading_button.dart'; // Assuming your helper widgets are here
 
-class ViewDetailScreen extends StatelessWidget {
-  const ViewDetailScreen({super.key});
+class QuotationDetailsCard extends StatelessWidget {
+  const QuotationDetailsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBlueColor,
-        leading: const LeadingButton(),
-        title: const Text(
-          instructions,
-        ),
+        title: const Text("Quotation Details"),
+        leading: LeadingButton(), // Assuming this is your custom back button
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+        padding: const EdgeInsets.all(12.0),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Card(
                 elevation: 4.0,
@@ -48,7 +45,7 @@ class ViewDetailScreen extends StatelessWidget {
                             child: buildIconTextRow(
                               icon: Icons.edit_note,
                               text: "Ref:",
-                              data: "09893758762",
+                              data: "098937587623",
                               textColor: kBlackColor,
                               fontWeight: FontWeight.w700,
                             ),
@@ -123,7 +120,7 @@ class ViewDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const Gap(10), // Add space after the card
+              const Gap(20),
               Card(
                 elevation: 4.0,
                 shape: RoundedRectangleBorder(
@@ -134,67 +131,19 @@ class ViewDetailScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Passenger Information:",
-                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          fontSize: 18,
-                        ),
-                      ),
-                      const Gap(10),
-                      buildTextRow(
-                        text: "Name:",
-                        data: "Passenger Name",
-                        textColor: kBlackColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      const Gap(5),
-                      buildTextRow(
-                        text: "Mobile:",
-                        data: "0000-0000000",
-                        textColor: kBlackColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Card(
-                elevation: 4.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Service Information:",
-                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          fontSize: 18,
-                        ),
-                      ),
-                      buildIconTextRow(
-                        icon: Icons.flight_takeoff,
-                        text: "BE4783",
-                        textColor: kBlackColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      const Gap(10),
-                      buildIconTextRow(
-                        icon: Icons.flight_land_outlined,
-                        text: "Lahore",
-                        textColor: kBlackColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      const Gap(10),
                       Row(
                         children: [
                           Text(
-                            "Fare Accepted:",
-                            style: Theme.of(context).textTheme.labelLarge,
+                            "Submit Your Quote:",
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              color: kBlackColor,
+                            ),
                           ),
-                          const Gap(10),
-                          const Text(
-                            "£76.00",
+                          const Spacer(),
+                          Text(
+                            "Guide Price £76.00",
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
@@ -203,73 +152,63 @@ class ViewDetailScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const Gap(15),
+                      TextInputFieldWidget(
+                        hintText: "Quote Here",
+                      ),
+                      Gap(15),
+
+                      FilledButton(
+                        onPressed: () {
+                          // Handle submit action
+                        },
+                        child: const Text(
+                          "Submit",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const Gap(10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.check_box,
+                            color: kPrimaryColor,
+                          ),
+                          const Gap(8),
+                          Expanded(
+                            child: RichText(
+                              text: TextSpan(
+                                text: "By submitting your quote, you are accepting the Jewels Airport Transfers ",
+                                style: TextStyle(
+                                  color: kBlackColor,
+                                  fontSize: 14.0,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: "terms and conditions",
+                                    style: TextStyle(
+                                      color: kPrimaryColor,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
               ),
-              const Gap(10),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(
-                      Icons.check_box,
-                      color: kPrimaryColor,
-                    ),
-                    const Gap(8),
-                    Expanded(
-                      child: RichText(
-                        text: TextSpan(
-                          text: "By submitting your quote, you are accepting the Jewels Airport Transfers ",
-                          style: const TextStyle(
-                            color: kBlackColor,
-                            fontSize: 14.0,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: "terms and conditions",
-                              style: TextStyle(
-                                color: kPrimaryColor,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Gap(10),
-              _buildActionButtons(),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildActionButtons() {
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: [
-        _buildChip('Alarm'),
-        _buildChip('On Route'),
-        _buildChip('POB'),
-        _buildChip('Dropped'),
-        _buildChip('Call Office'),
-        _buildChip('Push Job to Driver'),
-      ],
-    );
-  }
-
-  Widget _buildChip(String label) {
-    return Chip(
-      label: Text(label),
-      backgroundColor: kWhiteColor,
-      side: BorderSide(color: kMainColor),
     );
   }
 }
