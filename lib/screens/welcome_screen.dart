@@ -68,7 +68,6 @@ class WelcomeScreen extends StatelessWidget {
                         Get.to(() => const SupplierScreen());
                       },
                       text: supplier,
-                      imagePath: '',
                     ),
                   ),
                 ],
