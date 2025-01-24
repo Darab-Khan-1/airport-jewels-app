@@ -5,7 +5,7 @@ import 'package:jewels_airport_transfers/Widgets/cards/quotation_details_card.da
 import 'package:jewels_airport_transfers/screens/details/detail_screen.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import '../../screens/supplier/view_detail_screen.dart';
+import '../../screens/supplier/upcoimg_job_detail_screen.dart';
 import '../buttons/custom_widgets.dart';
 
 class UpcomingJobCard extends StatelessWidget {
@@ -108,7 +108,7 @@ class UpcomingJobCard extends StatelessWidget {
                   Expanded(
                     child: FilledButton(
                       onPressed: () {
-                        Get.to(() => const ViewDetailScreen());
+                        Get.to(() => const UpcomingJobDetailScreen());
                       },
                       child: Text(details),
                     ),

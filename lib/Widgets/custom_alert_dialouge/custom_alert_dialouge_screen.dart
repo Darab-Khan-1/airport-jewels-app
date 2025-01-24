@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/screens/supplier/job_page.dart';
 import '../../constants/string.dart';
+import '../../gen/assets.gen.dart';
 import '../buttons/k_elevated_button.dart';
 
 class CustomAlertDialogScreen extends StatefulWidget {
@@ -33,7 +34,7 @@ class CustomAlertDialogScreenState extends State<CustomAlertDialogScreen> {
                   Container(
                     padding: EdgeInsets.zero,
                     child: Image.asset(
-                      'assets/images/meta.png',
+                      Assets.images.meta.path,
                       height: 80,
                       width: 80,
                     ),
@@ -63,6 +64,7 @@ class CustomAlertDialogScreenState extends State<CustomAlertDialogScreen> {
                       padding: const EdgeInsets.all(20.0),
                       child: KElevatedButton2(
                         onPressed: () {
+                          Get.back();
                           Get.to(() => const JobPage());
                         },
                         text: ok,

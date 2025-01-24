@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import 'package:jewels_airport_transfers/constants/extension.dart';
 import 'package:jewels_airport_transfers/screens/start_screen.dart';
-import 'package:jewels_airport_transfers/screens/supplier/view_detail_screen.dart';
+import 'package:jewels_airport_transfers/screens/supplier/upcoimg_job_detail_screen.dart';
 
 import '../../Widgets/buttons/custom_widgets.dart';
 import '../../Widgets/buttons/k_elevated_button.dart';
@@ -126,25 +126,5 @@ class CompletedJobsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildIconTextRow({
-    required IconData icon,
-    required String text,
-    required Color textColor,
-    required FontWeight fontWeight,
-  }) {
-    return Row(
-      children: [
-        Icon(icon, size: 20, color: kBlueColor),
-        const Gap(5),
-        Text(
-          text,
-          style: TextStyle(
-            color: textColor,
-            fontWeight: fontWeight,
-          ),
-        ),
-      ],
-    );
-  }
 }
 

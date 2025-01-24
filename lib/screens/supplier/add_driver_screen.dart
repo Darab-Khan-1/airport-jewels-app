@@ -20,7 +20,6 @@ class AddDriverScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBlueColor,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
@@ -30,10 +29,6 @@ class AddDriverScreen extends StatelessWidget {
         ),
         title: Text(
           supplier,
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              decorationColor: kWhiteColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 19),
         ),
       ),
       body: Padding(
@@ -50,19 +45,11 @@ class AddDriverScreen extends StatelessWidget {
                     ),
               ),
               const Gap(10),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  controller: nameController,
-                  hintText: name2,
-                  cursorsColor: kBlackColor,
-                  lable: null,
-                ),
+              TextInputFieldWidget(
+                controller: nameController,
+                hintText: name2,
+                cursorsColor: kBlackColor,
+                lable: null,
               ),
               const Gap(20),
               Text(
@@ -73,19 +60,11 @@ class AddDriverScreen extends StatelessWidget {
                     ),
               ),
               const Gap(8),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  controller: emailController,
-                  hintText: email2,
-                  cursorsColor: kBlackColor,
-                  textInputType: TextInputType.emailAddress,
-                ),
+              TextInputFieldWidget(
+                controller: emailController,
+                hintText: email2,
+                cursorsColor: kBlackColor,
+                textInputType: TextInputType.emailAddress,
               ),
               const Gap(20),
               Text(
@@ -96,44 +75,30 @@ class AddDriverScreen extends StatelessWidget {
                     ),
               ),
               const Gap(8),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  controller: mobileController,
-                  hintText: mobileNumber1,
-                  cursorsColor: kBlackColor,
-                  textInputType: TextInputType.phone,
-                ),
+              TextInputFieldWidget(
+                controller: mobileController,
+                hintText: mobileNumber1,
+                cursorsColor: kBlackColor,
+                textInputType: TextInputType.phone,
               ),
               const Gap(30),
-              Align(
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: KElevatedButton2(
-                    onPressed: () {
-                      if (kDebugMode) {
-                        print("Name: ${nameController.text}");
-                      }
-                      if (kDebugMode) {
-                        print("Email: ${emailController.text}");
-                      }
-                      if (kDebugMode) {
-                        print("Mobile: ${mobileController.text}");
-                      }
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) =>
-                              const CustomAlertDialogScreen());
-                    },
-                    text: adddriver,
-                  ),
-                ),
+              FilledButton(
+                onPressed: () {
+                  if (kDebugMode) {
+                    print("Name: ${nameController.text}");
+                  }
+                  if (kDebugMode) {
+                    print("Email: ${emailController.text}");
+                  }
+                  if (kDebugMode) {
+                    print("Mobile: ${mobileController.text}");
+                  }
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) =>
+                          const CustomAlertDialogScreen());
+                },
+                child: const Text(adddriver),
               ),
             ],
           ),

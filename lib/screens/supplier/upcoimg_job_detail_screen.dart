@@ -1,19 +1,20 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/Widgets/buttons/leading_button.dart';
+import 'package:jewels_airport_transfers/screens/supplier/job_page.dart';
 import '../../Widgets/buttons/custom_widgets.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
 
-class ViewDetailScreen extends StatelessWidget {
-  const ViewDetailScreen({super.key});
+class UpcomingJobDetailScreen extends StatelessWidget {
+  const UpcomingJobDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBlueColor,
         leading: const LeadingButton(),
         title: const Text(
           instructions,
@@ -260,7 +261,11 @@ class ViewDetailScreen extends StatelessWidget {
         _buildChip('POB'),
         _buildChip('Dropped'),
         _buildChip('Call Office'),
-        _buildChip('Push Job to Driver'),
+        GestureDetector(
+            onTap: (){
+              Get.to( () => const JobPage());
+            },
+            child: _buildChip('Push Job to Driver')),
       ],
     );
   }

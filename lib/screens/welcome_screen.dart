@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/screens/driver/driver_upcoming_screen.dart';
 import 'package:jewels_airport_transfers/screens/registration_form_screen/registrartion_form_screen.dart';
+import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier_screen.dart';
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../constants/color.dart';
@@ -56,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                   Expanded(
                     child: KElevatedButtons(
                       onPressed: () {
-                        Get.to(() => const DriverUpcomingScreen());
+                        Get.to(() => const SupplierHomeScreen(isDriver: true,));
                       },
                       text: driver,
                     ),

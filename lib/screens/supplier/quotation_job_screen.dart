@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:jewels_airport_transfers/Widgets/cards/quotation_job_card.dart';
 import 'package:jewels_airport_transfers/constants/extension.dart';
 import 'package:jewels_airport_transfers/screens/start_screen.dart';
-import 'package:jewels_airport_transfers/screens/supplier/view_detail_screen.dart';
+import 'package:jewels_airport_transfers/screens/supplier/upcoimg_job_detail_screen.dart';
 
 import '../../Widgets/buttons/k_elevated_button.dart';
 import '../../constants/color.dart';
@@ -37,16 +37,6 @@ class QuotationJobScreen extends StatelessWidget {
             ),
           ),
 
-          // Add Driver Button
-          Padding(
-            padding: const EdgeInsets.all(7.0),
-            child: KElevatedButton2(
-              onPressed: () {
-                Get.to(() =>  AddDriverScreen());
-              },
-              text: adddriver,
-            ),
-          ),
         ],
       ),
     );

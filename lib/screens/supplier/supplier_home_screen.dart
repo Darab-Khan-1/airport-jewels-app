@@ -1,15 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/screens/supplier/availability_job_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/completed_jobs_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/quotation_job_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/upcoming_jobs_screen.dart';
+import '../../Widgets/buttons/k_elevated_button.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
+import 'add_driver_screen.dart';
 
 class SupplierHomeScreen extends StatelessWidget {
-  const SupplierHomeScreen({super.key});
+  final bool? isDriver;
+  const SupplierHomeScreen({super.key, this.isDriver = false});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +23,7 @@ class SupplierHomeScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: kBlueColor,
           title: const Text(appName1),
+          leading: SizedBox(),
         ),
         body: Column(
           children: [
@@ -36,6 +41,16 @@ class SupplierHomeScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+        bottomNavigationBar: isDriver! ?  null:
+        Padding(
+          padding: const EdgeInsets.all(7.0),
+          child: KElevatedButton2(
+            onPressed: () {
+              Get.to(() =>  AddDriverScreen());
+            },
+            text: adddriver,
+          ),
         ),
       ),
     );

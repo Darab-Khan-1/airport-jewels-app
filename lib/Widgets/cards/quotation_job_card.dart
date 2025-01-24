@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/Widgets/cards/quotation_details_card.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import '../../screens/supplier/view_detail_screen.dart';
+import '../../screens/supplier/upcoimg_job_detail_screen.dart';
 import '../buttons/custom_widgets.dart';
 
 class QuotationJobCard extends StatelessWidget {

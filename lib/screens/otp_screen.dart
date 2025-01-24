@@ -93,7 +93,7 @@ class OTPScreen extends StatelessWidget {
                   Center(
                     child: KElevatedButton(
                       onPressed: () {
-                        Get.to(() => const SupplierHomeScreen());
+                        Get.to(() => const SupplierHomeScreen(isDriver: false,));
                       },
                       text: (verify),
                     ),
