@@ -42,13 +42,15 @@ class CustomCheckbox extends StatelessWidget {
           ),
         ),
         const Gap(15),
-        Text(
-          label, // Using the label passed in constructor
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                decorationColor: kBlackColor,
-                fontWeight: FontWeight.w500,
-                color: kBlackColor,
-              ),
+        Expanded(
+          child: Text(
+            label, // Using the label passed in constructor
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  decorationColor: kBlackColor,
+                  fontWeight: FontWeight.w500,
+                  color: kBlackColor,
+                ),
+          ),
         ),
       ],
     );

@@ -26,7 +26,6 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
 
   final List<TabData> _tabs = [
     TabData(icon: Icons.lock, label: account1),
-    TabData(icon: Icons.person, label: personal1),
     TabData(icon: Icons.credit_card, label: payment1),
     TabData(icon: Icons.badge_outlined, label: license),
     TabData(icon: Icons.directions_car, label: fleet1),
@@ -145,7 +144,6 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
         controller: _tabController,
         children: const [
           AccountTabContent(),
-          PersonalTabContent(),
           PaymentTabContent(),
           LicenseTabContent(),
           FleetTabContent(),

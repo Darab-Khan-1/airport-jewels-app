@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:jewels_airport_transfers/Widgets/buttons/custom_widgets.dart';
-import '../../Widgets/buttons/k_elevated_button.dart';
+import 'package:gap/gap.dart';
+import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
+import 'package:jewels_airport_transfers/constants/extension.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import 'push_job_screen.dart';
 
 class JobPage extends StatefulWidget {
   const JobPage({Key? key}) : super(key: key);
@@ -19,41 +18,38 @@ class _JobPageState extends State<JobPage> {
       'name': 'William Parker',
       'email': 'willaimparker123@example.com',
       'phone': '123-456-7890',
-      'image': 'assets/images/driver.jpeg'
+      'image': 'assets/images/driver.jpeg',
+      'amount': '4325',
     },
     {
       'name': 'Sarah Collins',
       'email': 'Sarahcollins234@example.com',
       'phone': '234-567-8901',
-      'image': 'assets/images/driver.jpeg'
+      'image': 'assets/images/driver.jpeg',
+      'amount': '3500',
     },
-    {
-      'name': 'Daniel Harrison',
-      'email': 'Harrison667@example.com',
-      'phone': '345-678-9012',
-      'image': 'assets/images/driver.jpeg'
-    },
-    {
-      'name': 'Emily Bennett',
-      'email': 'EmilyBennett987@example.com',
-      'phone': '456-789-0123',
-      'image': 'assets/images/driver.jpeg'
-    },
-    {
-      'name': 'James Carter',
-      'email': 'JamesCarter455@example.com',
-      'phone': '567-890-1234',
-      'image': 'assets/images/driver.jpeg'
-    },
+    // Add more drivers here...
   ];
 
   int? selectedCardIndex;
+
+  void assignDriver(String name, String fare) {
+    // Logic for assigning a driver
+    debugPrint('Assigned $name with fare $fare');
+  }
+
+  void deleteDriver(int index) {
+    setState(() {
+      drivers.removeAt(index);
+      if (selectedCardIndex == index) selectedCardIndex = null;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(),
+        leading: const BackButton(),
         title: const Text(push),
       ),
       body: ListView.builder(
@@ -63,86 +59,144 @@ class _JobPageState extends State<JobPage> {
           final driver = drivers[index];
           final isSelected = selectedCardIndex == index;
 
-          return GestureDetector(
-            onTap: () => setState(() => selectedCardIndex = index),
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 5),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: isSelected ? kBlueColor : Colors.transparent,
-                  width: isSelected ? 3 : 1,
-                ),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Card(
-                elevation: 3,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-                margin: EdgeInsets.zero,
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          CircleAvatar(
-                              radius: 30,
-                              backgroundImage: AssetImage(driver['image']!)),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  driver['name']!,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                        color: kBlackColor,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                                Text('Email: ${driver['email']}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall
-                                        ?.copyWith(color: kBlackColor)),
-                                Text('Phone: ${driver['phone']}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall
-                                        ?.copyWith(color: kBlackColor)),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                              flex: 2,
-                              child: buildTextRow(
-                                  text: "Driver Amount:",
-                                  data: " £4325",
-                                  textColor: kBlackColor,
-                                  fontWeight: FontWeight.bold)),
-                          Expanded(
-                            child: FilledButton(
-                              onPressed: () => Get.back(),
-                              child: Text("Assign"),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+          return DriverCard(
+            name: driver['name']!,
+            email: driver['email']!,
+            phone: driver['phone']!,
+            image: driver['image']!,
+            amount: driver['amount']!,
+            isSelected: isSelected,
+            onSelect: () {
+              setState(() {
+                selectedCardIndex = index;
+              });
+            },
+            onDelete: () => deleteDriver(index),
+            onAmountChange: (value) {
+              drivers[index]['amount'] = value;
+            },
+            onAssign: () => assignDriver(
+              driver['name']!,
+              drivers[index]['amount']!,
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+
+class DriverCard extends StatelessWidget {
+  final String name;
+  final String email;
+  final String phone;
+  final String image;
+  final String amount;
+  final bool isSelected;
+  final VoidCallback onSelect;
+  final VoidCallback onDelete;
+  final ValueChanged<String> onAmountChange;
+  final VoidCallback onAssign;
+
+  const DriverCard({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.phone,
+    required this.image,
+    required this.amount,
+    required this.isSelected,
+    required this.onSelect,
+    required this.onDelete,
+    required this.onAmountChange,
+    required this.onAssign,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onSelect,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 5),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: isSelected ? Colors.blue : Colors.transparent,
+            width: isSelected ? 3 : 1,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Card(
+          elevation: 3,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage(image),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            name,
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'Email: $email',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          Text(
+                            'Phone: $phone',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Gap(10),
+                TextInputFieldWidget(
+                  initialValue: amount,
+                  textInputType: TextInputType.number,
+                  onChange: onAmountChange,
+                ),
+                Gap(10),
+                Row(
+                  children: [
+                    Expanded(
+                      child: FilledButton(
+                        onPressed: onAssign,
+                        child: const Text("Assign"),
+                      ),
+                    ),
+                    Gap(10),
+                    Expanded(
+                      child: FilledButton(
+                        onPressed: onDelete,
+                        style: Theme.of(context).filledButtonTheme.style?.copyWith(
+                          backgroundColor: WidgetStatePropertyAll(kRedColor),
+                        ),
+                        child: const Text("Delete Driver"),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -85,11 +85,14 @@ class OTPScreen extends StatelessWidget {
                                   decoration: TextDecoration.underline,
                                 ),
                           ),
+
                         ],
                       ),
                     ),
                   ),
                   const Gap(40),
+                  /// add new button
+
                   Center(
                     child: KElevatedButton(
                       onPressed: () {
@@ -98,6 +101,7 @@ class OTPScreen extends StatelessWidget {
                       text: (verify),
                     ),
                   ),
+
                 ],
               ),
             ),

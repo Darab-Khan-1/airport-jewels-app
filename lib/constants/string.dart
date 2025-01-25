@@ -22,7 +22,7 @@ const String droped = 'Droped';
 const String calloffice = 'Call Office';
 const String pushjob = 'Push Job to Driver';
 const String num1 = '+43434348584548';
-const String driver = 'DRIVER';
+const String driver = 'PARTNER';
 const String supplier = 'SUPPLIER';
 const String supplier1 = 'Supplier';
 const String become = 'Become a driver';
@@ -74,20 +74,21 @@ const journeyDate = 'Journey Date & Time ';
 const vehicle = 'Vehicle & Language';
 const String vehicle1 = 'Vehicle :';
 const String language = 'Language :';
-const String sallon = 'Saloon';
-const String estate = 'Estate';
-const String carrier = 'People Carrier';
+const String sallon = 'Saloon Car';
+const String estate = 'Estate Car';
+const String carrier = 'Executive People Carrier ( Mercedes V Class)';
 const String fleet = 'Fleet Details';
-const String mervian = 'Mervian';
-const String excutive = 'Executive People Carrier';
-const String excutive1 = 'Executive';
+const String mervian = 'People Carrier ( VW Sharan, Ford Galaxy or similar) ';
+const String excutive = 'Executive Car (Mercedes E Class, BMW 5 Series, Audi A6 or similar)';
+const String excutive1 = 'Minivan - 8 Passengers ';
 const String passengerInformation = 'Passenger Information :';
 const String name1 = 'Name';
+const String businessName = 'BusinessName';
 const String name2 = 'Enter Name';
 const String email2 = 'Enter Email';
 const String hire = 'Private Hire Operator';
 const String hire1 = 'Private Hire Driver';
-const String hire2 = 'Hackleecy Carriage';
+const String hire2 = 'Hackney Carriage';
 const String linkpage = '(link to page)';
 const String mobile = 'Mobile : ';
 const String passenger = 'No.of Passenger :';
@@ -115,14 +116,38 @@ const String form =
 const String along = ' along with copies of your license';
 const String sale = 'sales.jewels.airport.transfer.com';
 const String account1 = 'Account';
-const String account2 = 'Account Number';
-const String idcard = 'Enter the CNIC';
-const String id = 'CNIC';
-const String accountholder = 'Enter Acountholder Name';
+const String account2 = '8 Digits Account Number';
+const String idcard = '6 Digits Sort Code';
+const String id = 'Code';
+const String accountHolder = 'Enter Account holder Name';
 const String register = 'Register';
 const String personal1 = 'Personal';
 const String payment1 = 'Payment';
 const String license = 'License';
 const String fleet1 = 'Fleet';
+const String jobInstructions = """We would like to request a quotation for the above based on your service area, vehicle type, or any potential connection you may have which will help to reduce carbon footprints.
+
+Please provide us with a quotation that includes the following and other similar charges:
+
+Any applicable taxes such as VAT.
+Drop off charges (closest to the terminal)
+Pick up charges
+Toll charges
+Parking charges
+Meet and Greet; if applicable - Please ensure driver needs to be in the arrivals hall within 10 min after landing (regardless of passenger contact made or not) with placard. Parking over £7.50 for short stay car park will be reimbursed. 
+or any other similar costs involved.
+
+This is just a quotation request, and the transfer should not be completed unless you receive a confirmation email from us containing all necessary details, including passenger information.
+
+How it works and Instructions
+
+Step by Step Instructions:
+1.⁠ ⁠Click on the button : CLICK HERE TO SUBMIT AMOUNT
+2.⁠ ⁠You will be taken to SUBMIT YOUR QUOTE page.
+3.⁠ ⁠Please enter your registered email in the box.
+4.⁠ ⁠Submit your fare in the box; DO NOT PUT ANY SIGNS such as £ etc.. - just the numbers, example 123 or 123.12
+5.⁠ ⁠Click on SUBMIT button.
+
+We appreciate your prompt response to this request.""";
 
 // Provide a name and value for the constant

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:jewels_airport_transfers/Widgets/cards/quotation_details_card.dart';
-import 'package:jewels_airport_transfers/screens/details/detail_screen.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
 import '../../screens/supplier/upcoimg_job_detail_screen.dart';
@@ -48,7 +46,7 @@ class UpcomingJobCard extends StatelessWidget {
                             ),
                             Expanded(
                               child: buildIconTextRow(
-                                  icon: Icons.phone,
+                                  icon: Icons.edit_note,
                                   text: "Ref",
                                   textColor: kBlackColor,
                                   fontWeight: FontWeight.w700,

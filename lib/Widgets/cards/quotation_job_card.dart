@@ -47,7 +47,7 @@ class QuotationJobCard extends StatelessWidget {
                             ),
                             Expanded(
                               child: buildIconTextRow(
-                                icon: Icons.phone,
+                                icon: Icons.edit_note,
                                 text: "Ref",
                                 textColor: kBlackColor,
                                 fontWeight: FontWeight.w700,

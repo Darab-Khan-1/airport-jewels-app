@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:jewels_airport_transfers/screens/start_screen.dart';
+import 'package:jewels_airport_transfers/screens/welcome_screen.dart';
 import 'constants/string.dart';
 import 'constants/theme.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: appName,
       theme: AppTheme.lightTheme(context),
-      home: const StartScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }

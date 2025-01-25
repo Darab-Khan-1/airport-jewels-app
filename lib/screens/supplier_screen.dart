@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -5,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:jewels_airport_transfers/screens/otp_screen.dart';
 import '../Widgets/buttons/k_elevated_button.dart';
+import '../Widgets/text_field/intl_phone_field.dart';
 import '../constants/color.dart';
 import '../constants/string.dart';
 import '../controlller/supplier_controller.dart';
@@ -54,31 +57,21 @@ class _SupplierScreenState extends State<SupplierScreen> {
             // Using IntlPhoneField for phone input
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: IntlPhoneField(
-                decoration: const InputDecoration(
-                  labelStyle: TextStyle(color: kWhiteColor),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: kWhiteColor),
-                    borderRadius: BorderRadius.all(Radius.circular(24)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: kWhiteColor),
-                    borderRadius: BorderRadius.all(Radius.circular(24)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: kWhiteColor),
-                    borderRadius: BorderRadius.all(Radius.circular(24)),
-                  ),
-                  hintStyle: TextStyle(color: kWhiteColor),
-                ),
-                initialCountryCode: 'PK',
-                onChanged: (phone) {
-                  if (kDebugMode) {
-                    print(phone.completeNumber);
-                  }
-                  controller.selectedCountryCode = phone.countryCode;
+              child:  PhoneInputField(
+                // initialCountryCode: profileController.countryCode.value.text,
+                initialCountryCode: "GB",
+                fillColor: kTransparent,
+                // labelText: 'Enter Phone',
+                // fillColor: lightGreyColor, // Customize the fill color if desired
+                readOnly: false,
+                // controller: profileController.phoneController.value,
+                onChanged: (completeNumber) {
+                  print("Complete phone number: $completeNumber");
                 },
-                style: const TextStyle(color: kWhiteColor, fontSize: 16),
+                onCountryChanged: (country) {
+                  // profileController.countryCode.value.text = country.dialCode!;
+                  log(country.code.toString());
+                },
               ),
             ),
             Obx(() => Row(

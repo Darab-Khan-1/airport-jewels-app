@@ -31,78 +31,37 @@ class PaymentTabContent extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                name1,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+              const Gap(10),
+              TextInputFieldWidget(
+                hintText: accountHolder,
+                title: name1,
+                isLableRequired: true,
+                cursorsColor: kBlackColor,
               ),
               const Gap(10),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: klightgreyColor),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  hintText: accountholder,
-                  cursorsColor: kBlackColor,
-                ),
+              TextInputFieldWidget(
+                hintText: idcard,
+                title: id,
+                isLableRequired: true,
+                cursorsColor: kBlackColor,
+                textInputType: TextInputType.emailAddress,
               ),
-              const Gap(20),
-              Text(
-                id,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const Gap(8),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: klightgreyColor),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  hintText: idcard,
-                  cursorsColor: kBlackColor,
-                  textInputType: TextInputType.emailAddress,
-                ),
-              ),
-              const Gap(20),
-              Text(
-                account1,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const Gap(8),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: klightgreyColor),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  hintText: account2,
-                  cursorsColor: kBlackColor,
-                  textInputType: TextInputType.phone,
-                ),
+              const Gap(10),
+              TextInputFieldWidget(
+                hintText: account2,
+                title: account1,
+                isLableRequired: true,
+                cursorsColor: kBlackColor,
+                textInputType: TextInputType.phone,
               ),
               const Gap(30),
               Align(
                 alignment: Alignment.center,
-                child: KElevatedButton1(
+                child: FilledButton(
                   onPressed: () {
                     // Add driver logic here
                   },
-                  text: next,
+                  child: Text(next,),
                 ),
               ),
             ],

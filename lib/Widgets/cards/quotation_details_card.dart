@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
 import '../../constants/color.dart'; // Assuming you have defined your color constants
+import '../../constants/string.dart';
 import '../buttons/custom_widgets.dart';
 import '../buttons/leading_button.dart'; // Assuming your helper widgets are here
 
@@ -155,6 +156,7 @@ class QuotationDetailsCard extends StatelessWidget {
                       const Gap(15),
                       TextInputFieldWidget(
                         hintText: "Quote Here",
+                        prefixText: "£ ",
                       ),
                       Gap(15),
 
@@ -205,6 +207,12 @@ class QuotationDetailsCard extends StatelessWidget {
                   ),
                 ),
               ),
+              Gap(20),
+              Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(jobInstructions),
+                  )),
             ],
           ),
         ),

@@ -57,6 +57,35 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                         ],
                       ),
                       const Gap(10),
+                      Text(
+                        "Vehicle Description: ",
+                        style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                              fontSize: 16,
+                            ),
+                      ),
+                      Text(
+                        "This vehicle can accommodate up to 4 passengers travelling with 4 x 23 kg's suitcases.",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      Gap(10),
+                      buildIconTextRow(
+                        icon: Icons.person,
+                        iconColor: kBlackColor,
+                        text: "Passenger:",
+                        data: "3",
+                        textColor: kBlackColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      Gap(10),
+                      buildIconTextRow(
+                        icon: Icons.luggage,
+                        iconColor: kPurpleColor,
+                        text: "Luggage:",
+                        data: "Suitcase",
+                        textColor: kBlackColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      Gap(10),
                       buildIconTextRow(
                         icon: Icons.radio_button_checked,
                         iconColor: kgreenColor,
@@ -135,10 +164,11 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Passenger Information:",
+                      Text(
+                        "Passenger Information:",
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          fontSize: 18,
-                        ),
+                              fontSize: 18,
+                            ),
                       ),
                       const Gap(10),
                       buildTextRow(
@@ -168,10 +198,11 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Service Information:",
+                      Text(
+                        "Service Information:",
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          fontSize: 18,
-                        ),
+                              fontSize: 18,
+                            ),
                       ),
                       buildIconTextRow(
                         icon: Icons.flight_takeoff,
@@ -222,7 +253,8 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                     Expanded(
                       child: RichText(
                         text: TextSpan(
-                          text: "By submitting your quote, you are accepting the Jewels Airport Transfers ",
+                          text:
+                              "By submitting your quote, you are accepting the Jewels Airport Transfers ",
                           style: const TextStyle(
                             color: kBlackColor,
                             fontSize: 14.0,
@@ -262,8 +294,8 @@ class UpcomingJobDetailScreen extends StatelessWidget {
         _buildChip('Dropped'),
         _buildChip('Call Office'),
         GestureDetector(
-            onTap: (){
-              Get.to( () => const JobPage());
+            onTap: () {
+              Get.to(() => const JobPage());
             },
             child: _buildChip('Push Job to Driver')),
       ],

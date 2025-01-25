@@ -99,6 +99,11 @@ class AppTheme {
         errorBorder: outlineInputBorder,
         iconColor: kWhiteColor,
         filled: true,
+        prefixStyle: TextStyle(
+          color: kBlackColor,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+        ),
         hintStyle: TextStyle(
           color: kWhiteColor,
           fontSize: 14,
