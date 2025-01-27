@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:gap/gap.dart';
-import 'package:jewels_airport_transfers/constants/extension.dart';
-import 'package:jewels_airport_transfers/screens/start_screen.dart';
-import 'package:jewels_airport_transfers/screens/supplier/upcoimg_job_detail_screen.dart';
-
 import '../../Widgets/buttons/custom_widgets.dart';
-import '../../Widgets/buttons/k_elevated_button.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import '../../gen/assets.gen.dart';
-import 'add_driver_screen.dart';
-
 
 class CompletedJobsScreen extends StatelessWidget {
-  const CompletedJobsScreen({Key? key}) : super(key: key);
+  const CompletedJobsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +13,7 @@ class CompletedJobsScreen extends StatelessWidget {
       thumbVisibility: true,
       interactive: true,
       scrollbarOrientation: ScrollbarOrientation.right,
-      radius: Radius.circular(20),
+      radius: const Radius.circular(20),
       trackVisibility: true,
       thickness: 10,
       child: Column(
@@ -36,8 +27,6 @@ class CompletedJobsScreen extends StatelessWidget {
               },
             ),
           ),
-
-          // Add Driver Butto
         ],
       ),
     );
@@ -69,11 +58,10 @@ class CompletedJobsScreen extends StatelessWidget {
                   Expanded(
                     child: buildIconTextRow(
                         icon: Icons.edit_note,
-                        text: "Ref",
+                        text: refrence,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.w700,
-                        data: "098937587623"
-                    ),
+                        data: data),
                   ),
                 ],
               ),
@@ -91,7 +79,7 @@ class CompletedJobsScreen extends StatelessWidget {
                   Expanded(
                     child: buildIconTextRow(
                       icon: Icons.alarm,
-                      text: "12:30 AM",
+                      text: timeHours,
                       textColor: kBlackColor,
                       fontWeight: FontWeight.w400,
                     ),
@@ -103,16 +91,16 @@ class CompletedJobsScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: buildTextRow(
-                      text: "Driver: ",
-                      data: "Adnan",
+                      text: driver,
+                      data: driverName,
                       textColor: kBlackColor,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                   Expanded(
                     child: buildTextRow(
-                      text: "Amount: ",
-                      data: "£ 897",
+                      text: amount,
+                      data: dollars,
                       textColor: kBlackColor,
                       fontWeight: FontWeight.w400,
                     ),
@@ -125,6 +113,4 @@ class CompletedJobsScreen extends StatelessWidget {
       ),
     );
   }
-
 }
-

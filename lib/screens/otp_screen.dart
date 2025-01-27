@@ -33,7 +33,7 @@ class OTPScreen extends StatelessWidget {
                         ),
                   ),
                   Text(
-                    code,
+                    enterVerficationCode,
                     style: Theme.of(context)
                         .textTheme
                         .labelSmall
@@ -68,7 +68,7 @@ class OTPScreen extends StatelessWidget {
                   Center(
                     child: RichText(
                       text: TextSpan(
-                        text: receive,
+                        text: didNotReceiveCode,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
@@ -85,23 +85,24 @@ class OTPScreen extends StatelessWidget {
                                   decoration: TextDecoration.underline,
                                 ),
                           ),
-
                         ],
                       ),
                     ),
                   ),
                   const Gap(40),
+
                   /// add new button
 
                   Center(
                     child: KElevatedButton(
                       onPressed: () {
-                        Get.to(() => const SupplierHomeScreen(isDriver: false,));
+                        Get.to(() => const SupplierHomeScreen(
+                              isDriver: false,
+                            ));
                       },
                       text: (verify),
                     ),
                   ),
-
                 ],
               ),
             ),

@@ -47,7 +47,7 @@ class _SupplierScreenState extends State<SupplierScreen> {
             ),
             const Gap(2),
             Text(
-              signIn,
+              signInToContinue,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: kWhiteColor,
                     fontWeight: FontWeight.w400,
@@ -57,7 +57,7 @@ class _SupplierScreenState extends State<SupplierScreen> {
             // Using IntlPhoneField for phone input
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child:  PhoneInputField(
+              child: PhoneInputField(
                 // initialCountryCode: profileController.countryCode.value.text,
                 initialCountryCode: "GB",
                 fillColor: kTransparent,

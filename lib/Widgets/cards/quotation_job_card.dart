@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/Widgets/cards/quotation_details_card.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import '../../screens/supplier/upcoimg_job_detail_screen.dart';
 import '../buttons/custom_widgets.dart';
 
 class QuotationJobCard extends StatelessWidget {
@@ -14,7 +13,6 @@ class QuotationJobCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return quotationJobCard(context);
   }
-
 
   Widget quotationJobCard(BuildContext context) {
     return Padding(
@@ -47,19 +45,18 @@ class QuotationJobCard extends StatelessWidget {
                             ),
                             Expanded(
                               child: buildIconTextRow(
-                                icon: Icons.edit_note,
-                                text: "Ref",
-                                textColor: kBlackColor,
-                                fontWeight: FontWeight.w700,
-                                data: "098937587623"
-                              ),
+                                  icon: Icons.edit_note,
+                                  text: refrence,
+                                  textColor: kBlackColor,
+                                  fontWeight: FontWeight.w700,
+                                  data: data),
                             ),
                           ],
                         ),
                         const Gap(10),
                         buildIconTextRow(
                           icon: Icons.location_on,
-                          text: doted,
+                          text: lahorePakistanIslambad,
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -67,7 +64,7 @@ class QuotationJobCard extends StatelessWidget {
                         buildIconTextRow(
                           icon: Icons.location_on,
                           iconColor: kRedColor,
-                          text: doted,
+                          text: lahorePakistanIslambad,
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -75,8 +72,8 @@ class QuotationJobCard extends StatelessWidget {
                         buildIconTextRow(
                           icon: Icons.route_outlined,
                           iconColor: kRedColor,
-                          text: "Approx",
-                          data: "25 miles",
+                          text: approximate,
+                          data: miles,
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -99,7 +96,7 @@ class QuotationJobCard extends StatelessWidget {
                     child: buildIconTextRow(
                       icon: Icons.alarm,
                       iconColor: kRedColor,
-                      text: "12:30 AM",
+                      text: timeHours,
                       textColor: kBlackColor,
                       fontWeight: FontWeight.w400,
                     ),
@@ -109,7 +106,7 @@ class QuotationJobCard extends StatelessWidget {
                       onPressed: () {
                         Get.to(() => const QuotationDetailsCard());
                       },
-                      child: Text(details),
+                      child: const Text(viewDetails),
                     ),
                   ),
                 ],
@@ -120,5 +117,4 @@ class QuotationJobCard extends StatelessWidget {
       ),
     );
   }
-
 }

@@ -13,8 +13,9 @@ class QuotationDetailsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Quotation Details"),
-        leading: LeadingButton(), // Assuming this is your custom back button
+        title: const Text(quotationDetails),
+        leading:
+            const LeadingButton(), // Assuming this is your custom back button
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -37,7 +38,7 @@ class QuotationDetailsCard extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.directions_car,
-                              text: "Saloon",
+                              text: saloon,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.w700,
                             ),
@@ -45,8 +46,8 @@ class QuotationDetailsCard extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.edit_note,
-                              text: "Ref:",
-                              data: "098937587623",
+                              text: refrence,
+                              data: data,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.w700,
                             ),
@@ -57,8 +58,8 @@ class QuotationDetailsCard extends StatelessWidget {
                       buildIconTextRow(
                         icon: Icons.radio_button_checked,
                         iconColor: kgreenColor,
-                        text: "Pickup:",
-                        data: "Location A",
+                        text: pickUp,
+                        data: locationA,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -66,8 +67,8 @@ class QuotationDetailsCard extends StatelessWidget {
                       buildIconTextRow(
                         icon: Icons.location_on,
                         iconColor: kRedColor,
-                        text: "Drop-off:",
-                        data: "Location B",
+                        text: dropOff,
+                        data: locationB,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -77,8 +78,8 @@ class QuotationDetailsCard extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.timeline,
-                              text: "Approx:",
-                              data: "25 Miles",
+                              text: approximate,
+                              data: miles,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -86,8 +87,8 @@ class QuotationDetailsCard extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.handshake,
-                              text: "Meet & Greet:",
-                              data: "Yes",
+                              text: meetAndGreet,
+                              data: yes,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -100,8 +101,7 @@ class QuotationDetailsCard extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.calendar_today,
-                              text: "Date:",
-                              data: "17 July 2025",
+                              text: date,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -109,8 +109,8 @@ class QuotationDetailsCard extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.access_time,
-                              text: "Time:",
-                              data: "10:00 AM",
+                              text: time,
+                              data: timeHours,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -132,19 +132,19 @@ class QuotationDetailsCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
+                      const Row(
                         children: [
                           Text(
-                            "Submit Your Quote:",
+                            submitYourQuote,
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
                               color: kBlackColor,
                             ),
                           ),
-                          const Spacer(),
+                          Spacer(),
                           Text(
-                            "Guide Price £76.00",
+                            guidePrice,
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
@@ -155,17 +155,16 @@ class QuotationDetailsCard extends StatelessWidget {
                       ),
                       const Gap(15),
                       TextInputFieldWidget(
-                        hintText: "Quote Here",
-                        prefixText: "£ ",
+                        hintText: quoteHere,
+                        prefixText: euro,
                       ),
-                      Gap(15),
-
+                      const Gap(15),
                       FilledButton(
                         onPressed: () {
                           // Handle submit action
                         },
                         child: const Text(
-                          "Submit",
+                          submit,
                           style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,
@@ -184,14 +183,14 @@ class QuotationDetailsCard extends StatelessWidget {
                           Expanded(
                             child: RichText(
                               text: TextSpan(
-                                text: "By submitting your quote, you are accepting the Jewels Airport Transfers ",
-                                style: TextStyle(
+                                text: bySubmitingYourQuote,
+                                style: const TextStyle(
                                   color: kBlackColor,
                                   fontSize: 14.0,
                                 ),
                                 children: [
                                   TextSpan(
-                                    text: "terms and conditions",
+                                    text: termsAndConditions,
                                     style: TextStyle(
                                       color: kPrimaryColor,
                                       decoration: TextDecoration.underline,
@@ -207,12 +206,12 @@ class QuotationDetailsCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Gap(20),
-              Card(
+              const Gap(20),
+              const Card(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(jobInstructions),
-                  )),
+                padding: EdgeInsets.all(8.0),
+                child: Text(jobInstructions),
+              )),
             ],
           ),
         ),
