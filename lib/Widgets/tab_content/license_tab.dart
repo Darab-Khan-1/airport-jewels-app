@@ -40,18 +40,18 @@ class LicenseTabContent extends StatelessWidget {
 
           RichText(
             text: const TextSpan(
-              text: form,
+              text: pleaseFillForm,
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w400,
                   fontSize: 13),
               children: [
                 TextSpan(
-                  text: sale,
+                  text: saleJewelsAirport,
                   style: TextStyle(color: kBlackColor, fontSize: 13),
                 ),
                 TextSpan(
-                  text: along,
+                  text: alongWithCopies,
                   style: TextStyle(
                       color: kBlackColor,
                       fontWeight: FontWeight.normal,
@@ -63,7 +63,7 @@ class LicenseTabContent extends StatelessWidget {
           const Gap(10),
           RichText(
             text: TextSpan(
-              text: form,
+              text: pleaseFillForm,
               style: Theme.of(context)
                   .textTheme
                   .labelMedium
@@ -72,24 +72,24 @@ class LicenseTabContent extends StatelessWidget {
           ),
           const Gap(2),
           // Reusable checkbox row widget
-          _buildCheckboxRow(hire),
-          _buildCheckboxRow(hire1),
-          _buildCheckboxRow(hire2),
+          _buildCheckboxRow(privateHireOperator),
+          _buildCheckboxRow(privateHireDriver),
+          _buildCheckboxRow(hackneyCarriage),
           RichText(
             text: TextSpan(
-              text: form,
+              text: pleaseFillForm,
               style: Theme.of(context)
                   .textTheme
                   .labelMedium
                   ?.copyWith(color: kBlackColor, fontWeight: FontWeight.w400),
               children: [
                 TextSpan(
-                  text: sale,
+                  text: saleJewelsAirport,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: kBlackColor, fontWeight: FontWeight.w400),
                 ),
                 TextSpan(
-                  text: along,
+                  text: alongWithCopies,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: kBlackColor, fontWeight: FontWeight.w400),
                 ),

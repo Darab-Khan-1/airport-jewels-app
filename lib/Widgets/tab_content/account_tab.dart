@@ -31,85 +31,50 @@ class AccountTabContent extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                name1,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const Gap(8),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: klightgreyColor),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  hintText: name1,
-                  cursorsColor: kBlackColor,
-                ),
+              TextInputFieldWidget(
+                hintText: name1,
+                isLableRequired: true,
+                title: name1,
+                cursorsColor: kBlackColor,
               ),
               const Gap(10),
-              Text(
-                email,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const Gap(8),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: klightgreyColor),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  hintText: email2,
-                  cursorsColor: kBlackColor,
-                  textInputType: TextInputType.emailAddress,
-                ),
+              TextInputFieldWidget(
+                hintText: businessName,
+                title: businessName,
+                isLableRequired: true,
+                cursorsColor: kBlackColor,
               ),
               const Gap(10),
-              Text(
-                mobileNumber1,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+              TextInputFieldWidget(
+                hintText: enterEmail,
+                title: email,
+                isLableRequired: true,
+                cursorsColor: kBlackColor,
+                textInputType: TextInputType.emailAddress,
               ),
-              const Gap(8),
-              Container(
-                height: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  border: Border.all(color: klightgreyColor),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: TextInputFieldWidget(
-                  hintText: mobileNumber2,
-                  cursorsColor: kBlackColor,
-                  textInputType: TextInputType.phone,
-                ),
+              const Gap(10),
+              TextInputFieldWidget(
+                hintText: enterMobileNumber,
+                title: mobileNumber,
+                isLableRequired: true,
+                cursorsColor: kBlackColor,
+                textInputType: TextInputType.phone,
               ),
               const Gap(10),
               RichText(
                 text: TextSpan(
-                  text: form,
+                  text: pleaseFillForm,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: kBlackColor, fontWeight: FontWeight.normal),
                   children: [
                     TextSpan(
-                      text: sale,
+                      text: saleJewelsAirport,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: kMainColor,
                           ),
                     ),
                     TextSpan(
-                      text: along,
+                      text: alongWithCopies,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: kBlackColor, fontWeight: FontWeight.normal),
                     ),
@@ -117,14 +82,11 @@ class AccountTabContent extends StatelessWidget {
                 ),
               ),
               const Gap(10),
-              Align(
-                alignment: Alignment.center,
-                child: KElevatedButton1(
-                  onPressed: () {
-                    // Add driver logic here
-                  },
-                  text: next,
-                ),
+              FilledButton(
+                onPressed: () {
+                  // Add driver logic here
+                },
+                child: Text(next),
               ),
             ],
           ),

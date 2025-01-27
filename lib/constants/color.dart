@@ -13,7 +13,7 @@ Map<int, Color> color = {
   900: const Color.fromRGBO(255, 255, 255, 1),
 };
 
-const int _mainColor = 0xFF0061BD;
+const int _mainColor = 0xFF2594FC;
 MaterialColor kPrimaryColor = MaterialColor(_mainColor, color);
 
 const Color kMainColor = Color(_mainColor);

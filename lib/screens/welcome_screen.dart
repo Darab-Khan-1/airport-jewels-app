@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/screens/driver/driver_upcoming_screen.dart';
 import 'package:jewels_airport_transfers/screens/registration_form_screen/registrartion_form_screen.dart';
+import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier_screen.dart';
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../constants/color.dart';
@@ -29,20 +30,25 @@ class WelcomeScreen extends StatelessWidget {
               welcomeBack,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     decorationColor: kWhiteColor,
+                    color: kWhiteColor,
                   ),
             ),
             const Gap(2),
             Text(
-              signIn,
+              signInToContinue,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  decorationColor: kWhiteColor, fontWeight: FontWeight.w400),
+                  decorationColor: kWhiteColor,
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.w400),
             ),
             const Gap(140),
 
             Text(
-              logIn,
+              logInAs,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  decorationColor: kWhiteColor, fontWeight: FontWeight.bold),
+                  decorationColor: kWhiteColor,
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.bold),
             ),
 
             const Gap(10),
@@ -55,9 +61,11 @@ class WelcomeScreen extends StatelessWidget {
                   Expanded(
                     child: KElevatedButtons(
                       onPressed: () {
-                        Get.to(() => const DriverUpcomingScreen());
+                        Get.to(() => const SupplierHomeScreen(
+                              isDriver: true,
+                            ));
                       },
-                      text: driver,
+                      text: partner,
                     ),
                   ),
                   const Gap(20),
@@ -68,7 +76,6 @@ class WelcomeScreen extends StatelessWidget {
                         Get.to(() => const SupplierScreen());
                       },
                       text: supplier,
-                      imagePath: '',
                     ),
                   ),
                 ],
@@ -78,11 +85,14 @@ class WelcomeScreen extends StatelessWidget {
             Center(
               child: RichText(
                 text: TextSpan(
-                  text: become,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  text: becomeADriver,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(color: kWhiteColor),
                   children: [
                     TextSpan(
-                      text: click,
+                      text: clickHere,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: kMainColor,
                           ),

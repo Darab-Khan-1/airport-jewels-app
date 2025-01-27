@@ -20,7 +20,7 @@ class DetailScreen extends StatelessWidget {
           },
         ),
         title: Text(
-          instructions,
+          driverInstructions,
           style: Theme.of(context)
               .textTheme
               .titleMedium
@@ -56,7 +56,7 @@ class DetailScreen extends StatelessWidget {
                             ),
                             const Gap(10), // Add space between icon and text
                             Text(
-                              pickup,
+                              pickUp,
                               style: Theme.of(context)
                                   .textTheme
                                   .labelSmall
@@ -72,7 +72,7 @@ class DetailScreen extends StatelessWidget {
                             RotatedBox(
                               quarterTurns: 3, // Rotates the text vertically
                               child: Text(
-                                doted,
+                                lahorePakistanIslambad,
                                 style: Theme.of(context)
                                     .textTheme
                                     .labelMedium
@@ -141,7 +141,7 @@ class DetailScreen extends StatelessWidget {
 
                       // Vehicle and Language
                       Text(
-                        vehicle,
+                        vehicleAndLanguage,
                         style: Theme.of(context)
                             .textTheme
                             .labelSmall
@@ -207,7 +207,7 @@ class DetailScreen extends StatelessWidget {
                           ),
                           const Gap(10),
                           Text(
-                            johe,
+                            jeoDhon,
                             style: Theme.of(context)
                                 .textTheme
                                 .labelSmall
@@ -237,7 +237,7 @@ class DetailScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            passenger,
+                            noOfPassenger,
                             style: Theme.of(context)
                                 .textTheme
                                 .labelSmall
@@ -257,7 +257,7 @@ class DetailScreen extends StatelessWidget {
 
                       // Services Information
                       Text(
-                        services,
+                        serviceInformation,
                         style: Theme.of(context)
                             .textTheme
                             .labelSmall
@@ -274,7 +274,7 @@ class DetailScreen extends StatelessWidget {
                           ),
                           const Gap(10),
                           Text(
-                            johe,
+                            jeoDhon,
                             style: Theme.of(context)
                                 .textTheme
                                 .labelSmall
@@ -346,7 +346,7 @@ class DetailScreen extends StatelessWidget {
                       Center(
                         child: RichText(
                           text: TextSpan(
-                            text: instructions1,
+                            text: instructionForAllJourney,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium

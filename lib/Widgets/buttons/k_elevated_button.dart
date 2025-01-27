@@ -70,13 +70,12 @@ class SocialButton extends StatelessWidget {
   final double height;
   final void Function()? onPressed;
   final String text;
-  final String imagePath;
+  final String? imagePath;
   const SocialButton(
       {super.key,
       this.height = 50,
       required this.onPressed,
-      required this.text,
-      required this.imagePath});
+      required this.text, this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +90,8 @@ class SocialButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(imagePath),
+            imagePath !=null?
+            SvgPicture.asset(imagePath!) : SizedBox(),
             const Gap(10),
             Text(
               text,

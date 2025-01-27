@@ -57,7 +57,7 @@ class PushJobScreen extends StatelessWidget {
           },
         ),
         title: Text(
-          push,
+          pushJobDriver,
           style: Theme.of(context).textTheme.labelMedium?.copyWith(
                 color: kWhiteColor,
                 fontWeight: FontWeight.bold,

@@ -7,7 +7,6 @@ import '../../Widgets/tab_content/account_tab.dart';
 import '../../Widgets/tab_content/fleet_tab.dart';
 import '../../Widgets/tab_content/license_tab.dart';
 import '../../Widgets/tab_content/payment_tab.dart';
-import '../../Widgets/tab_content/personal_tab.dart';
 import '../../controlller/registration_form_controller.dart';
 import '../../models/tab_data/tab_data.dart';
 
@@ -26,7 +25,6 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
 
   final List<TabData> _tabs = [
     TabData(icon: Icons.lock, label: account1),
-    TabData(icon: Icons.person, label: personal1),
     TabData(icon: Icons.credit_card, label: payment1),
     TabData(icon: Icons.badge_outlined, label: license),
     TabData(icon: Icons.directions_car, label: fleet1),
@@ -66,7 +64,7 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
         onPressed: () => Navigator.pop(context),
       ),
       title: Text(
-        registrartion,
+        registrartionForm,
         style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: kWhiteColor,
               fontWeight: FontWeight.bold,
@@ -92,20 +90,20 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
       ),
       child: RichText(
         text: TextSpan(
-          text: form,
+          text: pleaseFillForm,
           style: Theme.of(context)
               .textTheme
               .bodyMedium
               ?.copyWith(color: kBlackColor, fontWeight: FontWeight.normal),
           children: [
             TextSpan(
-              text: sale,
+              text: saleJewelsAirport,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: kMainColor,
                   ),
             ),
             TextSpan(
-              text: along,
+              text: alongWithCopies,
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium
@@ -145,7 +143,6 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
         controller: _tabController,
         children: const [
           AccountTabContent(),
-          PersonalTabContent(),
           PaymentTabContent(),
           LicenseTabContent(),
           FleetTabContent(),

@@ -20,7 +20,7 @@ class FleetTabContent extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              fleet,
+              fleetDetails,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                   color: kBlackColor,
                   fontWeight: FontWeight.bold,
@@ -32,19 +32,19 @@ class FleetTabContent extends StatelessWidget {
 
           RichText(
             text: TextSpan(
-              text: form,
+              text: pleaseFillForm,
               style: Theme.of(context)
                   .textTheme
                   .labelMedium
                   ?.copyWith(color: kBlackColor, fontWeight: FontWeight.w400),
               children: [
                 TextSpan(
-                  text: sale,
+                  text: saleJewelsAirport,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: kBlackColor, fontWeight: FontWeight.w400),
                 ),
                 TextSpan(
-                  text: along,
+                  text: alongWithCopies,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: kBlackColor, fontWeight: FontWeight.w400),
                 ),
@@ -55,13 +55,13 @@ class FleetTabContent extends StatelessWidget {
           const Gap(5),
 
           // Reusable checkbox row widget
-          _buildCustomCheckbox(sallon),
+          _buildCustomCheckbox(sallonCar),
 
-          _buildCustomCheckbox(estate),
+          _buildCustomCheckbox(estateCar),
 
-          _buildCustomCheckbox(excutive),
+          _buildCustomCheckbox(excutiveCar),
 
-          _buildCustomCheckbox(carrier),
+          _buildCustomCheckbox(peopleCarrier),
 
           _buildCustomCheckbox(mervian),
 

@@ -138,7 +138,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                               color: Colors.blue,
                                             ),
                                             Text(
-                                              doted,
+                                              lahorePakistanIslambad,
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .labelMedium
@@ -194,7 +194,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                           onPressed: () {
                                             Get.to(() => const DetailScreen());
                                           },
-                                          text: details,
+                                          text: viewDetails,
                                         ),
                                       ],
                                     ),
@@ -279,7 +279,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                               color: Colors.blue,
                                             ),
                                             Text(
-                                              doted,
+                                              lahorePakistanIslambad,
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .labelMedium
@@ -335,7 +335,7 @@ class DriverUpcomingScreen extends StatelessWidget {
                                           onPressed: () {
                                             Get.to(() => const DetailScreen());
                                           },
-                                          text: details,
+                                          text: viewDetails,
                                         ),
                                       ],
                                     ),

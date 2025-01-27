@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:jewels_airport_transfers/constants/extension.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:jewels_airport_transfers/screens/welcome_screen.dart';
 
@@ -32,19 +31,24 @@ class StartScreen extends StatelessWidget {
               appName,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     decorationColor: kWhiteColor,
+                    color: kWhiteColor,
                   ),
             ),
             const Gap(130),
             Text(
               becomeDriver,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  decorationColor: kWhiteColor, fontWeight: FontWeight.w500),
+                  decorationColor: kWhiteColor,
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.w500),
             ),
             const Gap(10),
             Text(
-              journey,
+              becomeDriverJourney,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                  decorationColor: kWhiteColor, fontWeight: FontWeight.w400),
+                  decorationColor: kWhiteColor,
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.w400),
             ),
             const Gap(10),
             Center(

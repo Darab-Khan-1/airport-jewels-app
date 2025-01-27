@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
-import 'package:jewels_airport_transfers/screens/supplier/supplier_upcoming_screen.dart';
+import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.dart';
 import 'package:pinput/pinput.dart';
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../gen/assets.gen.dart';
@@ -33,7 +33,7 @@ class OTPScreen extends StatelessWidget {
                         ),
                   ),
                   Text(
-                    code,
+                    enterVerficationCode,
                     style: Theme.of(context)
                         .textTheme
                         .labelSmall
@@ -68,7 +68,7 @@ class OTPScreen extends StatelessWidget {
                   Center(
                     child: RichText(
                       text: TextSpan(
-                        text: receive,
+                        text: didNotReceiveCode,
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
@@ -90,10 +90,15 @@ class OTPScreen extends StatelessWidget {
                     ),
                   ),
                   const Gap(40),
+
+                  /// add new button
+
                   Center(
                     child: KElevatedButton(
                       onPressed: () {
-                        Get.to(() => const SupplierUpcomingScreen());
+                        Get.to(() => const SupplierHomeScreen(
+                              isDriver: false,
+                            ));
                       },
                       text: (verify),
                     ),
