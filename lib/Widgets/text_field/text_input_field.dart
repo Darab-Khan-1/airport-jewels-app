@@ -118,7 +118,7 @@ class TextInputFieldWidget extends StatelessWidget {
               prefixIcon: prefixIcon == null
                   ? null
                   : Padding(
-                      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                      padding: const EdgeInsets.only(left: 10.0, right: 0.0),
                       child: prefixIcon,
                     ),
               suffixIcon: suffixIcon,

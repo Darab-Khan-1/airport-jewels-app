@@ -168,8 +168,10 @@ class DriverCard extends StatelessWidget {
                   ],
                 ),
                 const Gap(10),
+                const Text("You can edit the driver fare you wish to assign for in the box below."),
                 TextInputFieldWidget(
                   initialValue: amount,
+                  prefixIcon: const Text(euro),
                   textInputType: TextInputType.number,
                   onChange: onAmountChange,
                 ),
