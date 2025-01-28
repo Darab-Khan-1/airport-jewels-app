@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
-import 'package:jewels_airport_transfers/constants/extension.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
 
 class JobPage extends StatefulWidget {
-  const JobPage({Key? key}) : super(key: key);
+  const JobPage({super.key});
 
   @override
   State<JobPage> createState() => _JobPageState();
@@ -50,7 +49,7 @@ class _JobPageState extends State<JobPage> {
     return Scaffold(
       appBar: AppBar(
         leading: const BackButton(),
-        title: const Text(push),
+        title: const Text(pushJobDriver),
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(10),
@@ -86,7 +85,6 @@ class _JobPageState extends State<JobPage> {
   }
 }
 
-
 class DriverCard extends StatelessWidget {
   final String name;
   final String email;
@@ -100,7 +98,7 @@ class DriverCard extends StatelessWidget {
   final VoidCallback onAssign;
 
   const DriverCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.email,
     required this.phone,
@@ -111,7 +109,7 @@ class DriverCard extends StatelessWidget {
     required this.onDelete,
     required this.onAmountChange,
     required this.onAssign,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -149,9 +147,12 @@ class DriverCard extends StatelessWidget {
                         children: [
                           Text(
                             name,
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                           Text(
                             'Email: $email',
@@ -172,23 +173,25 @@ class DriverCard extends StatelessWidget {
                   textInputType: TextInputType.number,
                   onChange: onAmountChange,
                 ),
-                Gap(10),
+                const Gap(10),
                 Row(
                   children: [
                     Expanded(
                       child: FilledButton(
                         onPressed: onAssign,
-                        child: const Text("Assign"),
+                        child: const Text(assign),
                       ),
                     ),
-                    Gap(10),
+                    const Gap(10),
                     Expanded(
                       child: FilledButton(
                         onPressed: onDelete,
-                        style: Theme.of(context).filledButtonTheme.style?.copyWith(
-                          backgroundColor: WidgetStatePropertyAll(kRedColor),
-                        ),
-                        child: const Text("Delete Driver"),
+                        style:
+                            Theme.of(context).filledButtonTheme.style?.copyWith(
+                                  backgroundColor:
+                                      const WidgetStatePropertyAll(kRedColor),
+                                ),
+                        child: const Text(deleteDriver),
                       ),
                     ),
                   ],

@@ -46,7 +46,7 @@ class AccountTabContent extends StatelessWidget {
               ),
               const Gap(10),
               TextInputFieldWidget(
-                hintText: email2,
+                hintText: enterEmail,
                 title: email,
                 isLableRequired: true,
                 cursorsColor: kBlackColor,
@@ -54,7 +54,7 @@ class AccountTabContent extends StatelessWidget {
               ),
               const Gap(10),
               TextInputFieldWidget(
-                hintText: mobileNumber2,
+                hintText: enterMobileNumber,
                 title: mobileNumber,
                 isLableRequired: true,
                 cursorsColor: kBlackColor,
@@ -63,18 +63,18 @@ class AccountTabContent extends StatelessWidget {
               const Gap(10),
               RichText(
                 text: TextSpan(
-                  text: form,
+                  text: pleaseFillForm,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: kBlackColor, fontWeight: FontWeight.normal),
                   children: [
                     TextSpan(
-                      text: sale,
+                      text: saleJewelsAirport,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: kMainColor,
                           ),
                     ),
                     TextSpan(
-                      text: along,
+                      text: alongWithCopies,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: kBlackColor, fontWeight: FontWeight.normal),
                     ),

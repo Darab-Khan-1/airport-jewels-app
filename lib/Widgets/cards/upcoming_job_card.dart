@@ -14,7 +14,6 @@ class UpcomingJobCard extends StatelessWidget {
     return quotationJobCard(context);
   }
 
-
   Widget quotationJobCard(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
@@ -47,18 +46,17 @@ class UpcomingJobCard extends StatelessWidget {
                             Expanded(
                               child: buildIconTextRow(
                                   icon: Icons.edit_note,
-                                  text: "Ref",
+                                  text: refrence,
                                   textColor: kBlackColor,
                                   fontWeight: FontWeight.w700,
-                                  data: "098937587623"
-                              ),
+                                  data: data),
                             ),
                           ],
                         ),
                         const Gap(10),
                         buildIconTextRow(
                           icon: Icons.location_on,
-                          text: doted,
+                          text: lahorePakistanIslambad,
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -66,7 +64,7 @@ class UpcomingJobCard extends StatelessWidget {
                         buildIconTextRow(
                           icon: Icons.location_on,
                           iconColor: kRedColor,
-                          text: doted,
+                          text: lahorePakistanIslambad,
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -74,8 +72,8 @@ class UpcomingJobCard extends StatelessWidget {
                         buildIconTextRow(
                           icon: Icons.route_outlined,
                           iconColor: kRedColor,
-                          text: "Approx",
-                          data: "25 miles",
+                          text: approximate,
+                          data: miles,
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -98,7 +96,7 @@ class UpcomingJobCard extends StatelessWidget {
                     child: buildIconTextRow(
                       icon: Icons.alarm,
                       iconColor: kRedColor,
-                      text: "12:30 AM",
+                      text: timeHours,
                       textColor: kBlackColor,
                       fontWeight: FontWeight.w400,
                     ),
@@ -108,7 +106,7 @@ class UpcomingJobCard extends StatelessWidget {
                       onPressed: () {
                         Get.to(() => const UpcomingJobDetailScreen());
                       },
-                      child: Text(details),
+                      child: const Text(viewDetails),
                     ),
                   ),
                 ],
@@ -119,5 +117,4 @@ class UpcomingJobCard extends StatelessWidget {
       ),
     );
   }
-
 }

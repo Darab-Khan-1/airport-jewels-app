@@ -42,7 +42,7 @@ class CustomAlertDialogScreenState extends State<CustomAlertDialogScreen> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      added,
+                      successfullyAdded,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
                             color: kBlackColor,
                             fontWeight: FontWeight.w500,
@@ -52,7 +52,7 @@ class CustomAlertDialogScreenState extends State<CustomAlertDialogScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Text(
-                      sucessfully,
+                      driverSucessfullyAdded,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: kBlackColor, fontWeight: FontWeight.w300),
                       textAlign: TextAlign.center,

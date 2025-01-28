@@ -23,7 +23,7 @@ class SupplierHomeScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: kBlueColor,
           title: const Text(appName1),
-          leading: SizedBox(),
+          leading: const SizedBox(),
         ),
         body: Column(
           children: [
@@ -32,8 +32,8 @@ class SupplierHomeScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  QuotationJobScreen(),
-                  AvailabilityJobScreen(),
+                  const QuotationJobScreen(),
+                  const AvailabilityJobScreen(),
                   const UpcomingTripsScreen(),
                   const CompletedJobsScreen(),
                   _buildCommentsSection(context),
@@ -42,16 +42,17 @@ class SupplierHomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        bottomNavigationBar: isDriver! ?  null:
-        Padding(
-          padding: const EdgeInsets.all(7.0),
-          child: KElevatedButton2(
-            onPressed: () {
-              Get.to(() =>  AddDriverScreen());
-            },
-            text: adddriver,
-          ),
-        ),
+        bottomNavigationBar: isDriver!
+            ? null
+            : Padding(
+                padding: const EdgeInsets.all(7.0),
+                child: KElevatedButton2(
+                  onPressed: () {
+                    Get.to(() => AddDriverScreen());
+                  },
+                  text: addDriver,
+                ),
+              ),
       ),
     );
   }
@@ -106,18 +107,19 @@ class SupplierHomeScreen extends StatelessWidget {
         text: TextSpan(
           text: comment1,
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-            color: kBlackColor,
-            fontWeight: FontWeight.normal,
-          ),
+                color: kBlackColor,
+                fontWeight: FontWeight.normal,
+              ),
           children: [
             TextSpan(
               text: authorized,
-              recognizer: TapGestureRecognizer()..onTap = () {
-                // Add tap logic here if required
-              },
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  // Add tap logic here if required
+                },
               style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: kBlueColor,
-              ),
+                    color: kBlueColor,
+                  ),
             ),
           ],
         ),

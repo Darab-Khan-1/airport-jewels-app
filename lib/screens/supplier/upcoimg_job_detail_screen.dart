@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -17,7 +16,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
       appBar: AppBar(
         leading: const LeadingButton(),
         title: const Text(
-          instructions,
+          driverInstructions,
         ),
       ),
       body: Padding(
@@ -40,7 +39,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.directions_car,
-                              text: "Saloon",
+                              text: saloon,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.w700,
                             ),
@@ -48,8 +47,8 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.edit_note,
-                              text: "Ref:",
-                              data: "09893758762",
+                              text: refrence,
+                              data: data,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.w700,
                             ),
@@ -58,39 +57,39 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                       ),
                       const Gap(10),
                       Text(
-                        "Vehicle Description: ",
+                        vehicleDescription,
                         style: Theme.of(context).textTheme.labelLarge!.copyWith(
                               fontSize: 16,
                             ),
                       ),
                       Text(
-                        "This vehicle can accommodate up to 4 passengers travelling with 4 x 23 kg's suitcases.",
+                        vehicleCanAccomodate,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
-                      Gap(10),
+                      const Gap(10),
                       buildIconTextRow(
                         icon: Icons.person,
                         iconColor: kBlackColor,
-                        text: "Passenger:",
-                        data: "3",
+                        text: passeneger,
+                        data: passengerData,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
-                      Gap(10),
+                      const Gap(10),
                       buildIconTextRow(
                         icon: Icons.luggage,
                         iconColor: kPurpleColor,
-                        text: "Luggage:",
-                        data: "Suitcase",
+                        text: lauggage,
+                        data: lauggageType,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
-                      Gap(10),
+                      const Gap(10),
                       buildIconTextRow(
                         icon: Icons.radio_button_checked,
                         iconColor: kgreenColor,
-                        text: "Pickup:",
-                        data: "Location A",
+                        text: pickUp,
+                        data: locationA,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -98,8 +97,8 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                       buildIconTextRow(
                         icon: Icons.location_on,
                         iconColor: kRedColor,
-                        text: "Drop-off:",
-                        data: "Location B",
+                        text: dropOff,
+                        data: locationB,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -109,8 +108,8 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.timeline,
-                              text: "Approx:",
-                              data: "25 Miles",
+                              text: approximate,
+                              data: miles,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -118,8 +117,8 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.handshake,
-                              text: "Meet & Greet:",
-                              data: "Yes",
+                              text: meetAndGreet,
+                              data: yes,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -132,8 +131,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.calendar_today,
-                              text: "Date:",
-                              data: "17 July 2025",
+                              text: date,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -141,8 +139,8 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                           Expanded(
                             child: buildIconTextRow(
                               icon: Icons.access_time,
-                              text: "Time:",
-                              data: "10:00 AM",
+                              text: time,
+                              data: timeHours,
                               textColor: kBlackColor,
                               fontWeight: FontWeight.bold,
                             ),
@@ -165,22 +163,22 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Passenger Information:",
+                        passengerInformation,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
                               fontSize: 18,
                             ),
                       ),
                       const Gap(10),
                       buildTextRow(
-                        text: "Name:",
-                        data: "Passenger Name",
+                        text: name,
+                        data: passenegerName,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
                       const Gap(5),
                       buildTextRow(
-                        text: "Mobile:",
-                        data: "0000-0000000",
+                        text: mobile,
+                        data: mobileDigits,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -199,7 +197,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Service Information:",
+                        serviceInformation,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
                               fontSize: 18,
                             ),
@@ -213,7 +211,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                       const Gap(10),
                       buildIconTextRow(
                         icon: Icons.flight_land_outlined,
-                        text: "Lahore",
+                        text: lahore,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -221,12 +219,12 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "Fare Accepted:",
+                            fareAccepted,
                             style: Theme.of(context).textTheme.labelLarge,
                           ),
                           const Gap(10),
                           const Text(
-                            "£76.00",
+                            dollars,
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
@@ -253,15 +251,14 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                     Expanded(
                       child: RichText(
                         text: TextSpan(
-                          text:
-                              "By submitting your quote, you are accepting the Jewels Airport Transfers ",
+                          text: bySubmitingYourQuote,
                           style: const TextStyle(
                             color: kBlackColor,
                             fontSize: 14.0,
                           ),
                           children: [
                             TextSpan(
-                              text: "terms and conditions",
+                              text: termsAndConditions,
                               style: TextStyle(
                                 color: kPrimaryColor,
                                 decoration: TextDecoration.underline,
@@ -288,16 +285,16 @@ class UpcomingJobDetailScreen extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: [
-        _buildChip('Alarm'),
-        _buildChip('On Route'),
-        _buildChip('POB'),
-        _buildChip('Dropped'),
-        _buildChip('Call Office'),
+        _buildChip(alarm),
+        _buildChip(onRoute),
+        _buildChip(bop),
+        _buildChip(dropped),
+        _buildChip(callOffice),
         GestureDetector(
             onTap: () {
               Get.to(() => const JobPage());
             },
-            child: _buildChip('Push Job to Driver')),
+            child: _buildChip(pushJobToDriver)),
       ],
     );
   }
@@ -306,7 +303,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
     return Chip(
       label: Text(label),
       backgroundColor: kWhiteColor,
-      side: BorderSide(color: kMainColor),
+      side: const BorderSide(color: kMainColor),
     );
   }
 }

@@ -20,7 +20,7 @@ class PersonalTabContent extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft, // Aligns the text to the left
             child: Text(
-              contact,
+              contactInformation,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                     color: kBlackColor,
                     fontWeight: FontWeight.bold,
@@ -47,7 +47,7 @@ class PersonalTabContent extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextInputFieldWidget(
-                  hintText: name2,
+                  hintText: enterName,
                   cursorsColor: kBlackColor,
                   lable: null,
                 ),
@@ -69,7 +69,7 @@ class PersonalTabContent extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: TextInputFieldWidget(
-                  hintText: email2,
+                  hintText: enterEmail,
                   cursorsColor: kBlackColor,
                   textInputType: TextInputType.emailAddress,
                 ),

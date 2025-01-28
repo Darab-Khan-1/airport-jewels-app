@@ -20,7 +20,7 @@ class PaymentTabContent extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft, // Aligns the text to the left
             child: Text(
-              bank,
+              bankDetails,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                     color: kBlackColor,
                     fontWeight: FontWeight.bold,
@@ -48,7 +48,7 @@ class PaymentTabContent extends StatelessWidget {
               ),
               const Gap(10),
               TextInputFieldWidget(
-                hintText: account2,
+                hintText: digitsAccountNumber,
                 title: account1,
                 isLableRequired: true,
                 cursorsColor: kBlackColor,
@@ -61,7 +61,9 @@ class PaymentTabContent extends StatelessWidget {
                   onPressed: () {
                     // Add driver logic here
                   },
-                  child: Text(next,),
+                  child: Text(
+                    next,
+                  ),
                 ),
               ),
             ],

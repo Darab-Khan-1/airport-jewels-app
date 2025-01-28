@@ -38,7 +38,7 @@ class AddDriverScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                name1,
+                name,
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: kBlackColor,
                       fontWeight: FontWeight.bold,
@@ -47,7 +47,7 @@ class AddDriverScreen extends StatelessWidget {
               const Gap(10),
               TextInputFieldWidget(
                 controller: nameController,
-                hintText: name2,
+                hintText: enterName,
                 cursorsColor: kBlackColor,
                 lable: null,
               ),
@@ -62,7 +62,7 @@ class AddDriverScreen extends StatelessWidget {
               const Gap(8),
               TextInputFieldWidget(
                 controller: emailController,
-                hintText: email2,
+                hintText: enterEmail,
                 cursorsColor: kBlackColor,
                 textInputType: TextInputType.emailAddress,
               ),
@@ -98,7 +98,7 @@ class AddDriverScreen extends StatelessWidget {
                       builder: (BuildContext context) =>
                           const CustomAlertDialogScreen());
                 },
-                child: const Text(adddriver),
+                child: const Text(addDriver),
               ),
             ],
           ),
