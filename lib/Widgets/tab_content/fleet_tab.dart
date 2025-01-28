@@ -61,11 +61,14 @@ class FleetTabContent extends StatelessWidget {
 
           _buildCustomCheckbox(excutiveCar),
 
-          _buildCustomCheckbox(peopleCarrier),
+          _buildCustomCheckbox(executivePeopleCarrier),
 
-          _buildCustomCheckbox(mervian),
+          _buildCustomCheckbox(peopleCarrrier),
 
-          _buildCustomCheckbox(excutive1),
+          _buildCustomCheckbox(miniVan8Passenger),
+          _buildCustomCheckbox(miniBus),
+          _buildCustomCheckbox(coaches),
+          Gap(10),
           Align(
             alignment: Alignment.center,
             child: KElevatedButton1(

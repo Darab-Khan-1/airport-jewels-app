@@ -34,7 +34,7 @@ class SupplierHomeScreen extends StatelessWidget {
                 children: [
                   const QuotationJobScreen(),
                   const AvailabilityJobScreen(),
-                  const UpcomingTripsScreen(),
+                   UpcomingTripsScreen(isDriver: isDriver!,),
                   const CompletedJobsScreen(),
                   _buildCommentsSection(context),
                 ],
