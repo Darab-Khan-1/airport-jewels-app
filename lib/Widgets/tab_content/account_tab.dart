@@ -55,7 +55,15 @@ class AccountTabContent extends StatelessWidget {
               const Gap(10),
               TextInputFieldWidget(
                 hintText: enterMobileNumber,
-                title: mobileNumber,
+                title: mobileNumber1,
+                isLableRequired: true,
+                cursorsColor: kBlackColor,
+                textInputType: TextInputType.phone,
+              ),
+              const Gap(10),
+              TextInputFieldWidget(
+                hintText: enterLandlineNumber,
+                title: landlineNumber,
                 isLableRequired: true,
                 cursorsColor: kBlackColor,
                 textInputType: TextInputType.phone,
