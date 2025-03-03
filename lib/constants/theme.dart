@@ -115,18 +115,18 @@ class AppTheme {
         filled: true,
         prefixStyle: TextStyle(
           color: kBlackColor,
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
         hintStyle: TextStyle(
           color: kWhiteColor,
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
         errorMaxLines: 3,
         errorStyle: const TextStyle(
           color: kErrorColor,
-          fontSize: 12,
+          fontSize: 10,
           fontWeight: FontWeight.normal,
         ),
         labelStyle: const TextStyle(
@@ -134,7 +134,7 @@ class AppTheme {
           fontSize: 12,
           fontWeight: FontWeight.normal,
         ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       ),
       appBarTheme: AppBarTheme(
         backgroundColor: kMainColor,

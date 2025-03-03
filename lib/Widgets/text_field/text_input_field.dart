@@ -106,7 +106,9 @@ class TextInputFieldWidget extends StatelessWidget {
           maxLength: maxLength,
           keyboardType: textInputType,
           autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+            color: kWhiteColor
+          ),
           decoration: InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.never,
               hintText: hintText,

@@ -6,7 +6,7 @@ import 'package:jewels_airport_transfers/constants/extension.dart';
 import 'package:jewels_airport_transfers/screens/driver/driver_upcoming_screen.dart';
 import 'package:jewels_airport_transfers/screens/registration_form_screen/registrartion_form_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.dart';
-import 'package:jewels_airport_transfers/screens/supplier_screen.dart';
+import 'package:jewels_airport_transfers/screens/supplier/login_screen/login_screen.dart';
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../constants/color.dart';
 import '../constants/string.dart';
@@ -67,9 +67,7 @@ class WelcomeScreen extends StatelessWidget {
                     Expanded(
                       child: KElevatedButtons(
                         onPressed: () {
-                          Get.to(() => const SupplierHomeScreen(
-                                isDriver: true,
-                              ));
+                          Get.to(() =>  LoginScreen());
                         },
                         text: partner,
                       ),
@@ -79,7 +77,7 @@ class WelcomeScreen extends StatelessWidget {
                     Expanded(
                       child: SocialButton(
                         onPressed: () {
-                          Get.to(() =>  SupplierScreen());
+                          Get.to(() =>  LoginScreen());
                         },
                         text: supplier,
                       ),

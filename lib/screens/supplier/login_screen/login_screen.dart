@@ -2,44 +2,58 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:jewels_airport_transfers/Widgets/form_validation/form_validation.dart';
+import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
 import 'package:jewels_airport_transfers/constants/extension.dart';
-import 'package:jewels_airport_transfers/screens/otp_screen.dart';
-import '../Widgets/text_field/intl_phone_field.dart';
-import '../constants/color.dart';
-import '../constants/string.dart';
-import '../controlller/supplier_controller.dart';
-import '../custom_bg_screen.dart';
-import '../gen/assets.gen.dart';
+import '../../../Widgets/text_field/intl_phone_field.dart';
+import '../../../constants/color.dart';
+import '../../../constants/string.dart';
+import '../../../controlller/auth_controller/auth_controller.dart';
+import '../../../custom_bg_screen.dart';
+import '../../../gen/assets.gen.dart';
 
-class SupplierScreen extends StatelessWidget {
-  SupplierScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
-  final SupplierController controller = Get.put(SupplierController());
+  final AuthController controller = Get.put(AuthController());
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return CustomBgScreen(
-      child: SingleChildScrollView(
-        child: SizedBox(
-          width: context.screenWidth,
-          height: context.screenHeight,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildLogo(context),
-                _buildHeaderTexts(context),
-                const Gap(20),
-                _buildSelectionOptions(context),
-                _buildPhoneInput(),
-                _buildCheckbox(context),
-                const Gap(15),
-                _buildDigitsText(context),
-                const Gap(40),
-                _buildNextButton(),
-              ],
+    return GestureDetector(
+      onTap: (){
+        unfocusKeyboard(context);
+      },
+      child: CustomBgScreen(
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: context.screenWidth,
+            height: context.screenHeight,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildLogo(context),
+                    _buildHeaderTexts(context),
+                    const Gap(20),
+                    _buildSelectionOptions(context),
+
+                    Obx(() => controller.selectedOption.value == "Email"?
+                    _buildLoginWithEmail(context):
+                    _buildPhoneInput(),),
+                    const Gap(10),
+                    _buildCheckbox(context),
+                    const Gap(15),
+                    // _buildDigitsText(context),
+                    // const Gap(40),
+                    _buildNextButton(context),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
@@ -165,11 +179,35 @@ class SupplierScreen extends StatelessWidget {
     );
   }
 
+Widget _buildLoginWithEmail(BuildContext context){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextInputFieldWidget(
+          controller: controller.emailController.value,
+          hintText: enterEmail,
+          validators: emailValidator().call,
+        ),
+        const Gap(10),
+        TextInputFieldWidget(
+          controller: controller.passwordController.value,
+          hintText: "Enter Password",
+          validators: passwordValidator().call,
+        ),
+      ],
+    );
+}
+
   /// Builds the Next Button
-  Widget _buildNextButton() {
+  Widget _buildNextButton(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => Get.to(() => const OTPScreen()),
-      child: Text(next),
+      onPressed: () {
+        if(_formKey.currentState?.validate() ?? false){
+          unfocusKeyboard(context);
+          controller.login(context);
+        }
+      },
+      child: const Text(next),
     );
   }
 }

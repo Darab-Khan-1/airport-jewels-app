@@ -6,6 +6,7 @@ import '../models/login_model/login_model.dart';
 
 const String authTokenKey = 'AUTH_TOKEN';
 const String _loginModelKey = 'login_model';
+const String _userType = "User_Type";
 
 /// Singleton class to manage SharedPreferences
 class SharedPrefsRepository {
@@ -28,6 +29,7 @@ class SharedPrefsRepository {
   Future<void> saveLoginModel(LoginModel loginModel) async {
     String jsonString = jsonEncode(loginModel.toJson());
     await setAuthToken(loginModel.data?.token ?? "");
+    await setUserType(loginModel.data?.userType ?? '');
     await _prefs.setString(_loginModelKey, jsonString);
 
   }
@@ -54,6 +56,12 @@ class SharedPrefsRepository {
   }
 
   Future<void> removeAuthToken() async => await _prefs.remove(authTokenKey);
+
+  Future<void> setUserType(String type) async {
+    await _prefs.setString(_userType, type);
+  }
+
+  String? get userType => _prefs.getString(_userType);
 
 
   // --- Clear User Data ---

@@ -15,11 +15,11 @@ class ApiService{
     sharedPrefsRepository: SharedPrefsRepository(),
   );
 
-  Future<dynamic> loginApi(BuildContext context, Map<String, dynamic> request ) async {
+  Future<LoginModel?> loginApi(BuildContext context, Map<String, dynamic> request ) async {
     try {
       // Show loading indicator
       EasyLoading.show(
-          status: "Logging in...", maskType: EasyLoadingMaskType.clear);
+          status: "Logging in...", maskType: EasyLoadingMaskType.black, dismissOnTap: false );
 
       // Make the API request
       final response = await _requestClient.request(
@@ -37,7 +37,7 @@ class ApiService{
       if (context.mounted) {
         Common.showDioErrorDialog(context, e: e);
       }
-      return false;
+
     } catch (error) {
       // Handle any other exceptions
       Logger.error(error.toString());
@@ -45,11 +45,12 @@ class ApiService{
         Common.showErrorDialog(context,
             e: "An error occurred: ${error.toString()}");
       }
-      return false;
+
     } finally {
       // Dismiss loading indicator
       EasyLoading.dismiss();
     }
+    return null;
   }
 
 }
