@@ -79,7 +79,7 @@ class WelcomeScreen extends StatelessWidget {
                     Expanded(
                       child: SocialButton(
                         onPressed: () {
-                          Get.to(() => const SupplierScreen());
+                          Get.to(() =>  SupplierScreen());
                         },
                         text: supplier,
                       ),

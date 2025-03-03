@@ -1,10 +1,11 @@
 import 'package:get/get.dart';
 
 class SupplierController extends GetxController {
-  var isChecked = false.obs;
+  var keepMeLogin = false.obs;
   String selectedCountryCode = "+92";
 
   void toggleCheckbox() {
-    isChecked.value = !isChecked.value;
+    keepMeLogin.value = !keepMeLogin.value;
   }
+  RxString selectedOption = "Email".obs;
 }
