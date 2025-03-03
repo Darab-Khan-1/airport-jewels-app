@@ -32,38 +32,42 @@ class _SupplierScreenState extends State<SupplierScreen> {
         child: SizedBox(
           width: context.screenWidth,
           height: context.screenHeight,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Gap(5),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 10), // Add padding to left and right
-                child: Image.asset(
-                  Assets.images.jewelsLogo1.path,
-                  width: context.screenWidth * 0.5,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Gap(5),
+                Center(
+                  child: Image.asset(
+                    Assets.images.jewelsLogo1.path,
+                    width: context.screenWidth * 0.5,
+                  ),
                 ),
-              ),
-              Text(
-                welcomeBack,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: kWhiteColor,
-                    ),
-              ),
-              const Gap(2),
-              Text(
-                signInToContinue,
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      color: kWhiteColor,
-                      fontWeight: FontWeight.w400,
-                    ),
-              ),
-              const Gap(100),
-              // Using IntlPhoneField for phone input
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: PhoneInputField(
+                Gap(20),
+                Center(
+                  child: Text(
+                    welcomeBack,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: kWhiteColor,
+                        ),
+                  ),
+                ),
+                const Gap(2),
+                Center(
+                  child: Text(
+                    signInToContinue,
+                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          color: kWhiteColor,
+                          fontWeight: FontWeight.w400,
+                        ),
+                  ),
+                ),
+                const Gap(100),
+                // Using IntlPhoneField for phone input
+                PhoneInputField(
                   // initialCountryCode: profileController.countryCode.value.text,
                   initialCountryCode: "GB",
                   fillColor: kTransparent,
@@ -79,60 +83,46 @@ class _SupplierScreenState extends State<SupplierScreen> {
                     log(country.code.toString());
                   },
                 ),
-              ),
-              Obx(() => Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 35.0),
-                        child: SizedBox(
-                          height: 20,
-                          width: 12,
-                          child: Transform.scale(
-                            scale: 0.8,
-                            child: Checkbox(
-                              checkColor: Colors.black,
-                              value: controller.isChecked.value,
-                              onChanged: (value) => controller.toggleCheckbox(),
-                              activeColor: kWhiteColor,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              side: const BorderSide(
-                                color: kWhiteColor,
-                                width: 2,
-                              ),
-                            ),
+                Obx(() => Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Checkbox(
+                          checkColor: Colors.black,
+                          value: controller.isChecked.value,
+                          onChanged: (value) => controller.toggleCheckbox(),
+                          activeColor: kWhiteColor,
+                          materialTapTargetSize:
+                              MaterialTapTargetSize.shrinkWrap,
+                          side: const BorderSide(
+                            color: kWhiteColor,
+                            width: 2,
                           ),
                         ),
+                        Text(
+                          keepLogin,
+                          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                                color: kWhiteColor,
+                                fontWeight: FontWeight.w400,
+                              ),
+                        ),
+                      ],
+                    )),
+                const Gap(15),
+                Text(
+                  digits,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: kWhiteColor,
+                        fontWeight: FontWeight.w400,
                       ),
-                      const Gap(15),
-                      Text(
-                        keepLogin,
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                              color: kWhiteColor,
-                              fontWeight: FontWeight.w400,
-                            ),
-                      ),
-                    ],
-                  )),
-              const Gap(15),
-              Text(
-                digits,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kWhiteColor,
-                      fontWeight: FontWeight.w400,
-                    ),
-              ),
-              const Gap(40),
-              Center(
-                child: KElevatedButton(
+                ),
+                const Gap(40),
+                ElevatedButton(
                   onPressed: () {
                     Get.to(() => const OTPScreen());
-                  },
-                  text: next,
+                  }, child: Text(next),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
