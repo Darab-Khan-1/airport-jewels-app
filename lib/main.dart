@@ -20,7 +20,7 @@ void configLoading() {
     ..loadingStyle = EasyLoadingStyle.dark
     ..indicatorSize = 45.0
     ..radius = 10.0
-    ..maskType = EasyLoadingMaskType.custom
+    ..maskType = EasyLoadingMaskType.clear
     ..userInteractions = false
     ..dismissOnTap = false;
 }
