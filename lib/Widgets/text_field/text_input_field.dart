@@ -106,7 +106,9 @@ class TextInputFieldWidget extends StatelessWidget {
           maxLength: maxLength,
           keyboardType: textInputType,
           autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+            color: kWhiteColor
+          ),
           decoration: InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.never,
               hintText: hintText,
@@ -118,7 +120,7 @@ class TextInputFieldWidget extends StatelessWidget {
               prefixIcon: prefixIcon == null
                   ? null
                   : Padding(
-                      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                      padding: const EdgeInsets.only(left: 10.0, right: 0.0),
                       child: prefixIcon,
                     ),
               suffixIcon: suffixIcon,

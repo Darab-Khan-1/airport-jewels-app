@@ -285,25 +285,32 @@ class UpcomingJobDetailScreen extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: [
-        _buildChip(alarm),
-        _buildChip(onRoute),
-        _buildChip(bop),
-        _buildChip(dropped),
-        _buildChip(callOffice),
+        _buildChip(alarm, backgroundColor: kRedColor),
+        _buildChip(onRoute, backgroundColor: kgreenColor),
+        _buildChip(bop, backgroundColor: kYellowColor),
+        _buildChip(dropped, backgroundColor: kBlueColor),
+        _buildChip(callOffice, backgroundColor: kPurpleColor),
         GestureDetector(
             onTap: () {
               Get.to(() => const JobPage());
             },
-            child: _buildChip(pushJobToDriver)),
+            child: _buildChip(pushJobToDriver, backgroundColor: kPrimaryColor)),
       ],
     );
   }
 
-  Widget _buildChip(String label) {
+  Widget _buildChip(String label, {Color? backgroundColor}) {
     return Chip(
-      label: Text(label),
-      backgroundColor: kWhiteColor,
-      side: const BorderSide(color: kMainColor),
+      label: Text(label,
+      style: Theme.of(Get.context!).textTheme.labelMedium!.copyWith(
+        color: kWhiteColor,
+        fontWeight: FontWeight.bold,
+      ),
+      ),
+      backgroundColor: backgroundColor ??  kWhiteColor,
+      side: const BorderSide(
+        color: kTransparent,
+      ),
     );
   }
 }

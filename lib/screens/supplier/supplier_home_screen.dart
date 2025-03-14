@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:jewels_airport_transfers/constants/enum.dart';
+import 'package:jewels_airport_transfers/constants/global.dart';
 import 'package:jewels_airport_transfers/screens/supplier/availability_job_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/completed_jobs_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/quotation_job_screen.dart';
@@ -12,8 +14,7 @@ import '../../constants/string.dart';
 import 'add_driver_screen.dart';
 
 class SupplierHomeScreen extends StatelessWidget {
-  final bool? isDriver;
-  const SupplierHomeScreen({super.key, this.isDriver = false});
+  const SupplierHomeScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class SupplierHomeScreen extends StatelessWidget {
                 children: [
                   const QuotationJobScreen(),
                   const AvailabilityJobScreen(),
-                  const UpcomingTripsScreen(),
+                   UpcomingTripsScreen(),
                   const CompletedJobsScreen(),
                   _buildCommentsSection(context),
                 ],
@@ -42,7 +43,7 @@ class SupplierHomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        bottomNavigationBar: isDriver!
+        bottomNavigationBar: Global().userRole == UserRole.DRIVER
             ? null
             : Padding(
                 padding: const EdgeInsets.all(7.0),

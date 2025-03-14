@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '../../constants/color.dart';
+import '../../constants/enum.dart';
+import '../../constants/global.dart';
 import '../../constants/string.dart';
 import '../../screens/supplier/upcoimg_job_detail_screen.dart';
 import '../buttons/custom_widgets.dart';
@@ -11,10 +13,10 @@ class UpcomingJobCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return quotationJobCard(context);
+    return jobCard(context);
   }
 
-  Widget quotationJobCard(BuildContext context) {
+  Widget jobCard(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
       child: Card(
@@ -89,6 +91,23 @@ class UpcomingJobCard extends StatelessWidget {
                   ),
                 ],
               ),
+              if(Global().userRole == UserRole.DRIVER)...[
+              const Gap(10),
+                buildIconTextRow(
+                  icon: Icons.person,
+                  text: assignTo,
+                  data: "Adnan",
+                  textColor: kBlackColor,
+                  fontWeight: FontWeight.w700,
+                ),
+              Gap(10),
+              buildIconTextRow(
+                icon: Icons.money,
+                  text: fareAssigned,
+                  textColor: kBlackColor,
+                  fontWeight: FontWeight.bold,
+                  data: "£50"),
+              ],
               Row(
                 children: [
                   Expanded(

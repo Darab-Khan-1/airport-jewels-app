@@ -41,7 +41,7 @@ class PaymentTabContent extends StatelessWidget {
               const Gap(10),
               TextInputFieldWidget(
                 hintText: idcard,
-                title: id,
+                title: sortCode,
                 isLableRequired: true,
                 cursorsColor: kBlackColor,
                 textInputType: TextInputType.emailAddress,

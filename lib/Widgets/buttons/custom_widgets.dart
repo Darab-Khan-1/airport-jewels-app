@@ -38,6 +38,7 @@ Widget buildIconTextRow({
 Widget buildTextRow({
   required String text,
   String? data,
+  TextStyle? textStyle,
   required Color textColor,
   required FontWeight fontWeight,
 }) {
@@ -45,7 +46,8 @@ Widget buildTextRow({
     children: [
       Text(
           text,
-          style: Theme.of(Get.context!).textTheme.labelSmall!.copyWith(
+          style: textStyle ??
+          Theme.of(Get.context!).textTheme.labelSmall!.copyWith(
               color: textColor
           )
       ),

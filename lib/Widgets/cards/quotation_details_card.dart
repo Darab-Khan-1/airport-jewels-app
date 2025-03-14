@@ -156,7 +156,7 @@ class QuotationDetailsCard extends StatelessWidget {
                       const Gap(15),
                       TextInputFieldWidget(
                         hintText: quoteHere,
-                        prefixText: euro,
+                        prefixIcon: Text(euro),
                       ),
                       const Gap(15),
                       FilledButton(
