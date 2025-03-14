@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
+import 'package:jewels_airport_transfers/constants/extension.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.dart';
 import 'package:pinput/pinput.dart';
@@ -19,12 +20,12 @@ class OTPScreen extends StatelessWidget {
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(4.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  Image.asset(
-                    Assets.images.jewelsLogo1.path,
-                  ),
+                  Image.asset(Assets.images.jewelsLogo1.path,
+                      height: context.screenHeight * 0.5,
+                      width: context.screenWidth * 0.7),
 
                   Text(
                     otp,

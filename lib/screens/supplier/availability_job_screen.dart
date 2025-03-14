@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:gap/gap.dart';
 import 'package:jewels_airport_transfers/Widgets/cards/availability_details_card.dart';
 
 class AvailabilityJobScreen extends StatelessWidget {
@@ -8,6 +6,8 @@ class AvailabilityJobScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scrollController = ScrollController(); // Define a controller
+
     return Scrollbar(
       thumbVisibility: true,
       interactive: true,
@@ -15,21 +15,25 @@ class AvailabilityJobScreen extends StatelessWidget {
       radius: const Radius.circular(20),
       trackVisibility: true,
       thickness: 10,
-      child: Column(
-        children: [
-          // Trips List
-          Expanded(
-            child: ListView.builder(
+      controller: scrollController, // Attach the controller
+      child: SingleChildScrollView(
+        controller: scrollController, // Attach the controller here as well
+        child: Column(
+          children: [
+            // Trips List
+            ListView.builder(
               itemCount: 5,
               shrinkWrap: true,
+              physics:
+                  const NeverScrollableScrollPhysics(), // Prevent inner scrolling
               itemBuilder: (context, index) {
                 return const AvailabilityDetailsCard();
               },
             ),
-          ),
 
-          // Add Driver Button
-        ],
+            // Add Driver Button
+          ],
+        ),
       ),
     );
   }

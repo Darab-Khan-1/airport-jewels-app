@@ -7,7 +7,10 @@ class QuotationJobScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController scrollController = ScrollController();
+
     return Scrollbar(
+      controller: scrollController, // Assign the ScrollController
       thumbVisibility: true,
       interactive: true,
       scrollbarOrientation: ScrollbarOrientation.right,
@@ -19,6 +22,7 @@ class QuotationJobScreen extends StatelessWidget {
           // Trips List
           Expanded(
             child: ListView.builder(
+              controller: scrollController, // Use the same ScrollController
               itemCount: 5,
               itemBuilder: (context, index) {
                 return const QuotationJobCard();

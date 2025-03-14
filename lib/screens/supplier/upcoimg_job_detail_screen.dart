@@ -70,7 +70,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                       buildIconTextRow(
                         icon: Icons.person,
                         iconColor: kBlackColor,
-                        text: passeneger,
+                        text: passenger,
                         data: passengerData,
                         textColor: kBlackColor,
                         fontWeight: FontWeight.bold,

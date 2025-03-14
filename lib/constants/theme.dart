@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'color.dart';
@@ -17,10 +16,9 @@ class AppTheme {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          textStyle: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(fontWeight: FontWeight.w700,),
+          textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
           minimumSize: const Size(double.infinity, 40),
         ),
       ),
@@ -99,12 +97,12 @@ class AppTheme {
         errorBorder: outlineInputBorder,
         iconColor: kWhiteColor,
         filled: true,
-        prefixStyle: TextStyle(
+        prefixStyle: const TextStyle(
           color: kBlackColor,
           fontSize: 14,
           fontWeight: FontWeight.w500,
         ),
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: kWhiteColor,
           fontSize: 14,
           fontWeight: FontWeight.w500,
@@ -120,22 +118,23 @@ class AppTheme {
           fontSize: 12,
           fontWeight: FontWeight.normal,
         ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       ),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: kMainColor,
         centerTitle: true,
         elevation: 2,
-        titleTextStyle: const TextStyle(
+        titleTextStyle: TextStyle(
           color: kWhiteColor,
           fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
-        iconTheme: const IconThemeData(color: kWhiteColor),
+        iconTheme: IconThemeData(color: kWhiteColor),
       ),
-      snackBarTheme: SnackBarThemeData(
+      snackBarTheme: const SnackBarThemeData(
         backgroundColor: kWhiteColor,
-        contentTextStyle: const TextStyle(
+        contentTextStyle: TextStyle(
           color: kWhiteColor,
           fontSize: 16,
           fontWeight: FontWeight.w700,
@@ -205,7 +204,7 @@ class AppTheme {
 final OutlineInputBorder outlineInputActiveBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(5),
   borderSide:
-  const BorderSide(color: kMainColor, width: 2), // Green border color
+      const BorderSide(color: kMainColor, width: 2), // Green border color
 );
 final OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(5),

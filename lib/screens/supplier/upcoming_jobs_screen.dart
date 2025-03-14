@@ -6,7 +6,10 @@ class UpcomingTripsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scrollController = ScrollController();
+
     return Scrollbar(
+      controller: scrollController, // Attach a unique ScrollController
       thumbVisibility: true,
       interactive: true,
       scrollbarOrientation: ScrollbarOrientation.right,
@@ -18,6 +21,7 @@ class UpcomingTripsScreen extends StatelessWidget {
           // Trips List
           Expanded(
             child: ListView.builder(
+              controller: scrollController, // Use the same ScrollController
               itemCount: 5,
               itemBuilder: (context, index) {
                 return const UpcomingJobCard();

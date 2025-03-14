@@ -1,10 +1,9 @@
 import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:jewels_airport_transfers/constants/extension.dart';
 import 'package:jewels_airport_transfers/screens/otp_screen.dart';
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../Widgets/text_field/intl_phone_field.dart';
@@ -33,11 +32,10 @@ class _SupplierScreenState extends State<SupplierScreen> {
             const Gap(5),
             Padding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10), // Add padding to left and right
-              child: Image.asset(
-                Assets.images.jewelsLogo1.path,
-              ),
+                  horizontal: 10, vertical: 5), // Add padding to left and right
+              child: Image.asset(Assets.images.jewelsLogo1.path,
+                  height: context.screenHeight * 0.5,
+                  width: context.screenWidth * 0.7),
             ),
             Text(
               welcomeBack,
@@ -66,7 +64,9 @@ class _SupplierScreenState extends State<SupplierScreen> {
                 readOnly: false,
                 // controller: profileController.phoneController.value,
                 onChanged: (completeNumber) {
-                  print("Complete phone number: $completeNumber");
+                  if (kDebugMode) {
+                    print("Complete phone number: $completeNumber");
+                  }
                 },
                 onCountryChanged: (country) {
                   // profileController.countryCode.value.text = country.dialCode!;

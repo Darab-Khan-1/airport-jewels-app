@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:jewels_airport_transfers/screens/details/detail_screen.dart';
-
 import '../../Widgets/buttons/k_elevated_button.dart';
 import '../../gen/assets.gen.dart';
 
