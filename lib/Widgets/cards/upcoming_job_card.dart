@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '../../constants/color.dart';
+import '../../constants/enum.dart';
+import '../../constants/global.dart';
 import '../../constants/string.dart';
 import '../../screens/supplier/upcoimg_job_detail_screen.dart';
 import '../buttons/custom_widgets.dart';
 
 class UpcomingJobCard extends StatelessWidget {
-  final bool isDriver;
-  const UpcomingJobCard({super.key, required this.isDriver});
+  const UpcomingJobCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +91,7 @@ class UpcomingJobCard extends StatelessWidget {
                   ),
                 ],
               ),
-              if(!isDriver)...[
+              if(Global().userRole == UserRole.DRIVER)...[
               const Gap(10),
                 buildIconTextRow(
                   icon: Icons.person,

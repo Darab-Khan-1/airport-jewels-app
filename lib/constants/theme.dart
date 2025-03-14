@@ -24,6 +24,20 @@ class AppTheme {
           minimumSize: const Size(double.infinity, 40),
         ),
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: kWhiteColor,
+          elevation: 3,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          textStyle: Theme.of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(fontWeight: FontWeight.w500, color: kBlueColor),
+          minimumSize: const Size(double.infinity, 40),
+        ),
+      ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           backgroundColor: kPrimaryColor,
@@ -101,18 +115,18 @@ class AppTheme {
         filled: true,
         prefixStyle: TextStyle(
           color: kBlackColor,
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
         hintStyle: TextStyle(
           color: kWhiteColor,
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
         errorMaxLines: 3,
         errorStyle: const TextStyle(
           color: kErrorColor,
-          fontSize: 12,
+          fontSize: 10,
           fontWeight: FontWeight.normal,
         ),
         labelStyle: const TextStyle(
@@ -120,7 +134,7 @@ class AppTheme {
           fontSize: 12,
           fontWeight: FontWeight.normal,
         ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       ),
       appBarTheme: AppBarTheme(
         backgroundColor: kMainColor,

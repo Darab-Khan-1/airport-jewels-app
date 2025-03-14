@@ -1,7 +1,14 @@
 import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
+void unfocusKeyboard(BuildContext context) {
+  final currentFocus = FocusScope.of(context);
+  if (!currentFocus.hasPrimaryFocus) {
+    currentFocus.unfocus();
+  }
+}
 String? Function(String?)? requiredValidator({String? error}) {
   return RequiredValidator(errorText: error ?? 'This field is required*').call;
 }

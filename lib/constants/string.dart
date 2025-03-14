@@ -48,8 +48,7 @@ const String mobileNumber1 = 'Mobile Number';
 const String landlineNumber = 'Landline Number';
 const String enterMobileNumber = 'Enter Mobile Number';
 const String enterLandlineNumber = 'Enter Landline Number';
-const String digits =
-    'A B digits verification code will be sent\n  on your number enter the code ';
+const String digits = 'A B digits verification code will be sent\n  on your number enter the code ';
 const String next = 'Next';
 const String upcomimg = 'Upcoming';
 const String quotation = 'Quotation';
