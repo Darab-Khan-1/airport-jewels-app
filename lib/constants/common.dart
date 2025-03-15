@@ -72,7 +72,7 @@ class Common {
         errorMsg = 'Unauthorized';
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await sharedPrefsRepository.clearUserData();
-          Get.offAll(() =>  const WelcomeScreen());
+          Get.offAll(() =>  WelcomeScreen());
         });
       } else if (e.response?.statusCode == 400) {
         if (e.response!.data['errors'] != null &&

@@ -7,6 +7,7 @@ import '../models/login_model/login_model.dart';
 const String authTokenKey = 'AUTH_TOKEN';
 const String _loginModelKey = 'login_model';
 const String _userType = "User_Type";
+const String _cookies = "cookies";
 
 /// Singleton class to manage SharedPreferences
 class SharedPrefsRepository {
@@ -40,6 +41,12 @@ class SharedPrefsRepository {
     Map<String, dynamic> jsonData = jsonDecode(jsonString ?? '{}');
     return LoginModel.fromJson(jsonData);
   }
+
+  /// set cookies
+  Future<void> setCookies(String cookies) async {
+    await _prefs.setString(_cookies, cookies);
+  }
+  String get cookies => _prefs.getString(_cookies) ?? '';
 
 
   // --- Authentication Token ---

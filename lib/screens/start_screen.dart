@@ -54,7 +54,7 @@ class StartScreen extends StatelessWidget {
             Center(
               child: KElevatedButton(
                 onPressed: () {
-                  Get.to(() => const WelcomeScreen());
+                  Get.to(() => WelcomeScreen());
                 },
                 text: getStarted,
               ),

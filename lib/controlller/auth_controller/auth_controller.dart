@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/enum.dart';
 import 'package:jewels_airport_transfers/constants/global.dart';
+import 'package:jewels_airport_transfers/models/car_model/car_model.dart';
 import 'package:jewels_airport_transfers/repositories/shared_pref_repo.dart';
 import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.dart';
 import 'package:jewels_airport_transfers/services/api_services.dart';
@@ -23,6 +24,8 @@ class AuthController extends GetxController {
 
   SharedPrefsRepository repository = SharedPrefsRepository();
 
+  final allCars = CarsModel().obs;
+
   login(BuildContext context) async{
     try{
 
@@ -39,6 +42,18 @@ class AuthController extends GetxController {
 
     }catch(e) {
       Logger.error("Login Api Error:${e.toString()}");
+    }
+  }
+  getAllCars(BuildContext context) async{
+    try{
+      var res = await ApiService().getAllCarsApi(context);
+      if( res != null){
+        allCars.value = res;
+        update();
+      }
+
+    }catch(e) {
+      Logger.error("Api Error:${e.toString()}");
     }
   }
 
