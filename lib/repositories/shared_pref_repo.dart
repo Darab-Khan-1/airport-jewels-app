@@ -8,6 +8,7 @@ const String authTokenKey = 'AUTH_TOKEN';
 const String _loginModelKey = 'login_model';
 const String _userType = "User_Type";
 const String _cookies = "cookies";
+const String _driverId = "driver_id";
 
 /// Singleton class to manage SharedPreferences
 class SharedPrefsRepository {
@@ -26,14 +27,14 @@ class SharedPrefsRepository {
     _instance._prefs = await SharedPreferences.getInstance();
   }
 
-
   Future<void> saveLoginModel(LoginModel loginModel) async {
     String jsonString = jsonEncode(loginModel.toJson());
     await setAuthToken(loginModel.data?.token ?? "");
     await setUserType(loginModel.data?.userType ?? '');
+    await setDriverId(loginModel.data?.driverId ?? '');
     await _prefs.setString(_loginModelKey, jsonString);
-
   }
+
   /// Retrieve LoginModel from SharedPreferences
   Future<LoginModel?> getLoginModel() async {
     String? jsonString = _prefs.getString(_loginModelKey);
@@ -46,8 +47,8 @@ class SharedPrefsRepository {
   Future<void> setCookies(String cookies) async {
     await _prefs.setString(_cookies, cookies);
   }
-  String get cookies => _prefs.getString(_cookies) ?? '';
 
+  String get cookies => _prefs.getString(_cookies) ?? '';
 
   // --- Authentication Token ---
   String? get authToken => _prefs.getString(authTokenKey);
@@ -57,6 +58,12 @@ class SharedPrefsRepository {
     await _prefs.setString(authTokenKey, token);
   }
 
+  Future<void> setDriverId(String driverId) async {
+    assert(driverId.isNotEmpty, 'Driver Id cannot be empty');
+    await _prefs.setString(_driverId, driverId);
+  }
+
+  String get driverId => _prefs.getString(_driverId) ?? '';
 
   Future<String> getAuthToken() async {
     return _prefs.getString(authTokenKey) ?? '';
@@ -70,13 +77,8 @@ class SharedPrefsRepository {
 
   String? get userType => _prefs.getString(_userType);
 
-
   // --- Clear User Data ---
   Future<void> clearUserData() async {
-    await Future.wait([
-      removeAuthToken(),
-      _prefs.clear()
-
-    ]);
+    await Future.wait([removeAuthToken(), _prefs.clear()]);
   }
 }

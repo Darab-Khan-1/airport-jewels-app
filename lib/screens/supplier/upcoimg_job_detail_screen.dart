@@ -292,7 +292,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
         _buildChip(callOffice, backgroundColor: kPurpleColor),
         GestureDetector(
             onTap: () {
-              Get.to(() => const JobPage());
+              Get.to(() => JobScreen());
             },
             child: _buildChip(pushJobToDriver, backgroundColor: kPrimaryColor)),
       ],
@@ -301,13 +301,14 @@ class UpcomingJobDetailScreen extends StatelessWidget {
 
   Widget _buildChip(String label, {Color? backgroundColor}) {
     return Chip(
-      label: Text(label,
-      style: Theme.of(Get.context!).textTheme.labelMedium!.copyWith(
-        color: kWhiteColor,
-        fontWeight: FontWeight.bold,
+      label: Text(
+        label,
+        style: Theme.of(Get.context!).textTheme.labelMedium!.copyWith(
+              color: kWhiteColor,
+              fontWeight: FontWeight.bold,
+            ),
       ),
-      ),
-      backgroundColor: backgroundColor ??  kWhiteColor,
+      backgroundColor: backgroundColor ?? kWhiteColor,
       side: const BorderSide(
         color: kTransparent,
       ),

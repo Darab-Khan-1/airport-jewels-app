@@ -11,7 +11,7 @@ import '../drop_down_field/drop_down_field.dart';
 import '../text_field/text_input_field.dart';
 
 class AccountTabContent extends StatelessWidget {
-   AccountTabContent({
+  AccountTabContent({
     super.key,
   });
 
@@ -88,8 +88,8 @@ class AccountTabContent extends StatelessWidget {
                 isLableRequired: true,
                 cursorsColor: kBlackColor,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
-                textInputType: TextInputType.emailAddress,
-                controller: authCtrl.emailController.value,
+                textInputType: TextInputType.phone,
+                controller: authCtrl.passwordController.value,
                 validators: passwordValidator().call,
               ),
               const Gap(10),
@@ -155,51 +155,57 @@ class AccountTabContent extends StatelessWidget {
   }
 
   /// build all countries dropdown
-   Widget _buildCountryDropDown(){
-    return Obx(() => DropdownFilter(
-      title: "Select Country",
-      value: authCtrl.countryController.value.text,
-      items: authCtrl.allCountries.value.data?.map((e) => e.countryName ?? '').toList() ?? [''],
-      validator: requiredValidator(),
-      onChanged: (va){},
-    ),
+  Widget _buildCountryDropDown() {
+    return Obx(
+      () => DropdownFilter(
+        title: "Select Country",
+        value: authCtrl.countryController.value.text,
+        items: authCtrl.allCountries.value.data
+                ?.map((e) => e.countryName ?? '')
+                .toList() ??
+            [''],
+        validator: requiredValidator(),
+        onChanged: (va) {},
+      ),
     );
-   }
-   Widget _buildPortDropDown(){
+  }
+
+  Widget _buildPortDropDown() {
     return MultiSelectDropdownFormField(
       title: "Select Ports",
-      items: authCtrl.allPorts.value.data?.map((e) => e.postcode ?? '').toList() ?? [''],
-      onChanged: (va){},
-      selectedItems: authCtrl.selectedPorts ,
+      items:
+          authCtrl.allPorts.value.data?.map((e) => e.postcode ?? '').toList() ??
+              [''],
+      onChanged: (va) {},
+      selectedItems: authCtrl.selectedPorts,
     );
-   }
+  }
 
-   /// Builds the Email/Mobile selection options
-   Widget _buildSelectionOptions(BuildContext context) {
-     return Obx(
-           () => Row(
-         children: [
-           _buildRadioOption(context, UserRole.DRIVER.name.toUpperCase()),
-           _buildRadioOption(context, UserRole.SUPPLIER.name.toUpperCase()),
-         ],
-       ),
-     );
-   }
+  /// Builds the Email/Mobile selection options
+  Widget _buildSelectionOptions(BuildContext context) {
+    return Obx(
+      () => Row(
+        children: [
+          _buildRadioOption(context, UserRole.DRIVER.name.toUpperCase()),
+          _buildRadioOption(context, UserRole.SUPPLIER.name.toUpperCase()),
+        ],
+      ),
+    );
+  }
 
-   /// Reusable method for RadioListTile
-   Widget _buildRadioOption(BuildContext context, String value) {
-     return Flexible(
-       child: RadioListTile<String>(
-         title: Text(
-           value,
-           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-           ),
-         ),
-         value: value,
-         activeColor: kMainColor,
-         groupValue: authCtrl.selectedRole.value,
-         onChanged: (newValue) => authCtrl.selectedRole.value = newValue!,
-       ),
-     );
-   }
+  /// Reusable method for RadioListTile
+  Widget _buildRadioOption(BuildContext context, String value) {
+    return Flexible(
+      child: RadioListTile<String>(
+        title: Text(
+          value,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(),
+        ),
+        value: value,
+        activeColor: kMainColor,
+        groupValue: authCtrl.selectedRole.value,
+        onChanged: (newValue) => authCtrl.selectedRole.value = newValue!,
+      ),
+    );
+  }
 }

@@ -14,7 +14,9 @@ import '../../constants/string.dart';
 import 'add_driver_screen.dart';
 
 class SupplierHomeScreen extends StatelessWidget {
-  const SupplierHomeScreen({super.key,});
+  const SupplierHomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,8 @@ class SupplierHomeScreen extends StatelessWidget {
               child: TabBarView(
                 children: [
                   const QuotationJobScreen(),
-                  const AvailabilityJobScreen(),
-                   UpcomingTripsScreen(),
+                  AvailableJobsScreen(),
+                  UpcomingTripsScreen(),
                   const CompletedJobsScreen(),
                   _buildCommentsSection(context),
                 ],

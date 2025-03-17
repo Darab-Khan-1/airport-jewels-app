@@ -48,7 +48,8 @@ const String mobileNumber1 = 'Mobile Number';
 const String landlineNumber = 'Landline Number';
 const String enterMobileNumber = 'Enter Mobile Number';
 const String enterLandlineNumber = 'Enter Landline Number';
-const String digits = 'A B digits verification code will be sent\n  on your number enter the code ';
+const String digits =
+    'A B digits verification code will be sent\n  on your number enter the code ';
 const String next = 'Next';
 const String upcomimg = 'Upcoming';
 const String quotation = 'Quotation';
@@ -70,6 +71,7 @@ const String locationB = "Location B";
 const String approximate = "Approx:";
 const String miles = "25 Miles";
 const String quotationDetails = "Quotation Details";
+const String networkError = "Network Error";
 
 const String viewDetails = 'View details';
 const String completed = 'Completed';
@@ -110,9 +112,11 @@ const String vehicle1 = 'Vehicle :';
 const String language = 'Language :';
 const String sallonCar = 'Saloon Car';
 const String estateCar = 'Estate Car';
-const String executivePeopleCarrier = 'Executive People Carrier ( Mercedes V Class)';
+const String executivePeopleCarrier =
+    'Executive People Carrier ( Mercedes V Class)';
 const String fleetDetails = 'Fleet Details';
-const String peopleCarrrier = 'People Carrier ( VW Sharan, Ford Galaxy or similar) ';
+const String peopleCarrrier =
+    'People Carrier ( VW Sharan, Ford Galaxy or similar) ';
 const String miniBus = 'Minibus (16 or more passengers)';
 const String coaches = 'Coaches (54 or more passengers)';
 const String excutiveCar =
@@ -144,6 +148,7 @@ const String arriving = 'Arriving :';
 const String meetGreet = 'Meet The Greet :';
 const String meetAndGreet = 'Meet & Greet:';
 const String yes = 'Yes';
+const String no = 'No';
 const String date1 = "Date:";
 const String dateMonthYear = "17 July 2025";
 const String time = "Time:";

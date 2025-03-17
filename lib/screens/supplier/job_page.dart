@@ -1,85 +1,70 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+
 import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
+import '../../controlller/job_controller/job_controller.dart';
 
-class JobPage extends StatefulWidget {
-  const JobPage({super.key});
-
-  @override
-  State<JobPage> createState() => _JobPageState();
-}
-
-class _JobPageState extends State<JobPage> {
-  final List<Map<String, String>> drivers = [
-    {
-      'name': 'William Parker',
-      'email': 'willaimparker123@example.com',
-      'phone': '123-456-7890',
-      'image': 'assets/images/driver.jpeg',
-      'amount': '4325',
-    },
-    {
-      'name': 'Sarah Collins',
-      'email': 'Sarahcollins234@example.com',
-      'phone': '234-567-8901',
-      'image': 'assets/images/driver.jpeg',
-      'amount': '3500',
-    },
-    // Add more drivers here...
-  ];
-
-  int? selectedCardIndex;
-
-  void assignDriver(String name, String fare) {
-    // Logic for assigning a driver
-    debugPrint('Assigned $name with fare $fare');
-  }
-
-  void deleteDriver(int index) {
-    setState(() {
-      drivers.removeAt(index);
-      if (selectedCardIndex == index) selectedCardIndex = null;
-    });
-  }
+class JobScreen extends StatelessWidget {
+  JobScreen({super.key});
+  final jobController = Get.put(JobController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const BackButton(),
-        title: const Text(pushJobDriver),
+        backgroundColor: kBlueColor,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          pushJobDriver,
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                color: kWhiteColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+        ),
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(10),
-        itemCount: drivers.length,
-        itemBuilder: (_, index) {
-          final driver = drivers[index];
-          final isSelected = selectedCardIndex == index;
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Obx(() {
+          if (jobController.isLoading.value) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-          return DriverCard(
-            name: driver['name']!,
-            email: driver['email']!,
-            phone: driver['phone']!,
-            image: driver['image']!,
-            amount: driver['amount']!,
-            isSelected: isSelected,
-            onSelect: () {
-              setState(() {
-                selectedCardIndex = index;
-              });
+          if (jobController.allDriverModel.value.data == null ||
+              jobController.allDriverModel.value.data!.isEmpty) {
+            return const Center(child: Text("No drivers available"));
+          }
+
+          return ListView.builder(
+            itemCount: jobController.allDriverModel.value.data?.length ?? 0,
+            itemBuilder: (context, index) {
+              final driverData =
+                  jobController.allDriverModel.value.data![index];
+
+              return Obx(() => DriverCard(
+                    name:
+                        "${driverData.firstname ?? 'N/A'} ${driverData.lastname ?? ''}",
+                    email: driverData.email ?? "N/A",
+                    phone: driverData.mob ?? "N/A",
+                    imageUrl: driverData.avatar ?? '',
+                    isSelected:
+                        jobController.selectedDriverIndex.value == index,
+                    onSelect: () => jobController.selectDriver(index),
+                    amount: '',
+                    onDelete: () {},
+                    onAmountChange: (String value) {},
+                    onAssign: () {},
+                  ));
             },
-            onDelete: () => deleteDriver(index),
-            onAmountChange: (value) {
-              drivers[index]['amount'] = value;
-            },
-            onAssign: () => assignDriver(
-              driver['name']!,
-              drivers[index]['amount']!,
-            ),
           );
-        },
+        }),
       ),
     );
   }
@@ -89,7 +74,7 @@ class DriverCard extends StatelessWidget {
   final String name;
   final String email;
   final String phone;
-  final String image;
+  final String imageUrl;
   final String amount;
   final bool isSelected;
   final VoidCallback onSelect;
@@ -102,7 +87,7 @@ class DriverCard extends StatelessWidget {
     required this.name,
     required this.email,
     required this.phone,
-    required this.image,
+    required this.imageUrl,
     required this.amount,
     required this.isSelected,
     required this.onSelect,
@@ -138,7 +123,9 @@ class DriverCard extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 30,
-                      backgroundImage: AssetImage(image),
+                      backgroundImage: imageUrl.isNotEmpty
+                          ? CachedNetworkImageProvider(imageUrl)
+                          : const AssetImage('assets/images/driver.jpeg'),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
@@ -168,7 +155,8 @@ class DriverCard extends StatelessWidget {
                   ],
                 ),
                 const Gap(10),
-                const Text("You can edit the driver fare you wish to assign for in the box below."),
+                const Text(
+                    "You can edit the driver fare you wish to assign for in the box below."),
                 TextInputFieldWidget(
                   initialValue: amount,
                   prefixIcon: const Text(euro),
@@ -189,10 +177,7 @@ class DriverCard extends StatelessWidget {
                       child: FilledButton(
                         onPressed: onDelete,
                         style:
-                            Theme.of(context).filledButtonTheme.style?.copyWith(
-                                  backgroundColor:
-                                      const WidgetStatePropertyAll(kRedColor),
-                                ),
+                            FilledButton.styleFrom(backgroundColor: kRedColor),
                         child: const Text(deleteDriver),
                       ),
                     ),

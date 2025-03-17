@@ -40,69 +40,69 @@ class Data {
   String? newsletterSubscribtion;
   String? password;
   String? passwordStatus;
- String? creditLimit;
- String? usedCreditLimit;
- String? makePayment;
+  String? creditLimit;
+  String? usedCreditLimit;
+  String? makePayment;
   String? groupid;
   String? status;
   String? licenseNumber;
   String? licenseExpiryMm;
   String? licenseExpiryYy;
   String? nationalInsuranceNo;
- String? insuranceExpiryMm;
- String? insuranceExpiryYy;
- String? motExpiryMm;
- String? motExpiryYy;
- String? regNumber;
+  String? insuranceExpiryMm;
+  String? insuranceExpiryYy;
+  String? motExpiryMm;
+  String? motExpiryYy;
+  String? regNumber;
   String? make;
- String? model;
+  String? model;
   String? badgeNumber;
- String? pcoExpiryMm;
- String? pcoExpiryYy;
+  String? pcoExpiryMm;
+  String? pcoExpiryYy;
   String? vehicleLicenseExpiryMm;
   String? vehicleLicenseExpiryYy;
- String? employmentStatus;
- String? commissionType;
+  String? employmentStatus;
+  String? commissionType;
   String? commission;
- String? visaType;
- String? visaExpiryMm;
- String? visaExpiryYy;
+  String? visaType;
+  String? visaExpiryMm;
+  String? visaExpiryYy;
   String? creditStatus;
   String? address1;
   String? address2;
   String? country;
   String? cityId;
- String? townId;
+  String? townId;
   String? postcode;
- String? companyname;
- String? description;
- String? tel;
+  String? companyname;
+  String? description;
+  String? tel;
   String? mob;
   String? mob2;
   String? mob3;
- String? pcoBadgeNo;
- String? fax;
+  String? pcoBadgeNo;
+  String? fax;
   String? registeredDate;
- String? lastLogin;
+  String? lastLogin;
   String? activationcode;
   String? newsSubscription;
- String? emergencyCode;
- String? emergencyNumber;
+  String? emergencyCode;
+  String? emergencyNumber;
   String? memStatus;
   String? memHide;
- String? hash;
+  String? hash;
   String? doj;
   String? dateLeft;
   String? companyCar;
   String? vehicle;
   String? quoteRequest;
   String? dob;
- String? driverImg;
+  String? driverImg;
   String? carReg;
   String? vColor;
   String? dlNumber;
- String? logBook;
- String? rentalAgreement;
+  String? logBook;
+  String? rentalAgreement;
   String? rentalexpiry;
   String? motexpiry;
   String? vpcoexpiry;
@@ -110,191 +110,193 @@ class Data {
   String? badgeExpiry;
   String? insuranceexpiry;
   String? operatorlicexpiry;
- String? mot;
- String? vPco;
+  String? mot;
+  String? vPco;
   String? vPcoNo;
- String? pcoCounter;
- String? badge;
- String? insurance;
- String? serviceArea;
+  String? pcoCounter;
+  String? badge;
+  String? insurance;
+  String? serviceArea;
   String? businessName;
- String? operatorLic;
- String? businessInsurance;
- String? businessNature;
- String? longBusiness;
- String? invoiceContact;
- String? mainContact;
+  String? operatorLic;
+  String? businessInsurance;
+  String? businessNature;
+  String? longBusiness;
+  String? invoiceContact;
+  String? mainContact;
   String? code1;
   String? code2;
   String? code3;
   String? rent;
   String? dlExpiry;
- String? driverstatus;
+  String? driverstatus;
   String? address3;
- String? driverRent;
- String? businessExpiry;
- String? operatorExpiry;
- String? county;
- String? state;
+  String? driverRent;
+  String? businessExpiry;
+  String? operatorExpiry;
+  String? county;
+  String? state;
   String? accountNo;
   String? accountName;
   String? bankName;
   String? sortCode;
   String? tradingname;
- String? invoicename;
- String? invoiceaddress1;
- String? invoiceaddress2;
- String? invoiceaddress3;
- String? chargename;
+  String? invoicename;
+  String? invoiceaddress1;
+  String? invoiceaddress2;
+  String? invoiceaddress3;
+  String? chargename;
   String? generalCommission;
   String? generalFrequency;
   String? generalComsionType;
- String? corpinno;
+  String? corpinno;
   String? discountAmount;
   String? membersid;
- String? licenseimage;
- String? tradename;
+  String? licenseimage;
+  String? tradename;
   String? profileUpdate;
   String? sendPinEmail;
   String? licenseAut;
- String? supplierMutipleDocument;
+  String? supplierMutipleDocument;
   String? longitude;
   String? latitude;
   String? availStatus;
   String? availablePostcode;
+  String? avatar;
 
   Data(
       {this.driverId,
-        this.customerType,
-        this.title,
-        this.firstname,
-        this.lastname,
-        this.email,
-        this.newsletterSubscribtion,
-        this.password,
-        this.passwordStatus,
-        this.creditLimit,
-        this.usedCreditLimit,
-        this.makePayment,
-        this.groupid,
-        this.status,
-        this.licenseNumber,
-        this.licenseExpiryMm,
-        this.licenseExpiryYy,
-        this.nationalInsuranceNo,
-        this.insuranceExpiryMm,
-        this.insuranceExpiryYy,
-        this.motExpiryMm,
-        this.motExpiryYy,
-        this.regNumber,
-        this.make,
-        this.model,
-        this.badgeNumber,
-        this.pcoExpiryMm,
-        this.pcoExpiryYy,
-        this.vehicleLicenseExpiryMm,
-        this.vehicleLicenseExpiryYy,
-        this.employmentStatus,
-        this.commissionType,
-        this.commission,
-        this.visaType,
-        this.visaExpiryMm,
-        this.visaExpiryYy,
-        this.creditStatus,
-        this.address1,
-        this.address2,
-        this.country,
-        this.cityId,
-        this.townId,
-        this.postcode,
-        this.companyname,
-        this.description,
-        this.tel,
-        this.mob,
-        this.mob2,
-        this.mob3,
-        this.pcoBadgeNo,
-        this.fax,
-        this.registeredDate,
-        this.lastLogin,
-        this.activationcode,
-        this.newsSubscription,
-        this.emergencyCode,
-        this.emergencyNumber,
-        this.memStatus,
-        this.memHide,
-        this.hash,
-        this.doj,
-        this.dateLeft,
-        this.companyCar,
-        this.vehicle,
-        this.quoteRequest,
-        this.dob,
-        this.driverImg,
-        this.carReg,
-        this.vColor,
-        this.dlNumber,
-        this.logBook,
-        this.rentalAgreement,
-        this.rentalexpiry,
-        this.motexpiry,
-        this.vpcoexpiry,
-        this.pcocexpiry,
-        this.badgeExpiry,
-        this.insuranceexpiry,
-        this.operatorlicexpiry,
-        this.mot,
-        this.vPco,
-        this.vPcoNo,
-        this.pcoCounter,
-        this.badge,
-        this.insurance,
-        this.serviceArea,
-        this.businessName,
-        this.operatorLic,
-        this.businessInsurance,
-        this.businessNature,
-        this.longBusiness,
-        this.invoiceContact,
-        this.mainContact,
-        this.code1,
-        this.code2,
-        this.code3,
-        this.rent,
-        this.dlExpiry,
-        this.driverstatus,
-        this.address3,
-        this.driverRent,
-        this.businessExpiry,
-        this.operatorExpiry,
-        this.county,
-        this.state,
-        this.accountNo,
-        this.accountName,
-        this.bankName,
-        this.sortCode,
-        this.tradingname,
-        this.invoicename,
-        this.invoiceaddress1,
-        this.invoiceaddress2,
-        this.invoiceaddress3,
-        this.chargename,
-        this.generalCommission,
-        this.generalFrequency,
-        this.generalComsionType,
-        this.corpinno,
-        this.discountAmount,
-        this.membersid,
-        this.licenseimage,
-        this.tradename,
-        this.profileUpdate,
-        this.sendPinEmail,
-        this.licenseAut,
-        this.supplierMutipleDocument,
-        this.longitude,
-        this.latitude,
-        this.availStatus,
-        this.availablePostcode});
+      this.customerType,
+      this.title,
+      this.firstname,
+      this.lastname,
+      this.email,
+      this.newsletterSubscribtion,
+      this.password,
+      this.passwordStatus,
+      this.creditLimit,
+      this.usedCreditLimit,
+      this.makePayment,
+      this.groupid,
+      this.status,
+      this.licenseNumber,
+      this.licenseExpiryMm,
+      this.licenseExpiryYy,
+      this.nationalInsuranceNo,
+      this.insuranceExpiryMm,
+      this.insuranceExpiryYy,
+      this.motExpiryMm,
+      this.motExpiryYy,
+      this.regNumber,
+      this.make,
+      this.model,
+      this.badgeNumber,
+      this.pcoExpiryMm,
+      this.pcoExpiryYy,
+      this.vehicleLicenseExpiryMm,
+      this.vehicleLicenseExpiryYy,
+      this.employmentStatus,
+      this.commissionType,
+      this.commission,
+      this.visaType,
+      this.visaExpiryMm,
+      this.visaExpiryYy,
+      this.creditStatus,
+      this.address1,
+      this.address2,
+      this.country,
+      this.cityId,
+      this.townId,
+      this.postcode,
+      this.companyname,
+      this.description,
+      this.tel,
+      this.mob,
+      this.mob2,
+      this.mob3,
+      this.pcoBadgeNo,
+      this.fax,
+      this.registeredDate,
+      this.lastLogin,
+      this.activationcode,
+      this.newsSubscription,
+      this.emergencyCode,
+      this.emergencyNumber,
+      this.memStatus,
+      this.memHide,
+      this.hash,
+      this.doj,
+      this.dateLeft,
+      this.companyCar,
+      this.vehicle,
+      this.quoteRequest,
+      this.dob,
+      this.driverImg,
+      this.carReg,
+      this.vColor,
+      this.dlNumber,
+      this.logBook,
+      this.rentalAgreement,
+      this.rentalexpiry,
+      this.motexpiry,
+      this.vpcoexpiry,
+      this.pcocexpiry,
+      this.badgeExpiry,
+      this.insuranceexpiry,
+      this.operatorlicexpiry,
+      this.mot,
+      this.vPco,
+      this.vPcoNo,
+      this.pcoCounter,
+      this.badge,
+      this.insurance,
+      this.serviceArea,
+      this.businessName,
+      this.operatorLic,
+      this.businessInsurance,
+      this.businessNature,
+      this.longBusiness,
+      this.invoiceContact,
+      this.mainContact,
+      this.code1,
+      this.code2,
+      this.code3,
+      this.rent,
+      this.dlExpiry,
+      this.driverstatus,
+      this.address3,
+      this.driverRent,
+      this.businessExpiry,
+      this.operatorExpiry,
+      this.county,
+      this.state,
+      this.accountNo,
+      this.accountName,
+      this.bankName,
+      this.sortCode,
+      this.tradingname,
+      this.invoicename,
+      this.invoiceaddress1,
+      this.invoiceaddress2,
+      this.invoiceaddress3,
+      this.chargename,
+      this.generalCommission,
+      this.generalFrequency,
+      this.generalComsionType,
+      this.corpinno,
+      this.discountAmount,
+      this.membersid,
+      this.licenseimage,
+      this.tradename,
+      this.profileUpdate,
+      this.sendPinEmail,
+      this.licenseAut,
+      this.supplierMutipleDocument,
+      this.longitude,
+      this.latitude,
+      this.availStatus,
+      this.availablePostcode,
+      this.avatar});
 
   Data.fromJson(Map<String, dynamic> json) {
     driverId = json['driver_id'];
@@ -428,6 +430,7 @@ class Data {
     latitude = json['latitude'];
     availStatus = json['avail_status'];
     availablePostcode = json['available_postcode'];
+    avatar = json['avatar'];
   }
 
   Map<String, dynamic> toJson() {

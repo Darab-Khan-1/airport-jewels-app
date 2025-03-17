@@ -80,7 +80,7 @@ class DriverScreen extends StatelessWidget {
 
                   return GestureDetector(
                     onTap: () {
-                      Get.to(() => const JobPage());
+                      Get.to(() => JobScreen());
                     },
                     child: Card(
                       margin: const EdgeInsets.symmetric(vertical: 5),
