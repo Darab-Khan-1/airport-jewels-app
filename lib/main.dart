@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       title: appName,
       theme: AppTheme.lightTheme(context),
       builder: EasyLoading.init(),
-      home: const WelcomeScreen(),
+      home: WelcomeScreen(),
     );
   }
 }

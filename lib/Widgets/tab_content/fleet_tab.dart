@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
+import '../../controlller/auth_controller/auth_controller.dart';
 import '../buttons/k_elevated_button.dart';
 import '../custom_checkbox/custom_checkbox.dart';
 
 class FleetTabContent extends StatelessWidget {
-  const FleetTabContent({
+   FleetTabContent({
     super.key,
   });
+
+  final authCtrl = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -53,21 +57,7 @@ class FleetTabContent extends StatelessWidget {
           ),
 
           const Gap(5),
-
-          // Reusable checkbox row widget
-          _buildCustomCheckbox(sallonCar),
-
-          _buildCustomCheckbox(estateCar),
-
-          _buildCustomCheckbox(excutiveCar),
-
-          _buildCustomCheckbox(executivePeopleCarrier),
-
-          _buildCustomCheckbox(peopleCarrrier),
-
-          _buildCustomCheckbox(miniVan8Passenger),
-          _buildCustomCheckbox(miniBus),
-          _buildCustomCheckbox(coaches),
+          _buildCustomCheckbox(),
           Gap(10),
           Align(
             alignment: Alignment.center,
@@ -83,13 +73,23 @@ class FleetTabContent extends StatelessWidget {
     );
   }
 
-  Widget _buildCustomCheckbox(String label) {
-    return CustomCheckbox(
-      label: label,
-      value: false, // Replace with actual value if needed
-      onChanged: (bool? value) {
-        // Handle checkbox state change
+  Widget _buildCustomCheckbox() {
+    return Obx(() => ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: authCtrl.allCars.value.data?.length,
+      itemBuilder: (context, index) {
+        var item = authCtrl.allCars.value.data![index];
+        return CustomCheckbox(
+          onChanged: (value) {
+            item.isSelected = value;
+            authCtrl.allCars.refresh();
+            authCtrl.update();
+          }, label: item.carName ?? '',
+          value: item.isSelected ?? false,
+        );
       },
+    ),
     );
   }
 }

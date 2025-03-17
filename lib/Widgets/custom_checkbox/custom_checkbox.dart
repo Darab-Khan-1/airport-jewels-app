@@ -27,11 +27,11 @@ class CustomCheckbox extends StatelessWidget {
             child: Transform.scale(
               scale: 0.9,
               child: Checkbox(
-                checkColor: kBlackColor,
+                checkColor: kWhiteColor,
                 value: value, // Using the value passed in constructor
                 onChanged:
                     onChanged, // Using the callback passed in constructor
-                activeColor: kWhiteColor,
+                activeColor: kMainColor,
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 side: const BorderSide(
                   color: kBlackColor,

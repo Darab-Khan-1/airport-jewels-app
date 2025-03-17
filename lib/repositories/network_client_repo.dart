@@ -66,9 +66,11 @@ class RequestClient {
 
   Future<Map<String, String>> _getHeaders() async {
     final token = _sharedPrefsRepository.authToken ?? '';
+    String cookies = _sharedPrefsRepository.cookies;
     return {
       "Content-Type": "application/json",
       if (token.isNotEmpty) "Authorization": "Bearer $token",
+      if (cookies.isNotEmpty) "Cookie": cookies,
     };
   }
 
@@ -140,6 +142,10 @@ class RequestClient {
       if (parser != null) {
         return parser(response.data);
       }
+      if(_sharedPrefsRepository.cookies.isEmpty){
+        _sharedPrefsRepository.setCookies(response.headers['set-cookie']?.first.split(';').first ?? '');
+      }
+
       return response as T;
     } on DioException catch (e) {
       if (kDebugMode) {

@@ -2,26 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
+import 'package:jewels_airport_transfers/controlller/auth_controller/auth_controller.dart';
 import '../../Widgets/custom_tab/custom_tab.dart';
 import '../../Widgets/tab_content/account_tab.dart';
 import '../../Widgets/tab_content/fleet_tab.dart';
 import '../../Widgets/tab_content/license_tab.dart';
 import '../../Widgets/tab_content/payment_tab.dart';
-import '../../controlller/registration_form_controller.dart';
 import '../../models/tab_data/tab_data.dart';
 
-class RegistrationFormScreen extends StatefulWidget {
-  const RegistrationFormScreen({super.key});
+class RegistrationFormScreen extends StatelessWidget {
+   RegistrationFormScreen({super.key});
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _RegistrationFormScreenState createState() => _RegistrationFormScreenState();
-}
-
-class _RegistrationFormScreenState extends State<RegistrationFormScreen>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-  final controller = Get.put(RegistrationFormController());
+  final authCtrl = Get.find<AuthController>();
 
   final List<TabData> _tabs = [
     TabData(icon: Icons.lock, label: account1),
@@ -31,26 +23,15 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
   ];
 
   @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: _tabs.length, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
       body: Column(
         children: [
-          _buildInfoBox(),
+          _buildInfoBox(context),
           _buildTabBar(),
-          _buildTabBarView(),
+          Expanded(child: _buildTabContent()),
+
         ],
       ),
     );
@@ -73,7 +54,7 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
     );
   }
 
-  Widget _buildInfoBox() {
+  Widget _buildInfoBox(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(16.0),
       padding: const EdgeInsets.all(16.0),
@@ -117,11 +98,14 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
 
   Widget _buildTabBar() {
     return TabBar(
-      controller: _tabController,
+      controller: authCtrl.tabController,
       indicatorColor: kBlueColor,
       labelColor: kBlueColor,
       unselectedLabelColor: klightgreyColor,
-      onTap: (_) => setState(() {}),
+      onTap: (index){
+        authCtrl.tabController.index = index;
+        authCtrl.update();
+      },
       tabs: _tabs
           .asMap()
           .map((index, tab) => MapEntry(
@@ -129,7 +113,7 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
                 CustomTab(
                   icon: tab.icon,
                   label: tab.label,
-                  isSelected: _tabController.index == index,
+                  isSelected: index == authCtrl.tabController.index,
                 ),
               ))
           .values
@@ -137,17 +121,19 @@ class _RegistrationFormScreenState extends State<RegistrationFormScreen>
     );
   }
 
-  Widget _buildTabBarView() {
-    return Expanded(
-      child: TabBarView(
-        controller: _tabController,
-        children: const [
-          AccountTabContent(),
-          PaymentTabContent(),
-          LicenseTabContent(),
-          FleetTabContent(),
-        ],
-      ),
-    );
+  /// return screen content based on the selected tab
+  Widget _buildTabContent() {
+      switch (authCtrl.tabController.index) {
+        case 0:
+          return AccountTabContent();
+        case 1:
+          return PaymentTabContent();
+        case 2:
+          return LicenseTabContent();
+        case 3:
+          return FleetTabContent();
+        default:
+          return const SizedBox();
+      }
   }
 }

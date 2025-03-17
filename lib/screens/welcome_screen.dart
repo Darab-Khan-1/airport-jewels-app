@@ -9,12 +9,14 @@ import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.d
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../constants/color.dart';
 import '../constants/string.dart';
+import '../controlller/auth_controller/auth_controller.dart';
 import '../custom_bg_screen.dart';
 import '../gen/assets.gen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+   WelcomeScreen({super.key});
 
+  final authCtrl = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return CustomBgScreen(
@@ -99,7 +101,10 @@ class WelcomeScreen extends StatelessWidget {
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             // Navigate to the next page
-                            Get.to(() => const RegistrationFormScreen());
+                            authCtrl.getAllCars(context);
+                            authCtrl.getAllCountries(context);
+                            authCtrl.getAllPorts(context);
+                            Get.to(() =>  RegistrationFormScreen());
                           },
                       ),
                     ],
