@@ -26,6 +26,7 @@ MultiValidator passwordValidator() {
     MinLengthValidator(8, errorText: 'Password must be at least 8 digits long'),
     MaxLengthValidator(20,
         errorText: 'Password must not be more than 20 digits long'),
+
   ]);
 }
 

@@ -33,12 +33,14 @@ class CarsModel {
 class CarData {
   String? carId;
   String? carName;
+  bool? isSelected;
 
-  CarData({this.carId, this.carName});
+  CarData({this.carId, this.carName, this.isSelected = false});
 
   CarData.fromJson(Map<String, dynamic> json) {
     carId = json['car_id'];
     carName = json['car_name'];
+    isSelected = false;
   }
 
   Map<String, dynamic> toJson() {
