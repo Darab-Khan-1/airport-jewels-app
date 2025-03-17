@@ -11,7 +11,8 @@ import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.d
 import 'package:jewels_airport_transfers/services/api_services.dart';
 import 'package:jewels_airport_transfers/utills/logging.dart';
 
-class AuthController extends GetxController with GetSingleTickerProviderStateMixin{
+class AuthController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   var keepMeLogin = false.obs;
   String selectedCountryCode = "+92";
   final currentStep = 0.obs;
@@ -20,6 +21,7 @@ class AuthController extends GetxController with GetSingleTickerProviderStateMix
   void toggleCheckbox() {
     keepMeLogin.value = !keepMeLogin.value;
   }
+
   RxString selectedOption = "Email".obs;
 
   Rx<UserRole> role = UserRole.UNKNOWN.obs;
@@ -27,6 +29,8 @@ class AuthController extends GetxController with GetSingleTickerProviderStateMix
 
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
+  final newPasswordController = TextEditingController().obs;
+  final newPasswordConfirmController = TextEditingController().obs;
 
   SharedPrefsRepository repository = SharedPrefsRepository();
 
@@ -51,58 +55,55 @@ class AuthController extends GetxController with GetSingleTickerProviderStateMix
   final makeAndModelController = TextEditingController().obs;
   final companyCarController = TextEditingController().obs;
 
-
-  login(BuildContext context) async{
-    try{
-
-      Map<String,dynamic> body = {
-        "username" : emailController.value.text.trim(),
-        "password" : passwordController.value.text.trim()
+  login(BuildContext context) async {
+    try {
+      Map<String, dynamic> body = {
+        "username": emailController.value.text.trim(),
+        "password": passwordController.value.text.trim()
       };
       var res = await ApiService().loginApi(context, body);
-      if( res != null){
+      if (res != null) {
         await repository.saveLoginModel(res);
         Global().setUserRole(res.data?.userType ?? '');
-        Get.offAll(const SupplierHomeScreen());
+        Get.offAll(SupplierHomeScreen());
       }
-
-    }catch(e) {
+    } catch (e) {
       Logger.error("Login Api Error:${e.toString()}");
     }
   }
-  getAllCars(BuildContext context) async{
-    try{
+
+  getAllCars(BuildContext context) async {
+    try {
       var res = await ApiService().getAllCarsApi(context);
-      if( res != null){
+      if (res != null) {
         allCars.value = res;
         update();
       }
-
-    }catch(e) {
+    } catch (e) {
       Logger.error("Api Error:${e.toString()}");
     }
   }
-  getAllCountries(BuildContext context) async{
-    try{
+
+  getAllCountries(BuildContext context) async {
+    try {
       var res = await ApiService().getAllCountryApi(context);
-      if( res != null){
+      if (res != null) {
         allCountries.value = res;
         update();
       }
-
-    }catch(e) {
+    } catch (e) {
       Logger.error("Api Error:${e.toString()}");
     }
   }
-  getAllPorts(BuildContext context) async{
-    try{
+
+  getAllPorts(BuildContext context) async {
+    try {
       var res = await ApiService().getAllPortsApi(context);
-      if( res != null){
+      if (res != null) {
         allPorts.value = res;
         update();
       }
-
-    }catch(e) {
+    } catch (e) {
       Logger.error("Api Error:${e.toString()}");
     }
   }
@@ -118,7 +119,6 @@ class AuthController extends GetxController with GetSingleTickerProviderStateMix
       currentStep.value--;
     }
   }
-
 
   @override
   void onInit() {

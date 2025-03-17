@@ -15,6 +15,10 @@ const String slash = '|';
 const String num = '3';
 const String driver = 'Driver : ';
 const String driverName = 'Adnan';
+const String driverName1 = 'Driver Name';
+const String testGmailCom = 'test@gmail.com';
+const String address = 'Rawind road lahore pakistan';
+const String number = '0300-0000000';
 const String passenger = "Passenger:";
 const String passenegerInformation = "Passenger Information:";
 const String passenegerName = "Passenger Name";
@@ -72,6 +76,16 @@ const String approximate = "Approx:";
 const String miles = "25 Miles";
 const String quotationDetails = "Quotation Details";
 const String networkError = "Network Error";
+const String changePassword = "Change Password";
+const String enterCurrentPassword = 'Enter Current Password';
+const String newPassword = 'New Password';
+const String enterNewPassword = 'Enter New Password';
+const String currentPassword = 'Current Password';
+const String confirmNewPassword = 'Confirm New Password';
+
+const String deleteUser = "Delete Account";
+const String signOut = "Sign Out";
+const String editProfile = "Edit Profile";
 
 const String viewDetails = 'View details';
 const String completed = 'Completed';

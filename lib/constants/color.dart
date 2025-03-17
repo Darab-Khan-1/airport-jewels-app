@@ -40,7 +40,7 @@ const Color kgreyColor1 = Color(0xFFDBDBDB);
 
 const Color kBrownColor = Colors.brown;
 const Color kBlackDarkColor = Color(0xFF252525);
-const Color kGreyColor = Color(0xFFD8DBDE);
+const Color kGreyColor = Color(0xFF606060);
 const Color kDisableColor = Color(0xFFD8D7D6);
 const Color klightgreyColor = Color(0xFFE5E5E5);
 const Color kGryColor = Color(0x1A04283E);

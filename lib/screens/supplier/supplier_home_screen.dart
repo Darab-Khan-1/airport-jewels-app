@@ -9,24 +9,36 @@ import 'package:jewels_airport_transfers/screens/supplier/completed_jobs_screen.
 import 'package:jewels_airport_transfers/screens/supplier/quotation_job_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/upcoming_jobs_screen.dart';
 import '../../Widgets/buttons/k_elevated_button.dart';
+import '../../Widgets/custom_drawer/custom_drawer.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
 import 'add_driver_screen.dart';
 
 class SupplierHomeScreen extends StatelessWidget {
-  const SupplierHomeScreen({
+  SupplierHomeScreen({
     super.key,
   });
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
+        key: _scaffoldKey,
+        drawer: const CustomDrawer(),
         appBar: AppBar(
-          backgroundColor: kBlueColor,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.menu,
+              color: kWhiteColor,
+              size: 30,
+            ),
+            onPressed: () {
+              _scaffoldKey.currentState?.openDrawer();
+            },
+          ),
           title: const Text(appName1),
-          leading: const SizedBox(),
         ),
         body: Column(
           children: [

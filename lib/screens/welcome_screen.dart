@@ -14,7 +14,7 @@ import '../custom_bg_screen.dart';
 import '../gen/assets.gen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-   WelcomeScreen({super.key});
+  WelcomeScreen({super.key});
 
   final authCtrl = Get.put(AuthController());
   @override
@@ -65,7 +65,7 @@ class WelcomeScreen extends StatelessWidget {
                     Expanded(
                       child: KElevatedButtons(
                         onPressed: () {
-                          Get.to(() => const SupplierHomeScreen());
+                          Get.to(() => SupplierHomeScreen());
                         },
                         text: partner,
                       ),
@@ -104,7 +104,7 @@ class WelcomeScreen extends StatelessWidget {
                             authCtrl.getAllCars(context);
                             authCtrl.getAllCountries(context);
                             authCtrl.getAllPorts(context);
-                            Get.to(() =>  RegistrationFormScreen());
+                            Get.to(() => RegistrationFormScreen());
                           },
                       ),
                     ],
