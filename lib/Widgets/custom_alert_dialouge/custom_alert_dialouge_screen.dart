@@ -65,7 +65,6 @@ class CustomAlertDialogScreenState extends State<CustomAlertDialogScreen> {
                       child: KElevatedButton2(
                         onPressed: () {
                           Get.back();
-                          Get.to(() => JobScreen());
                         },
                         text: ok,
                       ),

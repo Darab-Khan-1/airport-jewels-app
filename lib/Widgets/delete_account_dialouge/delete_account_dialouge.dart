@@ -50,7 +50,7 @@ class DeleteAccountDialog extends StatelessWidget {
                 // 🗑 Delete Button
                 TextButton.icon(
                   onPressed: () {
-                    Navigator.of(context).pop(); // Close dialog
+                    // Close dialog
                     onConfirm(); // Call delete function
                   },
                   icon: Icon(Icons.delete, color: kGreyColor),

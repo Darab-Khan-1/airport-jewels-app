@@ -77,7 +77,11 @@ class ChangePasswordScreen extends StatelessWidget {
                   width: double.infinity,
                   child: Center(
                     child: FilledButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_formkey.currentState!.validate()) {
+                          controller.updatePasssword(context);
+                        }
+                      },
                       child: const Text(changePassword),
                     ),
                   ),

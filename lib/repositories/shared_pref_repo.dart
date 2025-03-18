@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/login_model/login_model.dart';
@@ -9,6 +10,7 @@ const String _loginModelKey = 'login_model';
 const String _userType = "User_Type";
 const String _cookies = "cookies";
 const String _driverId = "driver_id";
+const String _supplierId = "supplier_id";
 
 /// Singleton class to manage SharedPreferences
 class SharedPrefsRepository {
@@ -61,6 +63,11 @@ class SharedPrefsRepository {
   Future<void> setDriverId(String driverId) async {
     assert(driverId.isNotEmpty, 'Driver Id cannot be empty');
     await _prefs.setString(_driverId, driverId);
+  }
+
+  Future<void> setSupplierId(String supplierId) async {
+    assert(supplierId.isNotEmpty, 'Supplier Id cannot be empty');
+    await _prefs.setString(_supplierId, supplierId);
   }
 
   String get driverId => _prefs.getString(_driverId) ?? '';

@@ -26,7 +26,7 @@ class SupplierHomeScreen extends StatelessWidget {
       length: 5,
       child: Scaffold(
         key: _scaffoldKey,
-        drawer: const CustomDrawer(),
+        drawer: CustomDrawer(),
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(
@@ -57,7 +57,7 @@ class SupplierHomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        bottomNavigationBar: Global().userRole == UserRole.DRIVER
+        bottomNavigationBar: Global().userRole != UserRole.SUPPLIER
             ? null
             : Padding(
                 padding: const EdgeInsets.all(7.0),

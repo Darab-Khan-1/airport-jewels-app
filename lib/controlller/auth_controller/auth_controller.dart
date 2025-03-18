@@ -8,6 +8,7 @@ import 'package:jewels_airport_transfers/models/country_model/country_model.dart
 import 'package:jewels_airport_transfers/models/port_model/port_model.dart';
 import 'package:jewels_airport_transfers/repositories/shared_pref_repo.dart';
 import 'package:jewels_airport_transfers/screens/supplier/supplier_home_screen.dart';
+import 'package:jewels_airport_transfers/screens/welcome_screen.dart';
 import 'package:jewels_airport_transfers/services/api_services.dart';
 import 'package:jewels_airport_transfers/utills/logging.dart';
 
@@ -101,6 +102,38 @@ class AuthController extends GetxController
       var res = await ApiService().getAllPortsApi(context);
       if (res != null) {
         allPorts.value = res;
+        update();
+      }
+    } catch (e) {
+      Logger.error("Api Error:${e.toString()}");
+    }
+  }
+
+  deleteUser(BuildContext context) async {
+    try {
+      var res = await ApiService().deleteUserApi(
+        context,
+      );
+      if (res != null) {
+        Get.offAll(WelcomeScreen());
+        update();
+      }
+    } catch (e) {
+      Logger.error("Api Error:${e.toString()}");
+    }
+  }
+
+  updatePasssword(BuildContext context) async {
+    try {
+      Map<String, dynamic> body = {
+        'old_password': passwordController.value.text.trim(),
+        'new_password': newPasswordController.value.text.trim(),
+      };
+
+      var res = await ApiService().updatePasswordApi(context, body);
+      if (res != null) {
+        passwordController.value.clear();
+        newPasswordController.value.clear();
         update();
       }
     } catch (e) {

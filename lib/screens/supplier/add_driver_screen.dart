@@ -1,21 +1,20 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:jewels_airport_transfers/Widgets/buttons/k_elevated_button.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:jewels_airport_transfers/Widgets/custom_alert_dialouge/custom_alert_dialouge_screen.dart';
 import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
-import 'package:jewels_airport_transfers/screens/supplier/driver_screen.dart';
+import 'package:jewels_airport_transfers/controlller/add_drvier_controller/add_driver_controller.dart';
+
+import '../../Widgets/form_validation/form_validation.dart';
+import 'job_page.dart';
 
 class AddDriverScreen extends StatelessWidget {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController mobileController = TextEditingController();
-
   AddDriverScreen({super.key});
-
+  final AddDriverController controller = Get.put(AddDriverController());
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,80 +26,116 @@ class AddDriverScreen extends StatelessWidget {
             // Handle back action here
           },
         ),
-        title: Text(
+        title: const Text(
           supplier,
         ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const Gap(10),
-              TextInputFieldWidget(
-                controller: nameController,
-                hintText: enterName,
-                cursorsColor: kBlackColor,
-                lable: null,
-              ),
-              const Gap(20),
-              Text(
-                email,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const Gap(8),
-              TextInputFieldWidget(
-                controller: emailController,
-                hintText: enterEmail,
-                cursorsColor: kBlackColor,
-                textInputType: TextInputType.emailAddress,
-              ),
-              const Gap(20),
-              Text(
-                mobileNumber1,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: kBlackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const Gap(8),
-              TextInputFieldWidget(
-                controller: mobileController,
-                hintText: mobileNumber1,
-                cursorsColor: kBlackColor,
-                textInputType: TextInputType.phone,
-              ),
-              const Gap(30),
-              FilledButton(
-                onPressed: () {
-                  if (kDebugMode) {
-                    print("Name: ${nameController.text}");
-                  }
-                  if (kDebugMode) {
-                    print("Email: ${emailController.text}");
-                  }
-                  if (kDebugMode) {
-                    print("Mobile: ${mobileController.text}");
-                  }
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) =>
-                          const CustomAlertDialogScreen());
-                },
-                child: const Text(addDriver),
-              ),
-            ],
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Gap(30),
+                Text(
+                  firstName,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: kBlackColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                const Gap(5),
+                TextInputFieldWidget(
+                  controller: controller.firstNameController.value,
+                  hintText: enterFirstName,
+                  cursorsColor: kBlackColor,
+                  lable: null,
+                  validators: requiredValidator(
+                      error: "First Name Required"), // Add this line
+                ),
+                const Gap(10),
+                Text(
+                  lastName,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: kBlackColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                const Gap(5),
+                TextInputFieldWidget(
+                  controller: controller.lastNameController.value,
+                  hintText: enterLastName,
+                  cursorsColor: kBlackColor,
+                  lable: null,
+                  validators: requiredValidator(error: "Last Name Required"),
+                ),
+                const Gap(10),
+                Text(
+                  email,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: kBlackColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                const Gap(5),
+                TextInputFieldWidget(
+                  controller: controller.emailController.value,
+                  hintText: enterEmail,
+                  cursorsColor: kBlackColor,
+                  textInputType: TextInputType.emailAddress,
+                  validators: emailValidator().call,
+                ),
+                const Gap(10),
+                Text(
+                  mobileNumber1,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: kBlackColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                const Gap(5),
+                TextInputFieldWidget(
+                  controller: controller.mobileController.value,
+                  hintText: mobileNumber1,
+                  cursorsColor: kBlackColor,
+                  textInputType: TextInputType.phone,
+                  validators: phoneValidator(),
+                ),
+                const Gap(30),
+                FilledButton(
+                  onPressed: () async {
+                    if (_formKey.currentState?.validate() ?? false) {
+                      unfocusKeyboard(context);
+
+                      // Show loading indicator
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) =>
+                            const Center(child: CircularProgressIndicator()),
+                      );
+
+                      await controller.addDriver(context);
+
+                      if (context.mounted) {
+                        Navigator.pop(context);
+
+                        await showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              const CustomAlertDialogScreen(),
+                        );
+
+                        Get.to(() => JobScreen());
+                      }
+                    }
+                  },
+                  child: const Text(addDriver),
+                ),
+              ],
+            ),
           ),
         ),
       ),

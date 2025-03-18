@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/Widgets/buttons/leading_button.dart';
+import 'package:jewels_airport_transfers/constants/enum.dart';
+import 'package:jewels_airport_transfers/constants/global.dart';
 import 'package:jewels_airport_transfers/screens/supplier/job_page.dart';
 import '../../Widgets/buttons/custom_widgets.dart';
 import '../../constants/color.dart';
@@ -290,11 +292,14 @@ class UpcomingJobDetailScreen extends StatelessWidget {
         _buildChip(bop, backgroundColor: kYellowColor),
         _buildChip(dropped, backgroundColor: kBlueColor),
         _buildChip(callOffice, backgroundColor: kPurpleColor),
-        GestureDetector(
-            onTap: () {
-              Get.to(() => JobScreen());
-            },
-            child: _buildChip(pushJobToDriver, backgroundColor: kPrimaryColor)),
+        Global().userRole == UserRole.SUPPLIER
+            ? GestureDetector(
+                onTap: () {
+                  Get.to(() => JobScreen());
+                },
+                child:
+                    _buildChip(pushJobToDriver, backgroundColor: kPrimaryColor))
+            : SizedBox(),
       ],
     );
   }
