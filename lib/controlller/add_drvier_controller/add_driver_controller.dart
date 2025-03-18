@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:jewels_airport_transfers/constants/string.dart';
 import '../../repositories/shared_pref_repo.dart';
 import '../../services/api_services.dart';
 import '../../utills/logging.dart';
@@ -10,6 +10,7 @@ class AddDriverController extends GetxController {
   final lastNameController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final mobileController = TextEditingController().obs;
+  final driverId = ''.obs;
 
   SharedPrefsRepository repository = SharedPrefsRepository();
 
@@ -20,19 +21,20 @@ class AddDriverController extends GetxController {
         'last_name': lastNameController.value.text.trim(),
         'email': emailController.value.text.trim(),
         'mobile_number': mobileController.value.text.trim(),
+        'supplier_id': repository.driverId.toString(),
       };
 
       var res = await ApiService().addDriverApi(context, body);
       if (res != null) {
-        await repository.saveLoginModel(res);
         firstNameController.value.clear();
         lastNameController.value.clear();
         emailController.value.clear();
         mobileController.value.clear();
+        driverId.value = '';
         update();
       }
     } catch (e) {
-      Logger.error("Api Error:${e.toString()}");
+      Logger.error("Api Error: ${e.toString()}");
     }
   }
 }

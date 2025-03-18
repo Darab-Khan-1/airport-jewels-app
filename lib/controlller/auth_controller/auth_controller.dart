@@ -123,6 +123,20 @@ class AuthController extends GetxController
     }
   }
 
+  logout(BuildContext context) async {
+    try {
+      var res = await ApiService().logoutApi(
+        context,
+      );
+      if (res != null) {
+        Get.offAll(WelcomeScreen());
+        update();
+      }
+    } catch (e) {
+      Logger.error("Api Error:${e.toString()}");
+    }
+  }
+
   updatePasssword(BuildContext context) async {
     try {
       Map<String, dynamic> body = {

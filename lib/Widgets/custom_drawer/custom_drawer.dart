@@ -107,7 +107,7 @@ class CustomDrawer extends StatelessWidget {
                           title: signOut,
                           icon: Icons.logout_outlined,
                           onTap: () {
-                            // Sign out logic here
+                            Get.find<AuthController>().logout(context);
                           },
                         ),
                         const Gap(20),
