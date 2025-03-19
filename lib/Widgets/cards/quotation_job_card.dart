@@ -4,10 +4,16 @@ import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/Widgets/cards/quotation_details_card.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
+
+import '../../models/available_job_model/available_job_model.dart';
 import '../buttons/custom_widgets.dart';
 
 class QuotationJobCard extends StatelessWidget {
-  const QuotationJobCard({super.key});
+  final Data data;
+  const QuotationJobCard({
+    super.key,
+    required this.data,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,25 +44,26 @@ class QuotationJobCard extends StatelessWidget {
                             Expanded(
                               child: buildIconTextRow(
                                 icon: Icons.directions_car,
-                                text: toyata,
+                                text: data.carId ?? 'No car info',
                                 textColor: kBlackColor,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
                             Expanded(
                               child: buildIconTextRow(
-                                  icon: Icons.edit_note,
-                                  text: refrence,
-                                  textColor: kBlackColor,
-                                  fontWeight: FontWeight.w700,
-                                  data: data),
+                                icon: Icons.edit_note,
+                                text: data.journeyType ?? 'No journey type',
+                                textColor: kBlackColor,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ],
                         ),
                         const Gap(10),
                         buildIconTextRow(
                           icon: Icons.location_on,
-                          text: lahorePakistanIslambad,
+                          text: pickUp,
+                          data: data.fromAddress ?? 'No pickup location',
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -64,7 +71,8 @@ class QuotationJobCard extends StatelessWidget {
                         buildIconTextRow(
                           icon: Icons.location_on,
                           iconColor: kRedColor,
-                          text: lahorePakistanIslambad,
+                          text: dropOff,
+                          data: data.toAddress ?? 'No dropoff location',
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -73,7 +81,7 @@ class QuotationJobCard extends StatelessWidget {
                           icon: Icons.route_outlined,
                           iconColor: kRedColor,
                           text: approximate,
-                          data: miles,
+                          data: '${data.distance ?? '0'} miles',
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -81,6 +89,7 @@ class QuotationJobCard extends StatelessWidget {
                         buildIconTextRow(
                           icon: Icons.calendar_month,
                           text: date,
+                          data: data.pickupDate ?? 'No date',
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w400,
                         ),
@@ -96,7 +105,8 @@ class QuotationJobCard extends StatelessWidget {
                     child: buildIconTextRow(
                       icon: Icons.alarm,
                       iconColor: kRedColor,
-                      text: timeHours,
+                      text: time,
+                      data: data.arrivalDateTime?.split(' ').last ?? 'No time',
                       textColor: kBlackColor,
                       fontWeight: FontWeight.w400,
                     ),

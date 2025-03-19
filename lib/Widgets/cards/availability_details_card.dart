@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:jewels_airport_transfers/constants/string.dart';
-import '../../constants/color.dart';
+import '../../constants/color.dart'; // Assuming you have defined your color constants
 import '../buttons/custom_widgets.dart';
-import '../../models/available_job_model/available_job_model.dart';
 
 class AvailabilityDetailsCard extends StatelessWidget {
-  final Data data;
-
-  const AvailabilityDetailsCard({
-    super.key,
-    required this.data,
-  });
+  const AvailabilityDetailsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +28,7 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.directions_car,
-                          text: data.carId ?? 'No car info',
+                          text: "Saloon",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w700,
                         ),
@@ -43,7 +36,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.edit_note,
-                          text: data.journeyType ?? 'No journey type',
+                          text: "Ref:",
+                          data: "09893758762",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.w700,
                         ),
@@ -54,8 +48,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                   buildIconTextRow(
                     icon: Icons.radio_button_checked,
                     iconColor: kgreenColor,
-                    text: pickUp,
-                    data: data.fromAddress ?? 'No pickup location',
+                    text: "Pickup:",
+                    data: "Location A",
                     textColor: kBlackColor,
                     fontWeight: FontWeight.bold,
                   ),
@@ -63,8 +57,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                   buildIconTextRow(
                     icon: Icons.location_on,
                     iconColor: kRedColor,
-                    text: dropOff,
-                    data: data.toAddress ?? 'No dropoff location',
+                    text: "Drop-off:",
+                    data: "Location B",
                     textColor: kBlackColor,
                     fontWeight: FontWeight.bold,
                   ),
@@ -74,8 +68,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.timeline,
-                          text: approximate,
-                          data: '${data.distance ?? '0'} miles',
+                          text: "Approx:",
+                          data: "25 Miles",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -83,8 +77,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.handshake,
-                          text: meetAndGreet,
-                          data: data.meetGreet == '1' ? yes : no,
+                          text: "Meet & Greet:",
+                          data: "Yes",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -97,8 +91,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.calendar_today,
-                          text: date1,
-                          data: data.pickupDate ?? 'No date',
+                          text: "Date:",
+                          data: "17 July 2025",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -106,24 +100,23 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.access_time,
-                          text: time,
-                          data: data.arrivalDateTime?.split(' ').last ??
-                              'No time',
+                          text: "Time:",
+                          data: "10:00 AM",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
                   ),
-                  const Gap(10),
+                  Gap(10),
                   Row(
                     children: [
                       Text(
-                        data.fare ?? '0',
+                        "Fare Quote:",
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
-                      const Text(
-                        dollars,
+                      Text(
+                        "£76.00",
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
@@ -138,35 +131,35 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: FilledButton(
                           onPressed: () {
-                            // Handle reject action
+                            // Handle submit action
                           },
                           style: Theme.of(context)
                               .filledButtonTheme
                               .style
                               ?.copyWith(
                                 backgroundColor:
-                                    const WidgetStatePropertyAll(kRedColor),
+                                    WidgetStatePropertyAll(kRedColor),
                               ),
                           child: const Text(
-                            reject,
+                            "Reject",
                           ),
                         ),
                       ),
-                      const Gap(15),
+                      Gap(15),
                       Expanded(
                         child: FilledButton(
                           onPressed: () {
-                            // Handle accept action
+                            // Handle submit action
                           },
                           style: Theme.of(context)
                               .filledButtonTheme
                               .style
                               ?.copyWith(
                                 backgroundColor:
-                                    const WidgetStatePropertyAll(kgreenColor),
+                                    WidgetStatePropertyAll(kgreenColor),
                               ),
                           child: const Text(
-                            accept,
+                            "Accept",
                           ),
                         ),
                       ),

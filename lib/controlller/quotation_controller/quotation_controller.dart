@@ -5,9 +5,9 @@ import '../../repositories/shared_pref_repo.dart';
 import '../../services/api_services.dart';
 import '../../utills/logging.dart';
 
-class AvailableController extends GetxController {
-  final availableJob = AvailableJobModel().obs;
-  final availableJobList = <AvailableJobModel>[].obs;
+class QuotationController extends GetxController {
+  final quotationJob = AvailableJobModel().obs;
+  final quotationJobList = <AvailableJobModel>[].obs;
 
   RxBool isAvailableLoading = true.obs;
   final isLoading = false.obs;
