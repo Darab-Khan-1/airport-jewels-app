@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/enum.dart';
 import 'package:jewels_airport_transfers/constants/global.dart';
 import 'package:jewels_airport_transfers/screens/supplier/availability_job_screen.dart';
+import 'package:jewels_airport_transfers/screens/supplier/comment_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/completed_jobs_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/quotation_job_screen.dart';
 import 'package:jewels_airport_transfers/screens/supplier/upcoming_jobs_screen.dart';
@@ -51,7 +52,7 @@ class SupplierHomeScreen extends StatelessWidget {
                   AvailableJobsScreen(),
                   UpcomingTripsScreen(),
                   const CompletedJobsScreen(),
-                  _buildCommentsSection(context),
+                  CommentScreen(),
                 ],
               ),
             ),
@@ -99,45 +100,6 @@ class SupplierHomeScreen extends StatelessWidget {
           Tab(text: completed),
           Tab(text: comments),
         ],
-      ),
-    );
-  }
-
-  /// Builds the comments section with RichText widgets
-  Widget _buildCommentsSection(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 0.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(3, (index) => _buildCommentItem(context)),
-      ),
-    );
-  }
-
-  /// Builds individual comment items
-  Widget _buildCommentItem(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0),
-      child: RichText(
-        text: TextSpan(
-          text: comment1,
-          style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: kBlackColor,
-                fontWeight: FontWeight.normal,
-              ),
-          children: [
-            TextSpan(
-              text: authorized,
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  // Add tap logic here if required
-                },
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: kBlueColor,
-                  ),
-            ),
-          ],
-        ),
       ),
     );
   }

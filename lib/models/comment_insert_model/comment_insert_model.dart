@@ -34,8 +34,8 @@ class Data {
   String? id;
   String? bookingJourneyId;
   String? loginId;
-  Null? customerId;
-  Null? driverId;
+  String? customerId;
+  String? driverId;
   String? comments;
   String? createdDate;
   String? status;

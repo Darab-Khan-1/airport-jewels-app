@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:gap/gap.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:jewels_airport_transfers/controlller/auth_controller/auth_controller.dart';
+import 'package:jewels_airport_transfers/screens/profile_screen/edit_profile_screen.dart';
 import '../../constants/color.dart';
 import '../../controlller/profile_controller/profile_controller.dart';
 import '../../screens/change_password_screen/change_password_screen.dart';
@@ -20,7 +20,12 @@ class CustomDrawer extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.7,
       child: Drawer(
         elevation: 0,
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
         child: Stack(
           children: [
             Column(
@@ -68,12 +73,12 @@ class CustomDrawer extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Gap(40),
+                        const Gap(40),
                         _buildDivider(),
                         _buildDrawerOption(
                           context,
                           title: changePassword,
-                          icon: Icons.lock,
+                          icon: Icons.password,
                           onTap: () {
                             Get.to(() => ChangePasswordScreen());
                           },
@@ -99,6 +104,15 @@ class CustomDrawer extends StatelessWidget {
                           icon: Icons.person,
                           onTap: () {
                             Get.to(() => ProfileScreen());
+                          },
+                        ),
+                        _buildDivider(),
+                        _buildDrawerOption(
+                          context,
+                          title: editProfile,
+                          icon: Icons.edit,
+                          onTap: () {
+                            Get.to(() => EditProfileScreen());
                           },
                         ),
                         _buildDivider(),

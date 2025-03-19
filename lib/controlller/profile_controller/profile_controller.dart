@@ -47,6 +47,20 @@ class ProfileController extends GetxController {
     }
   }
 
+  editUser(BuildContext context) async {
+    try {
+      var res = await ApiService()
+          .editUserApi(context // Pass the user ID as the second parameter
+              );
+      if (res != null) {
+        profileModel.value = res;
+        update();
+      }
+    } catch (e) {
+      Logger.error("Api Error:${e.toString()}");
+    }
+  }
+
   @override
   void onInit() {
     // TODO: implement onInit

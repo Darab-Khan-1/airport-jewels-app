@@ -87,6 +87,9 @@ const String confirmNewPassword = 'Confirm New Password';
 const String deleteUser = "Delete Account";
 const String signOut = "Sign Out";
 const String profile = "Profile";
+const String editProfile = "Edit Profile";
+const String update1 = "Update";
+const String customerType = "Customer Type";
 
 const String viewDetails = 'View details';
 const String completed = 'Completed';

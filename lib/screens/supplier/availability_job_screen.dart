@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '../../Widgets/cards/availability_details_card.dart';
+import '../../constants/color.dart';
 import '../../controlller/available_controller/available_controller.dart';
 
 class AvailableJobsScreen extends StatefulWidget {
@@ -30,7 +32,24 @@ class _AvailableJobsScreenState extends State<AvailableJobsScreen> {
 
         if (controller.availablelJobModel.value.data == null ||
             controller.availablelJobModel.value.data!.isEmpty) {
-          return const Center(child: Text('No available jobs found'));
+          return Center(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.rocket_launch_rounded,
+                    color: kBlackColor, size: 24),
+                const Gap(6),
+                Text(
+                  'No Available Jobs found',
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        color: kBlackColor,
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ],
+            ),
+          );
+          ;
         }
 
         return ListView.builder(

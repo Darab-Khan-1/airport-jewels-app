@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/enum.dart';
@@ -162,7 +161,7 @@ class AuthController extends GetxController
   }
 
   void previousStep() {
-    if (currentStep.value > 0) {
+    if (currentStep.value > 0){
       currentStep.value--;
     }
   }
