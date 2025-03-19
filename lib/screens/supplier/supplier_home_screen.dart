@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -45,13 +44,13 @@ class SupplierHomeScreen extends StatelessWidget {
           children: [
             _buildTabBar(),
             const Gap(10),
-            Expanded(
+            const Expanded(
               child: TabBarView(
                 children: [
-                  const QuotationJobScreen(),
+                  QuotationJobScreen(),
                   AvailableJobsScreen(),
                   UpcomingTripsScreen(),
-                  const CompletedJobsScreen(),
+                  CompletedJobsScreen(),
                   CommentScreen(),
                 ],
               ),

@@ -1,9 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import 'package:jewels_airport_transfers/models/all_driver_model/all_driver_model.dart';
 import 'package:jewels_airport_transfers/models/car_model/car_model.dart';
 import 'package:jewels_airport_transfers/models/comment_insert_model/comment_insert_model.dart';
@@ -11,8 +8,6 @@ import 'package:jewels_airport_transfers/models/country_model/country_model.dart
 import 'package:jewels_airport_transfers/models/login_model/login_model.dart';
 import 'package:jewels_airport_transfers/models/port_model/port_model.dart';
 import 'package:jewels_airport_transfers/models/profile_model/profile_model.dart';
-import 'package:jewels_airport_transfers/screens/welcome_screen.dart';
-
 import '../constants/common.dart';
 import '../models/available_job_model/available_job_model.dart';
 import '../repositories/apis.dart';

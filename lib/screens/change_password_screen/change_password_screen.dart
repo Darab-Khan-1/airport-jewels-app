@@ -3,7 +3,6 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/extension.dart';
-
 import '../../Widgets/form_validation/form_validation.dart';
 import '../../Widgets/text_field/text_input_field.dart';
 import '../../constants/string.dart';

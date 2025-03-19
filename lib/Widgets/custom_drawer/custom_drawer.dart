@@ -151,7 +151,7 @@ class CustomDrawer extends StatelessWidget {
     required VoidCallback onTap,
   }) {
     return ListTile(
-      leading: Icon(icon, color: kGreyColor),
+      leading: Icon(icon, color: kBlackColor),
       title: Text(
         title,
         style: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -159,6 +159,8 @@ class CustomDrawer extends StatelessWidget {
               color: kBlackColor,
             ),
       ),
+      trailing: const Icon(Icons.arrow_forward_ios,
+          color: kBlackColor, size: 18), // Forward icon added
       onTap: onTap,
     );
   }
@@ -166,17 +168,4 @@ class CustomDrawer extends StatelessWidget {
   Widget _buildDivider() {
     return const Divider(thickness: 0.7, color: kBlackColor);
   }
-}
-
-// Model class for sub-options
-class DrawerSubOption {
-  final String title;
-  final IconData icon;
-  final VoidCallback onTap;
-
-  DrawerSubOption({
-    required this.title,
-    required this.icon,
-    required this.onTap,
-  });
 }

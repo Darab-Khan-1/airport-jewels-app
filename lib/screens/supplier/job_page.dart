@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-
 import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';

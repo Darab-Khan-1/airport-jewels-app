@@ -6,7 +6,7 @@ import '../../constants/color.dart';
 import '../../controlller/available_controller/available_controller.dart';
 
 class AvailableJobsScreen extends StatefulWidget {
-  AvailableJobsScreen({super.key});
+  const AvailableJobsScreen({super.key});
 
   @override
   State<AvailableJobsScreen> createState() => _AvailableJobsScreenState();
@@ -43,7 +43,7 @@ class _AvailableJobsScreenState extends State<AvailableJobsScreen> {
                   'No Available Jobs found',
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: kBlackColor,
-                        fontWeight: FontWeight.normal,
+                        fontWeight: FontWeight.w500,
                       ),
                 ),
               ],

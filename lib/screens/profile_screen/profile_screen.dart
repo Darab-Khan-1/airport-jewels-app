@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:jewels_airport_transfers/screens/profile_screen/profile_avatar.dart';
-
 import '../../Widgets/info_cards/info_card.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';

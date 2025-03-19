@@ -17,7 +17,7 @@ const String driver = 'Driver : ';
 const String driverName = 'Adnan';
 const String driverName1 = 'Driver Name';
 const String testGmailCom = 'test@gmail.com';
-const String address = 'Rawind road lahore pakistan';
+const String address = 'Address:';
 const String number = '0300-0000000';
 const String passenger = "Passenger:";
 const String passenegerInformation = "Passenger Information:";
@@ -25,7 +25,7 @@ const String passenegerName = "Passenger Name";
 const String lauggage = "Luggage:";
 const String lauggageType = "Suitcase";
 const String amount = "Amount: ";
-const String city = 'Gujranwala';
+const String city = 'City:';
 const String vehicleDescription = "Vehicle Description: ";
 const String vehicleCanAccomodate =
     "This vehicle can accommodate up to 4 passengers travelling with 4 x 23 kg's suitcases.";
@@ -89,7 +89,7 @@ const String signOut = "Sign Out";
 const String profile = "Profile";
 const String editProfile = "Edit Profile";
 const String update1 = "Update";
-const String customerType = "Customer Type";
+const String customerType = "Customer Type:";
 
 const String viewDetails = 'View details';
 const String completed = 'Completed';

@@ -41,7 +41,8 @@ class TextInputFieldWidget extends StatelessWidget {
     this.height = 50.0,
     this.isPasswordNo = false,
     this.filled = false,
-    this.isLableRequired = false, this.title,
+    this.isLableRequired = false,
+    this.title,
   });
   String? lable;
   final Widget? suffixIcon, prefixIcon;
@@ -74,14 +75,14 @@ class TextInputFieldWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if(isLableRequired ?? false)
-        Text(
-          title ?? '',
-          style: Theme.of(context).textTheme.labelMedium?.copyWith(
-            color: kBlackColor,
-            fontWeight: FontWeight.bold,
+        if (isLableRequired ?? false)
+          Text(
+            title ?? '',
+            style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                  color: kBlackColor,
+                  fontWeight: FontWeight.bold,
+                ),
           ),
-        ),
         const Gap(8),
         TextFormField(
           initialValue: initialValue,
@@ -106,9 +107,10 @@ class TextInputFieldWidget extends StatelessWidget {
           maxLength: maxLength,
           keyboardType: textInputType,
           autovalidateMode: autovalidateMode ?? AutovalidateMode.disabled,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-            color: kWhiteColor
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: kBlackColor),
           decoration: InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.never,
               hintText: hintText,

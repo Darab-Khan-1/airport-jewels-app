@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:jewels_airport_transfers/Widgets/cards/upcoming_job_card.dart';
 
 class UpcomingTripsScreen extends StatelessWidget {
-  const UpcomingTripsScreen({super.key,});
+  const UpcomingTripsScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class UpcomingTripsScreen extends StatelessWidget {
               controller: scrollController, // Use the same ScrollController
               itemCount: 5,
               itemBuilder: (context, index) {
-                return  UpcomingJobCard();
+                return const UpcomingJobCard();
               },
             ),
           ),

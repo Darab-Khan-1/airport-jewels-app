@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:jewels_airport_transfers/controlller/comment_controller/comment_controller.dart';
 import 'package:jewels_airport_transfers/models/comment_insert_model/comment_insert_model.dart';
 
@@ -10,7 +9,7 @@ import '../../constants/color.dart';
 import '../../constants/string.dart';
 
 class CommentScreen extends StatefulWidget {
-  CommentScreen({super.key});
+  const CommentScreen({super.key});
 
   @override
   State<CommentScreen> createState() => _CommentScreenState();
@@ -45,7 +44,7 @@ class _CommentScreenState extends State<CommentScreen> {
                   'No Comments found',
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: kBlackColor,
-                        fontWeight: FontWeight.normal,
+                        fontWeight: FontWeight.w500,
                       ),
                 ),
               ],
@@ -57,6 +56,7 @@ class _CommentScreenState extends State<CommentScreen> {
         return ListView.builder(
           itemCount: controller.commentInsertModel.value.data!.length,
           itemBuilder: (context, index) {
+            // ignore: non_constant_identifier_names
             final Data = controller.commentInsertModel.value.data![index];
             return _buildCommentsSection(context, data: Data);
           },
@@ -89,7 +89,7 @@ class _CommentScreenState extends State<CommentScreen> {
               ),
           children: [
             TextSpan(
-              text: authorized,
+              text: data.comments ?? '',
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   // Add tap logic here if required

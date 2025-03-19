@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:jewels_airport_transfers/Widgets/custom_alert_dialouge/custom_alert_dialouge_screen.dart';
 import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:jewels_airport_transfers/controlller/add_drvier_controller/add_driver_controller.dart';
-
 import '../../Widgets/form_validation/form_validation.dart';
 import 'job_page.dart';
 
@@ -38,7 +36,7 @@ class AddDriverScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Gap(30),
+                const Gap(30),
                 Text(
                   firstName,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
@@ -53,7 +51,7 @@ class AddDriverScreen extends StatelessWidget {
                   cursorsColor: kBlackColor,
                   lable: null,
                   validators: requiredValidator(
-                      error: "First Name Required"), // Add this line
+                      error: "First Name is Required"), // Add this line
                 ),
                 const Gap(10),
                 Text(
@@ -69,7 +67,7 @@ class AddDriverScreen extends StatelessWidget {
                   hintText: enterLastName,
                   cursorsColor: kBlackColor,
                   lable: null,
-                  validators: requiredValidator(error: "Last Name Required"),
+                  validators: requiredValidator(error: "Last Name is Required"),
                 ),
                 const Gap(10),
                 Text(
