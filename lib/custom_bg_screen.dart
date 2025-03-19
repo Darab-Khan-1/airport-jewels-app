@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'constants/color.dart';
 import 'gen/assets.gen.dart';
 
@@ -10,11 +9,9 @@ class CustomBgScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          kTransparent, // Use Colors.transparent instead of kTransparent
+      backgroundColor: kTransparent,
       body: Stack(
-        fit:
-            StackFit.expand, // Ensures that the Stack fills the available space
+        fit: StackFit.expand,
         children: [
           Positioned.fill(
             child: Container(
@@ -26,7 +23,7 @@ class CustomBgScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned.fill(child: child), // Add the child widget here
+          Positioned.fill(child: child),
         ],
       ),
     );

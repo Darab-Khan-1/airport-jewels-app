@@ -4,9 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/controlller/comment_controller/comment_controller.dart';
 import 'package:jewels_airport_transfers/models/comment_insert_model/comment_insert_model.dart';
-
 import '../../constants/color.dart';
-import '../../constants/string.dart';
 
 class CommentScreen extends StatefulWidget {
   const CommentScreen({super.key});

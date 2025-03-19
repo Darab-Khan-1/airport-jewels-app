@@ -5,6 +5,7 @@ class RightSideSlider extends StatefulWidget {
   const RightSideSlider({super.key});
 
   @override
+
   // ignore: library_private_types_in_public_api
   _RightSideSliderState createState() => _RightSideSliderState();
 }

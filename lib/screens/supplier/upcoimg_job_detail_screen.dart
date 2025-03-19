@@ -299,7 +299,7 @@ class UpcomingJobDetailScreen extends StatelessWidget {
                 },
                 child:
                     _buildChip(pushJobToDriver, backgroundColor: kPrimaryColor))
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }

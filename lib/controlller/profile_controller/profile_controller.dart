@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../models/profile_model/profile_model.dart';
-import '../../repositories/network_client_repo.dart';
 import '../../repositories/shared_pref_repo.dart';
 import '../../services/api_services.dart';
 import '../../utills/logging.dart';

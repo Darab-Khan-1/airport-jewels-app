@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import '../../gen/assets.gen.dart';
 
 class ProfileAvatar extends StatelessWidget {
   final String? imageUrl;
@@ -31,7 +30,7 @@ class ProfileAvatar extends StatelessWidget {
         child: imageUrl == null || imageUrl == ''
             ? CircleAvatar(
                 backgroundColor: Colors.grey,
-                radius: size ,
+                radius: size,
                 child: Icon(
                   Icons.person,
                   color: Colors.white,
@@ -39,15 +38,14 @@ class ProfileAvatar extends StatelessWidget {
               )
             : imageUrl!.contains('http')
                 ? CachedNetworkImage(
-          imageUrl: imageUrl!,
-          fit: BoxFit.cover,
-          placeholder: (context, url) => _buildPlaceholder(),
-        )
+                    imageUrl: imageUrl!,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => _buildPlaceholder(),
+                  )
                 : Image.file(
                     File(imageUrl!),
                     fit: BoxFit.cover,
                   ),
-
       ),
     );
   }
@@ -70,4 +68,3 @@ class ProfileAvatar extends StatelessWidget {
     );
   }
 }
-

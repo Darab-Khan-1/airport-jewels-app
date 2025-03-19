@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:jewels_airport_transfers/Widgets/cards/quotation_job_card.dart';
 
 class QuotationJobScreen extends StatelessWidget {

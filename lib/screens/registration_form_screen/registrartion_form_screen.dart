@@ -11,7 +11,7 @@ import '../../Widgets/tab_content/payment_tab.dart';
 import '../../models/tab_data/tab_data.dart';
 
 class RegistrationFormScreen extends StatelessWidget {
-   RegistrationFormScreen({super.key});
+  RegistrationFormScreen({super.key});
 
   final authCtrl = Get.find<AuthController>();
 
@@ -31,7 +31,6 @@ class RegistrationFormScreen extends StatelessWidget {
           _buildInfoBox(context),
           _buildTabBar(),
           Expanded(child: _buildTabContent()),
-
         ],
       ),
     );
@@ -102,7 +101,7 @@ class RegistrationFormScreen extends StatelessWidget {
       indicatorColor: kBlueColor,
       labelColor: kBlueColor,
       unselectedLabelColor: klightgreyColor,
-      onTap: (index){
+      onTap: (index) {
         authCtrl.tabController.index = index;
         authCtrl.update();
       },
@@ -123,17 +122,17 @@ class RegistrationFormScreen extends StatelessWidget {
 
   /// return screen content based on the selected tab
   Widget _buildTabContent() {
-      switch (authCtrl.tabController.index) {
-        case 0:
-          return AccountTabContent();
-        case 1:
-          return PaymentTabContent();
-        case 2:
-          return LicenseTabContent();
-        case 3:
-          return FleetTabContent();
-        default:
-          return const SizedBox();
-      }
+    switch (authCtrl.tabController.index) {
+      case 0:
+        return AccountTabContent();
+      case 1:
+        return const PaymentTabContent();
+      case 2:
+        return const LicenseTabContent();
+      case 3:
+        return FleetTabContent();
+      default:
+        return const SizedBox();
+    }
   }
 }

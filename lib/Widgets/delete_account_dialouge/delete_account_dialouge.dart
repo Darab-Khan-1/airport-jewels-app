@@ -4,8 +4,7 @@ import 'package:jewels_airport_transfers/constants/color.dart';
 class DeleteAccountDialog extends StatelessWidget {
   final VoidCallback onConfirm; // Delete function
 
-  const DeleteAccountDialog({Key? key, required this.onConfirm})
-      : super(key: key);
+  const DeleteAccountDialog({super.key, required this.onConfirm});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,7 @@ class DeleteAccountDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min, // Fit content size
           children: [
-            Icon(Icons.warning_rounded,
+            const Icon(Icons.warning_rounded,
                 size: 50, color: Colors.red), // Warning icon
             const SizedBox(height: 10),
             const Text(
@@ -38,10 +37,10 @@ class DeleteAccountDialog extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // ❌ Cancel Button
+                // ❌ Cancel Butto
                 TextButton.icon(
                   onPressed: () => Navigator.of(context).pop(),
-                  icon: Icon(Icons.cancel_rounded, color: Colors.grey),
+                  icon: const Icon(Icons.cancel_rounded, color: Colors.grey),
                   label: const Text(
                     "Cancel",
                     style: TextStyle(color: kWhiteColor),
@@ -53,7 +52,7 @@ class DeleteAccountDialog extends StatelessWidget {
                     // Close dialog
                     onConfirm(); // Call delete function
                   },
-                  icon: Icon(Icons.delete, color: kGreyColor),
+                  icon: const Icon(Icons.delete, color: kGreyColor),
                   label: const Text(
                     "Delete",
                     style: TextStyle(color: kWhiteColor),

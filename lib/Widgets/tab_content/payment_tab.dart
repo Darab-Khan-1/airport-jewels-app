@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
-import '../buttons/k_elevated_button.dart';
 import '../text_field/text_input_field.dart';
 
 class PaymentTabContent extends StatelessWidget {

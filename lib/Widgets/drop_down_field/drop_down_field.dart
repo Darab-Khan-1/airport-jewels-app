@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-
 import '../../constants/color.dart';
 
 class DropdownFilter extends StatelessWidget {
@@ -12,18 +11,17 @@ class DropdownFilter extends StatelessWidget {
   final String? Function(String?)? validator;
 
   const DropdownFilter({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.items,
-    required this.onChanged, this.validator,
-  }) : super(key: key);
+    required this.onChanged,
+    this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
-    String? dropdownValue = items.any((item) => item == value)
-        ? value
-        : null;
+    String? dropdownValue = items.any((item) => item == value) ? value : null;
 
     debugPrint('${'Dropdown Value:'.tr}$dropdownValue');
     debugPrint('Items: ${items.map((e) => e).toList()}');
@@ -33,11 +31,9 @@ class DropdownFilter extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context)
-              .textTheme
-              .labelMedium,
+          style: Theme.of(context).textTheme.labelMedium,
         ),
-        Gap(4),
+        const Gap(4),
         DropdownButtonFormField<String>(
           value: dropdownValue,
           isExpanded: true,
@@ -46,7 +42,7 @@ class DropdownFilter extends StatelessWidget {
               .textTheme
               .labelMedium!
               .copyWith(color: kBlackColor),
-          items: items.map(( item) {
+          items: items.map((item) {
             return DropdownMenuItem<String>(
               value: item,
               child: Text(
@@ -72,7 +68,6 @@ class DropdownFilter extends StatelessWidget {
   }
 }
 
-
 class MultiSelectDropdownFormField extends StatefulWidget {
   final String title;
   final List<String> items;
@@ -80,18 +75,20 @@ class MultiSelectDropdownFormField extends StatefulWidget {
   final ValueChanged<List<String>> onChanged;
 
   const MultiSelectDropdownFormField({
-    Key? key,
+    super.key,
     required this.title,
     required this.items,
     required this.selectedItems,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
-  _MultiSelectDropdownFormFieldState createState() => _MultiSelectDropdownFormFieldState();
+  _MultiSelectDropdownFormFieldState createState() =>
+      _MultiSelectDropdownFormFieldState();
 }
 
-class _MultiSelectDropdownFormFieldState extends State<MultiSelectDropdownFormField> {
+class _MultiSelectDropdownFormFieldState
+    extends State<MultiSelectDropdownFormField> {
   List<String> _selectedItems = [];
 
   @override
@@ -134,9 +131,10 @@ class _MultiSelectDropdownFormFieldState extends State<MultiSelectDropdownFormFi
         InkWell(
           onTap: _openBottomSheet,
           child: InputDecorator(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             ),
             child: Row(
               children: [
@@ -163,10 +161,10 @@ class MultiSelectBottomSheet extends StatefulWidget {
   final List<String> selectedItems;
 
   const MultiSelectBottomSheet({
-    Key? key,
+    super.key,
     required this.items,
     required this.selectedItems,
-  }) : super(key: key);
+  });
 
   @override
   _MultiSelectBottomSheetState createState() => _MultiSelectBottomSheetState();
@@ -193,13 +191,14 @@ class _MultiSelectBottomSheetState extends State<MultiSelectBottomSheet> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Text('Select Options'.tr, style: Theme.of(context).textTheme.titleMedium),
+              child: Text('Select Options'.tr,
+                  style: Theme.of(context).textTheme.titleMedium),
             ),
             Expanded(
               child: ListView.builder(
                 controller: controller,
                 shrinkWrap: true,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: widget.items.length,
                 itemBuilder: (context, index) {
                   final item = widget.items[index];
@@ -241,6 +240,3 @@ class _MultiSelectBottomSheetState extends State<MultiSelectBottomSheet> {
     );
   }
 }
-
-
-

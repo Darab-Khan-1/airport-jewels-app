@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:jewels_airport_transfers/constants/string.dart';
 import '../../repositories/shared_pref_repo.dart';
 import '../../services/api_services.dart';
 import '../../utills/logging.dart';

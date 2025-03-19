@@ -3,7 +3,6 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
 import 'package:jewels_airport_transfers/screens/welcome_screen.dart';
-
 import '../Widgets/buttons/k_elevated_button.dart';
 import '../constants/color.dart';
 import '../custom_bg_screen.dart';

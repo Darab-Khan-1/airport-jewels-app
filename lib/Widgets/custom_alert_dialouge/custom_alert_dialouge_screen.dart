@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/color.dart';
-import 'package:jewels_airport_transfers/screens/supplier/job_page.dart';
 import '../../constants/string.dart';
 import '../../gen/assets.gen.dart';
 import '../buttons/k_elevated_button.dart';
