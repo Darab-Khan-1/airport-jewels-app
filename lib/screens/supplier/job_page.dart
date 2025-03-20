@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:jewels_airport_transfers/Widgets/text_field/text_input_field.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
@@ -10,9 +12,14 @@ import '../../controlller/job_controller/job_controller.dart';
 class JobScreen extends StatelessWidget {
   JobScreen({super.key});
   final jobController = Get.put(JobController());
+  final RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
+  final RxBool isLoading = true.obs;
 
   @override
   Widget build(BuildContext context) {
+    _loadData();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kBlueColor,
@@ -29,42 +36,85 @@ class JobScreen extends StatelessWidget {
               ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Obx(() {
-          if (jobController.isLoading.value) {
-            return const Center(child: CircularProgressIndicator());
-          }
+      body: SmartRefresher(
+        controller: _refreshController,
+        enablePullDown: true,
+        onRefresh: _onRefresh,
+        header: const WaterDropHeader(),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Obx(() {
+            if (isLoading.value) {
+              return _buildShimmerEffect();
+            }
 
-          if (jobController.allDriverModel.value.data == null ||
-              jobController.allDriverModel.value.data!.isEmpty) {
-            return const Center(child: Text("No drivers available"));
-          }
+            if (jobController.allDriverModel.value.data == null ||
+                jobController.allDriverModel.value.data!.isEmpty) {
+              return const Center(child: Text("No drivers available"));
+            }
 
-          return ListView.builder(
-            itemCount: jobController.allDriverModel.value.data?.length ?? 0,
-            itemBuilder: (context, index) {
-              final driverData =
-                  jobController.allDriverModel.value.data![index];
+            return ListView.builder(
+              itemCount: jobController.allDriverModel.value.data?.length ?? 0,
+              itemBuilder: (context, index) {
+                final driverData =
+                    jobController.allDriverModel.value.data![index];
 
-              return Obx(() => DriverCard(
-                    name:
-                        "${driverData.firstname ?? 'N/A'} ${driverData.lastname ?? ''}",
-                    email: driverData.email ?? "N/A",
-                    phone: driverData.mob ?? "N/A",
-                    imageUrl: driverData.avatar ?? '',
-                    isSelected:
-                        jobController.selectedDriverIndex.value == index,
-                    onSelect: () => jobController.selectDriver(index),
-                    amount: '',
-                    onDelete: () {},
-                    onAmountChange: (String value) {},
-                    onAssign: () {},
-                  ));
-            },
-          );
-        }),
+                return Obx(() => DriverCard(
+                      name:
+                          "${driverData.firstname ?? 'N/A'} ${driverData.lastname ?? ''}",
+                      email: driverData.email ?? "N/A",
+                      phone: driverData.mob ?? "N/A",
+                      imageUrl: driverData.avatar ?? '',
+                      isSelected:
+                          jobController.selectedDriverIndex.value == index,
+                      onSelect: () => jobController.selectDriver(index),
+                      amount: '',
+                      onDelete: () {},
+                      onAmountChange: (String value) {},
+                      onAssign: () {},
+                    ));
+              },
+            );
+          }),
+        ),
       ),
+    );
+  }
+
+  /// Simulated API call to load data
+  Future<void> _loadData() async {
+    await Future.delayed(const Duration(seconds: 2)); // Simulated delay
+    isLoading.value = false;
+  }
+
+  /// Refresh the driver list
+  void _onRefresh() async {
+    isLoading.value = true;
+    await _loadData();
+    _refreshController.refreshCompleted();
+  }
+
+  /// Shimmer Effect for Loading State
+  Widget _buildShimmerEffect() {
+    return ListView.builder(
+      itemCount: 5, // Placeholder count
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
+          child: Shimmer.fromColors(
+            baseColor: Colors.grey.shade300,
+            highlightColor: Colors.grey.shade100,
+            child: Container(
+              height: 120,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
@@ -124,7 +174,8 @@ class DriverCard extends StatelessWidget {
                       radius: 30,
                       backgroundImage: imageUrl.isNotEmpty
                           ? CachedNetworkImageProvider(imageUrl)
-                          : const AssetImage('assets/images/driver.jpeg'),
+                          : const AssetImage('assets/images/driver.jpeg')
+                              as ImageProvider,
                     ),
                     const SizedBox(width: 10),
                     Expanded(
@@ -140,14 +191,10 @@ class DriverCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
-                          Text(
-                            'Email: $email',
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                          Text(
-                            'Phone: $phone',
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
+                          Text('Email: $email',
+                              style: Theme.of(context).textTheme.bodySmall),
+                          Text('Phone: $phone',
+                              style: Theme.of(context).textTheme.bodySmall),
                         ],
                       ),
                     ),
