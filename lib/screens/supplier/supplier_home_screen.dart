@@ -48,7 +48,7 @@ class SupplierHomeScreen extends StatelessWidget {
               child: TabBarView(
                 children: [
                   QuotationJobScreen(),
-                  AvailabilityJobScreen(),
+                  AvailableJobsScreen(),
                   UpcomingTripsScreen(),
                   CompletedJobsScreen(),
                   CommentScreen(),

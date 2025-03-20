@@ -8,6 +8,7 @@ import 'package:jewels_airport_transfers/models/country_model/country_model.dart
 import 'package:jewels_airport_transfers/models/login_model/login_model.dart';
 import 'package:jewels_airport_transfers/models/port_model/port_model.dart';
 import 'package:jewels_airport_transfers/models/profile_model/profile_model.dart';
+import 'package:jewels_airport_transfers/models/scheduled_journey_model/scheduled_journey_model.dart';
 import '../constants/common.dart';
 import '../models/available_job_model/available_job_model.dart';
 import '../repositories/apis.dart';
@@ -484,6 +485,47 @@ class ApiService {
       final data = response.data;
       Logger.success(data.toString());
       return CommentInsertModel.fromJson(data);
+    } on DioException catch (e) {
+      // Handle Dio-specific exceptions
+      if (context.mounted) {
+        Common.showDioErrorDialog(context, e: e);
+      }
+      return null;
+    } catch (error) {
+      // Handle any other exceptions
+      Logger.error(error.toString());
+      if (context.mounted) {
+        Common.showErrorDialog(context,
+            e: "An error occurred: ${error.toString()}");
+      }
+      return null;
+    } finally {
+      // Dismiss loading indicator
+      EasyLoading.dismiss();
+    }
+  }
+
+  Future<ScheduledJourneyModel?> scheduledJourneyDetailsApi(
+    BuildContext context,
+  ) async {
+    try {
+      // Show loading indicator
+      EasyLoading.show(
+          status: "Loading...",
+          maskType: EasyLoadingMaskType.black,
+          dismissOnTap: false);
+
+      // Make the API request
+      final response = await _requestClient.request(
+        url:
+            "${AppUrl.scheduledJourneyDetails}/${sharedPrefsRepository.driverId}",
+        method: RequestType.get,
+      );
+
+      // Handle the response
+      final data = response.data;
+      Logger.success(data.toString());
+      return ScheduledJourneyModel.fromJson(data);
     } on DioException catch (e) {
       // Handle Dio-specific exceptions
       if (context.mounted) {
