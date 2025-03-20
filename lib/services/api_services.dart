@@ -545,4 +545,68 @@ class ApiService {
       EasyLoading.dismiss();
     }
   }
+
+  Future<dynamic> confirmAvailablityApi(
+      BuildContext context, Map<String, dynamic> request) async {
+    try {
+      EasyLoading.show(
+          status: "Updating...", maskType: EasyLoadingMaskType.clear);
+
+      final response = await _requestClient.request(
+        url: "${AppUrl.confirmAvailability}/${sharedPrefsRepository.driverId}",
+        method: RequestType.post,
+        body: request,
+      );
+
+      final data = response.data;
+      Logger.success("Response: $data");
+      return data;
+    } on DioException catch (e) {
+      if (context.mounted) {
+        Common.showDioErrorDialog(context, e: e);
+      }
+      return null;
+    } catch (error) {
+      Logger.error("Error: ${error.toString()}");
+      if (context.mounted) {
+        Common.showErrorDialog(context,
+            e: "An error occurred: ${error.toString()}");
+      }
+      return null;
+    } finally {
+      EasyLoading.dismiss();
+    }
+  }
+
+  Future<dynamic> registerUserApi(
+      BuildContext context, Map<String, dynamic> request) async {
+    try {
+      EasyLoading.show(
+          status: "Updating...", maskType: EasyLoadingMaskType.clear);
+
+      final response = await _requestClient.request(
+        url: "${AppUrl.registerUser}/${sharedPrefsRepository.driverId}",
+        method: RequestType.post,
+        body: request,
+      );
+
+      final data = response.data;
+      Logger.success("Response: $data");
+      return data;
+    } on DioException catch (e) {
+      if (context.mounted) {
+        Common.showDioErrorDialog(context, e: e);
+      }
+      return null;
+    } catch (error) {
+      Logger.error("Error: ${error.toString()}");
+      if (context.mounted) {
+        Common.showErrorDialog(context,
+            e: "An error occurred: ${error.toString()}");
+      }
+      return null;
+    } finally {
+      EasyLoading.dismiss();
+    }
+  }
 }

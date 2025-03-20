@@ -11,6 +11,7 @@ const String _userType = "User_Type";
 const String _cookies = "cookies";
 const String _driverId = "driver_id";
 const String _supplierId = "supplier_id";
+const String _bookingJourneyId = "booking_journey_id";
 
 /// Singleton class to manage SharedPreferences
 class SharedPrefsRepository {
@@ -70,7 +71,14 @@ class SharedPrefsRepository {
     await _prefs.setString(_supplierId, supplierId);
   }
 
+  Future<void> setBookingJourneyId(String bookingJourneyId) async {
+    assert(bookingJourneyId.isNotEmpty, 'Booking Journey Id cannot be empty');
+    await _prefs.setString(_bookingJourneyId, bookingJourneyId);
+  }
+
   String get driverId => _prefs.getString(_driverId) ?? '';
+
+  String get bookingJourneyId => _prefs.getString(_bookingJourneyId) ?? '';
 
   Future<String> getAuthToken() async {
     return _prefs.getString(authTokenKey) ?? '';

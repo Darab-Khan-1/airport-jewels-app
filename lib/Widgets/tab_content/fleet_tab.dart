@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:jewels_airport_transfers/screens/welcome_screen.dart';
 import '../../constants/color.dart';
 import '../../constants/string.dart';
 import '../../controlller/auth_controller/auth_controller.dart';
-import '../buttons/k_elevated_button.dart';
+
 import '../custom_checkbox/custom_checkbox.dart';
 
 class FleetTabContent extends StatelessWidget {
-   FleetTabContent({
+  FleetTabContent({
     super.key,
   });
 
@@ -31,9 +32,7 @@ class FleetTabContent extends StatelessWidget {
                   fontSize: 18),
             ),
           ),
-
           const Gap(5),
-
           RichText(
             text: TextSpan(
               text: pleaseFillForm,
@@ -55,17 +54,17 @@ class FleetTabContent extends StatelessWidget {
               ],
             ),
           ),
-
           const Gap(5),
           _buildCustomCheckbox(),
-          Gap(10),
+          const Gap(10),
           Align(
             alignment: Alignment.center,
-            child: KElevatedButton1(
+            child: FilledButton(
               onPressed: () {
-                // Add driver logic here
+                authCtrl.registerUser(context);
+                Get.to(() => WelcomeScreen());
               },
-              text: register,
+              child: const Text(register),
             ),
           ),
         ],
@@ -74,22 +73,24 @@ class FleetTabContent extends StatelessWidget {
   }
 
   Widget _buildCustomCheckbox() {
-    return Obx(() => ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: authCtrl.allCars.value.data?.length,
-      itemBuilder: (context, index) {
-        var item = authCtrl.allCars.value.data![index];
-        return CustomCheckbox(
-          onChanged: (value) {
-            item.isSelected = value;
-            authCtrl.allCars.refresh();
-            authCtrl.update();
-          }, label: item.carName ?? '',
-          value: item.isSelected ?? false,
-        );
-      },
-    ),
+    return Obx(
+      () => ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: authCtrl.allCars.value.data?.length ?? 0, // Handle null case
+        itemBuilder: (context, index) {
+          var item = authCtrl.allCars.value.data?[index]; // Null-safe access
+          if (item == null) return const SizedBox();
+          return CustomCheckbox(
+            onChanged: (value) {
+              /// Update the selected value and reset the list
+              authCtrl.updateSelectedCar(item);
+            },
+            label: item.carName ?? '',
+            value: item.isSelected ?? false,
+          );
+        },
+      ),
     );
   }
 }

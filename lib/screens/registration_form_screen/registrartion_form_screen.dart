@@ -26,12 +26,16 @@ class RegistrationFormScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: Column(
-        children: [
-          _buildInfoBox(context),
-          _buildTabBar(),
-          Expanded(child: _buildTabContent()),
-        ],
+      body: GetBuilder<AuthController>(
+        builder: (controller) {
+          return Column(
+            children: [
+              _buildInfoBox(context),
+              _buildTabBar(),
+              Expanded(child: _buildTabContent()),
+            ],
+          );
+        },
       ),
     );
   }
@@ -126,9 +130,9 @@ class RegistrationFormScreen extends StatelessWidget {
       case 0:
         return AccountTabContent();
       case 1:
-        return const PaymentTabContent();
+        return PaymentTabContent();
       case 2:
-        return const LicenseTabContent();
+        return LicenseTabContent();
       case 3:
         return FleetTabContent();
       default:

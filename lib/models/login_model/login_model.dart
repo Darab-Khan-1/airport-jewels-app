@@ -32,14 +32,16 @@ class Data {
   String? name;
   bool? loggedIn;
   String? token;
+  String? bookingJourneyId;
 
   Data(
       {this.userType,
-        this.driverId,
-        this.email,
-        this.name,
-        this.loggedIn,
-        this.token});
+      this.driverId,
+      this.email,
+      this.name,
+      this.loggedIn,
+      this.token,
+      this.bookingJourneyId});
 
   Data.fromJson(Map<String, dynamic> json) {
     userType = json['user_type'];
@@ -48,6 +50,7 @@ class Data {
     name = json['name'];
     loggedIn = json['logged_in'];
     token = json['token'];
+    bookingJourneyId = json['booking_journey_id'];
   }
 
   Map<String, dynamic> toJson() {
@@ -58,6 +61,7 @@ class Data {
     data['name'] = this.name;
     data['logged_in'] = this.loggedIn;
     data['token'] = this.token;
+    data['booking_journey_id'] = this.bookingJourneyId;
     return data;
   }
 }

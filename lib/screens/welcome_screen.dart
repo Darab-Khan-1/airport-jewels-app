@@ -102,8 +102,6 @@ class WelcomeScreen extends StatelessWidget {
                           ..onTap = () {
                             // Navigate to the next page
                             authCtrl.getAllCars(context);
-                            authCtrl.getAllCountries(context);
-                            authCtrl.getAllPorts(context);
                             Get.to(() => RegistrationFormScreen());
                           },
                       ),

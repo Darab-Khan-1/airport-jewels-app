@@ -1,57 +1,27 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:jewels_airport_transfers/constants/color.dart';
 
 class CustomCheckbox extends StatelessWidget {
-  final String label;
   final bool value;
-  final ValueChanged<bool?> onChanged;
+  final Function(bool?) onChanged;
+  final String label;
 
   const CustomCheckbox({
-    required this.label,
+    super.key,
     required this.value,
     required this.onChanged,
-    super.key,
+    required this.label,
   });
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: SizedBox(
-            height: 40,
-            width: 20,
-            child: Transform.scale(
-              scale: 0.9,
-              child: Checkbox(
-                checkColor: kWhiteColor,
-                value: value, // Using the value passed in constructor
-                onChanged:
-                    onChanged, // Using the callback passed in constructor
-                activeColor: kMainColor,
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                side: const BorderSide(
-                  color: kBlackColor,
-                  width: 1.5,
-                ),
-              ),
-            ),
-          ),
+        Checkbox(
+          value: value,
+          onChanged: onChanged,
         ),
-        const Gap(15),
-        Expanded(
-          child: Text(
-            label, // Using the label passed in constructor
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  decorationColor: kBlackColor,
-                  fontWeight: FontWeight.w500,
-                  color: kBlackColor,
-                ),
-          ),
-        ),
+        Text(label),
       ],
     );
   }

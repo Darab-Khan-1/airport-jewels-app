@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:jewels_airport_transfers/constants/string.dart';
 import '../../constants/color.dart';
+import '../../controlller/available_controller/available_controller.dart';
 import '../buttons/custom_widgets.dart';
 import 'package:jewels_airport_transfers/models/scheduled_journey_model/scheduled_journey_model.dart';
 
 class AvailabilityDetailsCard extends StatelessWidget {
   final ScheduledData data;
 
-  const AvailabilityDetailsCard({
-    super.key,
-    required this.data,
-  });
+  AvailabilityDetailsCard({super.key, required this.data});
+
+  final AvailableController controller = Get.put(AvailableController());
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +55,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                   buildIconTextRow(
                     icon: Icons.radio_button_checked,
                     iconColor: kgreenColor,
-                    text: pickUp,
-                    data: data.guidedprice ?? 'No pickup location',
+                    text:
+                        "$pickUp: ${data.guidedprice ?? 'No pickup location'}",
                     textColor: kBlackColor,
                     fontWeight: FontWeight.bold,
                   ),
@@ -63,8 +64,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                   buildIconTextRow(
                     icon: Icons.location_on,
                     iconColor: kRedColor,
-                    text: dropOff,
-                    data: data.estimatedTime ?? 'No dropoff location',
+                    text:
+                        "$dropOff: ${data.estimatedTime ?? 'No dropoff location'}",
                     textColor: kBlackColor,
                     fontWeight: FontWeight.bold,
                   ),
@@ -74,8 +75,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.timeline,
-                          text: approximate,
-                          data: '${data.bidingAmount ?? '0'} miles',
+                          text:
+                              "$approximate: ${data.bidingAmount ?? '0'} miles",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -84,7 +85,7 @@ class AvailabilityDetailsCard extends StatelessWidget {
                         child: buildIconTextRow(
                           icon: Icons.handshake,
                           text: meetAndGreet,
-                          data: data.isCancel == '1' ? yes : no,
+                          data: (data.isCancel == "1") ? yes : no,
                           textColor: kBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -97,8 +98,7 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.calendar_today,
-                          text: date1,
-                          data: data.dateCreated ?? 'No date',
+                          text: "$date1: ${data.dateCreated ?? 'No date'}",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -106,8 +106,7 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: buildIconTextRow(
                           icon: Icons.access_time,
-                          text: time,
-                          data: data.dateModified ?? 'No time',
+                          text: "$time: ${data.dateModified ?? 'No time'}",
                           textColor: kBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -137,7 +136,8 @@ class AvailabilityDetailsCard extends StatelessWidget {
                       Expanded(
                         child: FilledButton(
                           onPressed: () {
-                            // Handle reject action
+                            controller.isAccepting.value = false;
+                            controller.confirmAvailability(context);
                           },
                           style: Theme.of(context)
                               .filledButtonTheme
@@ -146,16 +146,15 @@ class AvailabilityDetailsCard extends StatelessWidget {
                                 backgroundColor:
                                     const WidgetStatePropertyAll(kRedColor),
                               ),
-                          child: const Text(
-                            reject,
-                          ),
+                          child: const Text("Reject"),
                         ),
                       ),
-                      const Gap(15),
+                      const SizedBox(width: 15),
                       Expanded(
                         child: FilledButton(
                           onPressed: () {
-                            // Handle accept action
+                            controller.isAccepting.value = true;
+                            controller.confirmAvailability(context);
                           },
                           style: Theme.of(context)
                               .filledButtonTheme
@@ -164,9 +163,7 @@ class AvailabilityDetailsCard extends StatelessWidget {
                                 backgroundColor:
                                     const WidgetStatePropertyAll(kgreenColor),
                               ),
-                          child: const Text(
-                            accept,
-                          ),
+                          child: const Text("Accept"),
                         ),
                       ),
                     ],
