@@ -39,13 +39,14 @@ class AccountTabContent extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextInputFieldWidget(
-                  hintText: "Title",
-                  isLableRequired: true,
-                  title: titleName,
-                  cursorsColor: kBlackColor,
-                  controller: authCtrl.titleController.value,
-                  validators: requiredValidator(),
+                TitleDropdownFilter(
+                  title: titleName.tr,
+                  value: authCtrl.titleController.value.text,
+                  items: ["Mr", "Mrs"],
+                  onChanged: (value) {
+                    authCtrl.titleController.value.text = value!;
+                  },
+                  validator: requiredValidator(error: "Title Type is Required"),
                 ),
                 const Gap(10),
                 TextInputFieldWidget(
